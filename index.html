@@ -105,13 +105,57 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #94a3b8;
       }
+      /* Video player custom styles */
+      .video-container {
+        position: relative;
+        background: #1e293b;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .video-container video {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .video-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        cursor: pointer;
+      }
+      .video-placeholder:hover .play-button {
+        transform: scale(1.1);
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .play-button {
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+      .play-icon {
+        color: white;
+        margin-left: 5px;
+      }
     </style>
   </head>
   <body class="bg-slate-50 text-slate-900 antialiased selection:bg-primary-500 selection:text-white overflow-x-hidden">
     <div id="root"></div>
 
     <script type="text/babel" data-type="module">
-      import React, { useState, useEffect } from 'react';
+      import React, { useState, useEffect, useRef } from 'react';
       import { createRoot } from 'react-dom/client';
       import { motion, AnimatePresence } from 'framer-motion';
       import { 
@@ -121,10 +165,188 @@
         UserCheck, Code2, Scale, Briefcase, Users, 
         Check, BookOpen, GraduationCap, Award, FileCheck,
         Zap, Target, BarChart, Download, ShoppingCart, Users2,
-        Cpu, Layout, Puzzle, Search, Shield, UserCog
+        Cpu, Layout, Puzzle, Search, Shield, UserCog,
+        PlayCircle, Pause, Volume2, Maximize2, Settings
       } from 'lucide-react';
 
       // --- COMPONENTS ---
+
+      // Video Player Component
+      const VideoPlayer = ({ src, title }) => {
+        const videoRef = useRef(null);
+        const [isPlaying, setIsPlaying] = useState(false);
+        const [currentTime, setCurrentTime] = useState(0);
+        const [duration, setDuration] = useState(0);
+        const [volume, setVolume] = useState(1);
+        const [showControls, setShowControls] = useState(false);
+        const [isFullscreen, setIsFullscreen] = useState(false);
+
+        const togglePlay = () => {
+          if (videoRef.current) {
+            if (isPlaying) {
+              videoRef.current.pause();
+            } else {
+              videoRef.current.play();
+            }
+            setIsPlaying(!isPlaying);
+          }
+        };
+
+        const handleTimeUpdate = () => {
+          if (videoRef.current) {
+            setCurrentTime(videoRef.current.currentTime);
+          }
+        };
+
+        const handleLoadedMetadata = () => {
+          if (videoRef.current) {
+            setDuration(videoRef.current.duration);
+          }
+        };
+
+        const handleSeek = (e) => {
+          if (videoRef.current) {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const pos = (e.clientX - rect.left) / rect.width;
+            videoRef.current.currentTime = pos * duration;
+          }
+        };
+
+        const handleVolumeChange = (e) => {
+          const newVolume = parseFloat(e.target.value);
+          setVolume(newVolume);
+          if (videoRef.current) {
+            videoRef.current.volume = newVolume;
+          }
+        };
+
+        const toggleFullscreen = () => {
+          const container = videoRef.current.parentElement;
+          if (!isFullscreen) {
+            if (container.requestFullscreen) {
+              container.requestFullscreen();
+            }
+          } else {
+            if (document.exitFullscreen) {
+              document.exitFullscreen();
+            }
+          }
+          setIsFullscreen(!isFullscreen);
+        };
+
+        const formatTime = (time) => {
+          const minutes = Math.floor(time / 60);
+          const seconds = Math.floor(time % 60);
+          return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        };
+
+        useEffect(() => {
+          const handleFullscreenChange = () => {
+            setIsFullscreen(!!document.fullscreenElement);
+          };
+
+          document.addEventListener('fullscreenchange', handleFullscreenChange);
+          return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+        }, []);
+
+        return (
+          <div className="video-container group">
+            <video
+              ref={videoRef}
+              src={src}
+              className="w-full h-auto"
+              onClick={togglePlay}
+              onTimeUpdate={handleTimeUpdate}
+              onLoadedMetadata={handleLoadedMetadata}
+              onMouseEnter={() => setShowControls(true)}
+              onMouseLeave={() => setShowControls(false)}
+              playsInline
+              preload="metadata"
+            >
+              Your browser does not support the video tag.
+            </video>
+            
+            {/* Custom Video Controls */}
+            <div 
+              className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 transition-opacity duration-300 ${
+                showControls ? 'opacity-100' : 'opacity-0'
+              }`}
+              onMouseEnter={() => setShowControls(true)}
+              onMouseLeave={() => setShowControls(false)}
+            >
+              {/* Progress Bar */}
+              <div 
+                className="h-1 bg-slate-600 rounded-full mb-3 cursor-pointer relative"
+                onClick={handleSeek}
+              >
+                <div 
+                  className="h-full bg-primary-500 rounded-full absolute top-0 left-0"
+                  style={{ width: `${(currentTime / duration) * 100}%` }}
+                />
+              </div>
+              
+              {/* Controls */}
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={togglePlay}
+                    className="text-white hover:text-primary-300 transition-colors"
+                  >
+                    {isPlaying ? <Pause size={20} /> : <PlayCircle size={20} />}
+                  </button>
+                  
+                  <div className="text-white text-sm">
+                    {formatTime(currentTime)} / {formatTime(duration)}
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2">
+                    <Volume2 size={18} className="text-white" />
+                    <input
+                      type="range"
+                      min="0"
+                      max="1"
+                      step="0.1"
+                      value={volume}
+                      onChange={handleVolumeChange}
+                      className="w-20 accent-primary-500"
+                    />
+                  </div>
+                  
+                  <button
+                    onClick={toggleFullscreen}
+                    className="text-white hover:text-primary-300 transition-colors"
+                  >
+                    <Maximize2 size={18} />
+                  </button>
+                  
+                  <a
+                    href={src}
+                    download
+                    className="text-white hover:text-primary-300 transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Download size={18} />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Play Button Overlay */}
+            {!isPlaying && (
+              <div 
+                className="video-placeholder"
+                onClick={togglePlay}
+              >
+                <div className="play-button">
+                  <Play size={32} className="play-icon" />
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      };
 
       // 1. NAVBAR
       const Navbar = () => {
@@ -781,28 +1003,28 @@
         );
       };
 
-      // 7. VIDEO SHOWCASE SECTION
-      const VideoShowcase = () => {
+      // 7. VIDEO PLAYER SECTION
+      const VideoSection = () => {
         const videos = [
           {
-            title: "BrowserOS Installation & Setup",
-            description: "See how to install BrowserOS and set up your first automation in under 3 minutes",
-            duration: "2:45"
+            title: "Browse Feature",
+            description: "See how the Browse feature helps you navigate and find information efficiently",
+            url: "https://github.com/Maribamedia/concierge/raw/refs/heads/main/Browse.mp4"
           },
           {
-            title: "Automating Data Entry",
-            description: "Watch as we automate 15 hours of weekly data entry in just 5 minutes",
-            duration: "4:12"
+            title: "Demo 2",
+            description: "Watch our second demo showcasing advanced automation capabilities",
+            url: "https://github.com/Maribamedia/concierge/raw/refs/heads/main/Demo2.mp4"
           },
           {
-            title: "AI-Powered Research Agent",
-            description: "See how to build a research agent that compiles market reports automatically",
-            duration: "3:58"
+            title: "Extract Feature",
+            description: "Learn how to extract data from websites and documents automatically",
+            url: "https://github.com/Maribamedia/concierge/raw/refs/heads/main/Extract.mp4"
           },
           {
-            title: "Team Workflow Automation",
-            description: "How to scale automation across your entire team for maximum productivity",
-            duration: "5:21"
+            title: "Research Feature",
+            description: "Discover how automated research can save you hours of manual work",
+            url: "https://github.com/Maribamedia/concierge/raw/refs/heads/main/Research.mp4"
           }
         ];
 
@@ -811,14 +1033,14 @@
             <div className="container mx-auto px-4 md:px-6">
               <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 md:mb-6">
-                  See BrowserOS in Action
+                  Watch BrowserOS in Action
                 </h2>
                 <p className="text-base md:text-lg text-slate-600">
-                  Watch how real teams automate their work and save hours every day.
+                  See how BrowserOS transforms your workflow with powerful automation features.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
                 {videos.map((video, index) => (
                   <motion.div
                     key={index}
@@ -826,25 +1048,13 @@
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1, duration: 0.5 }}
-                    className="bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden group"
+                    className="bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
                   >
-                    {/* Video Thumbnail Placeholder */}
-                    <div className="relative bg-slate-900 aspect-video flex items-center justify-center">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary-900 to-slate-900"></div>
-                      <div className="relative z-10">
-                        <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:bg-primary-600 transition-colors duration-300">
-                          <Play size={24} className="text-white ml-1" />
-                        </div>
-                      </div>
-                      <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
-                        {video.duration}
-                      </div>
+                    <div className="p-1">
+                      <VideoPlayer src={video.url} title={video.title} />
                     </div>
-                    
-                    <div className="p-4">
-                      <h3 className="font-bold text-slate-900 mb-2 group-hover:text-primary-600 transition-colors">
-                        {video.title}
-                      </h3>
+                    <div className="p-6">
+                      <h3 className="font-bold text-slate-900 mb-2 text-lg">{video.title}</h3>
                       <p className="text-sm text-slate-600">
                         {video.description}
                       </p>
@@ -853,18 +1063,19 @@
                 ))}
               </div>
 
-              <div className="text-center mt-12">
-                <p className="text-slate-600 mb-4">
-                  Ready to see what BrowserOS can do for your specific workflow?
+              <div className="mt-12 bg-primary-50 rounded-2xl p-8 text-center">
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Ready to Start Automating?</h3>
+                <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+                  Download BrowserOS today and experience the power of automation for yourself.
                 </p>
                 <a 
                   href="https://www.browseros.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors"
+                  className="inline-flex items-center gap-2 bg-primary-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-primary-700 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1"
                 >
-                  <Download size={18} />
-                  Download BrowserOS and Start Automating
+                  <Download size={22} />
+                  Download BrowserOS Free
                 </a>
               </div>
             </div>
@@ -1258,7 +1469,7 @@
         );
       };
 
-      // 11. SOCIAL PROOF SECTION
+      // 11. SOCIAL PROOF SECTION - UPDATED WITHOUT TEAM NAMES
       const SocialProof = () => {
         const guarantees = [
           {
@@ -1283,14 +1494,14 @@
             <div className="container mx-auto px-4 md:px-6">
               <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 md:mb-6">
-                  Trusted by Teams Who Value Their Time
+                  Trusted by Enterprise Teams
                 </h2>
                 <p className="text-base md:text-lg text-slate-600">
-                  Backed by enterprise clients who stopped wasting time on manual work.
+                  Backed by businesses who have eliminated manual work and scaled their operations.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {guarantees.map((guarantee, index) => {
                   const Icon = guarantee.icon;
                   return (
@@ -1316,15 +1527,19 @@
                 })}
               </div>
 
-              {/* Client Logos Placeholder */}
-              <div className="text-center">
-                <h3 className="text-lg font-bold text-slate-900 mb-8">Teams Who Automate with Concierge</h3>
-                <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
-                  <div className="text-xl font-bold text-slate-300">ENTERPRISE TEAM</div>
-                  <div className="text-xl font-bold text-slate-300">SALES TEAM</div>
-                  <div className="text-xl font-bold text-slate-300">OPERATIONS</div>
-                  <div className="text-xl font-bold text-slate-300">RESEARCH TEAM</div>
-                </div>
+              {/* Testimonial Stats */}
+              <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                {[
+                  { value: "98%", label: "Client Retention" },
+                  { value: "3X", label: "Average ROI" },
+                  { value: "15+", label: "Hours Saved Weekly" },
+                  { value: "24h", label: "Support Response Time" }
+                ].map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-2xl md:text-3xl font-bold text-primary-600 mb-1">{stat.value}</div>
+                    <div className="text-sm text-slate-600">{stat.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
@@ -1561,7 +1776,7 @@
               <Ecosystem />
               <BrowserOSSection />
               <Features />
-              <VideoShowcase />
+              <VideoSection />
               <ServicesPricing />
               <PromptPacks />
               <Consulting />
