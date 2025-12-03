@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <title>Concierge - Automate Everything | Mariba Media</title>
-    <meta name="description" content="Mariba Media's Concierge: Premium AI automation solutions. Download free BrowserOS, purchase prompt packs, or get expert consulting for 8X productivity gains.">
+    <meta name="description" content="Mariba Media's Concierge: Premium AI automation solutions. Download free BrowserOS, purchase 18 prompt packs for R350, or get expert consulting for 8X productivity gains.">
     
     <!-- Favicon Generation with Pink Colors -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22grad%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 stop-color=%22%23ec4899%22/><stop offset=%22100%25%22 stop-color=%22%23db2777%22/></linearGradient></defs><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22url(%23grad)%22/><path d=%22M40 30L60 50L40 70%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 fill=%22none%22/></svg>" type="image/svg+xml">
@@ -172,7 +172,9 @@
         Check, BookOpen, GraduationCap, Award, FileCheck,
         Zap, Target, BarChart, Download, ShoppingCart, Users2,
         Cpu, Layout, Puzzle, Search, Shield, UserCog,
-        PlayCircle, Pause, Volume2, Maximize2, Settings
+        PlayCircle, Pause, Volume2, Maximize2, Settings,
+        Mail, Type, AlertTriangle, FileText, MessageSquare,
+        Phone, DollarSign, PenTool, UserPlus, FolderOpen
       } from 'lucide-react';
 
       // --- COMPONENTS ---
@@ -374,7 +376,7 @@
           { name: 'BrowserOS', href: '#browseros' },
           { name: 'Features', href: '#features' },
           { name: 'Videos', href: '#videos' },
-          { name: 'Prompt Packs', href: '#packs' },
+          { name: '18 Prompt Packs', href: '#packs' },
           { name: 'Consulting', href: '#consulting' },
         ];
 
@@ -490,7 +492,7 @@
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-pink-600">Automate Everything</span> and Reclaim Your Time
                 </h1>
                 <p className="text-base md:text-xl text-slate-600 mb-8 md:mb-10 max-w-3xl mx-auto leading-relaxed">
-                  Tired of data entry, repetitive research, and manual processes? Get our free BrowserOS to automate tasks instantly, or choose our proven prompt packs for guaranteed 8X productivity gains.
+                  Tired of data entry, repetitive research, and manual processes? Get our free BrowserOS to automate tasks instantly, or get our 18 proven prompt packs for guaranteed 8X productivity gains.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -510,7 +512,7 @@
                     <div className="w-6 h-6 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center group-hover:bg-primary-600 group-hover:text-white transition-colors">
                       <ShoppingCart size={12} />
                     </div>
-                    See All Prompt Packs For One Price R350
+                    See All 18 Prompt Packs For One Price R350
                   </a>
                 </div>
               </motion.div>
@@ -677,10 +679,10 @@
           },
           {
             id: 'prompt-packs',
-            title: 'All Prompt Packs For One Price R350',
-            description: 'Core scalable product for instant ROI. Purchase specialized prompt packs and see ROI from day one.',
+            title: 'All 18 Prompt Packs For One Price R350',
+            description: 'Complete library of 18 specialized prompt packs covering every business function. Get instant ROI from day one.',
             icon: ShoppingCart,
-            cta: 'Browse Packs',
+            cta: 'Browse All 18 Packs',
             color: 'pink'
           },
           {
@@ -701,7 +703,7 @@
                   Three Ways to Automate Your Workflow
                 </h2>
                 <p className="text-base md:text-lg text-slate-600">
-                  Start free, get instant results, or get a custom solution with guaranteed ROI.
+                  Start free, get instant results with 18 prompt packs, or get a custom solution with guaranteed ROI.
                 </p>
               </div>
 
@@ -1096,52 +1098,132 @@
             id: 'data-entry',
             title: 'Data Entry Agent',
             benefit: 'Automate spreadsheet population, form filling, and database updates. Eliminate 15+ hours of manual work weekly.',
-            price: 'R350',
             icon: FileCheck
           },
           {
             id: 'research',
             title: 'Research Assistant',
             benefit: 'Automated market research, competitive analysis, and data gathering. Get comprehensive reports in minutes instead of days.',
-            price: 'R350',
             icon: Globe
           },
           {
             id: 'lead-gen',
             title: 'Lead Generation',
             benefit: 'Automated prospect identification, contact information gathering, and CRM population. Scale your sales efforts without hiring.',
-            price: 'R350',
             icon: Target
           },
           {
             id: 'ai-training',
             title: 'AI Training Specialist',
             benefit: 'Custom prompt engineering and AI model fine-tuning. Make AI work exactly the way you need it to.',
-            price: 'R350',
             icon: BrainCircuit
+          },
+          {
+            id: 'content-architect',
+            title: 'Content Architect',
+            benefit: 'Develop complete content strategies, pillar content pieces, and supporting micro-content for integrated marketing campaigns.',
+            icon: BookOpen
+          },
+          {
+            id: 'email-marketing',
+            title: 'Email Marketing Specialist',
+            benefit: 'Automate creation, segmentation, and performance analysis of email campaigns that drive engagement and conversions.',
+            icon: Mail
+          },
+          {
+            id: 'seo-analyst',
+            title: 'SEO Content Analyst',
+            benefit: 'Analyze website content and search landscape, provide actionable recommendations to improve organic search visibility.',
+            icon: Search
+          },
+          {
+            id: 'customer-support',
+            title: 'Customer Support Analyst',
+            benefit: 'Analyze support interactions, identify recurring issues and sentiment trends, propose process improvements.',
+            icon: Users
+          },
+          {
+            id: 'social-media',
+            title: 'Social Media Manager',
+            benefit: 'Generate platform-specific content calendars and captions designed to increase engagement and follower growth.',
+            icon: Smartphone
+          },
+          {
+            id: 'meeting-facilitator',
+            title: 'Meeting Facilitator & Note-Taker',
+            benefit: 'Extract key decisions, action items, and context from meetings, format into clear, shareable summaries.',
+            icon: Clock
+          },
+          {
+            id: 'financial-summarizer',
+            title: 'Financial Report Summarizer',
+            benefit: 'Analyze complex financial statements, produce clear summaries highlighting KPIs, trends, and red flags.',
+            icon: BarChart
+          },
+          {
+            id: 'product-description',
+            title: 'Product Description & USP Writer',
+            benefit: 'Generate compelling, benefit-driven product descriptions and unique selling propositions for different sales channels.',
+            icon: Type
+          },
+          {
+            id: 'legal-simplifier',
+            title: 'Legal Document Simplifier',
+            benefit: 'Parse complex legal text and provide clear summaries of key terms, obligations, and potential risks in plain language.',
+            icon: Scale
+          },
+          {
+            id: 'crisis-communications',
+            title: 'Crisis Communications Drafter',
+            benefit: 'Generate drafts for public and internal communications during negative events, maintaining transparent, empathetic tone.',
+            icon: AlertTriangle
+          },
+          {
+            id: 'sales-pitch',
+            title: 'Sales Pitch Customizer',
+            benefit: 'Dynamically customize core sales pitches for different prospect personas, industries, or specific objections.',
+            icon: TrendingUp
+          },
+          {
+            id: 'hr-policy',
+            title: 'HR Policy & Onboarding Doc Writer',
+            benefit: 'Draft clear, comprehensive HR documents, policies, and onboarding materials that are legally sound.',
+            icon: Briefcase
+          },
+          {
+            id: 'project-charter',
+            title: 'Project Charter & Brief Creator',
+            benefit: 'Synthesize project ideas into structured, actionable charters that align stakeholders and define success.',
+            icon: FileText
+          },
+          {
+            id: 'ux-feedback',
+            title: 'UX/UI Feedback Analyzer',
+            benefit: 'Analyze user feedback against design prototypes, providing structured, actionable recommendations for improvement.',
+            icon: Layout
           }
         ];
 
         return (
           <section id="packs" className="py-16 md:py-24 bg-white overflow-hidden">
             <div className="container mx-auto px-4 md:px-6">
-              <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+              <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
                 
                 <motion.div 
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7 }}
-                  className="lg:w-1/2"
+                  className="lg:w-2/3"
                 >
                   <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                    All Prompt Packs For One Price R350
+                    All 18 Prompt Packs For One Price R350
                   </h2>
                   <p className="text-lg text-slate-600 mb-10">
-                    Proven automation templates that deliver immediate results. Each pack pays for itself in the first week of use.
+                    Complete library of 18 specialized prompt packs covering every business function. Each pack is proven to deliver immediate results and pays for itself in the first week.
                   </p>
 
-                  <div className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                     {packs.map((pack, idx) => {
                       const Icon = pack.icon;
                       return (
@@ -1152,7 +1234,6 @@
                           <div className="flex-1">
                             <div className="flex justify-between items-start">
                               <h4 className="text-lg font-bold text-slate-900 mb-1">{pack.title}</h4>
-                              <span className="text-primary-600 font-bold">{pack.price}</span>
                             </div>
                             <p className="text-slate-600 text-sm leading-relaxed">{pack.benefit}</p>
                           </div>
@@ -1162,18 +1243,18 @@
                   </div>
                   
                   <div className="mt-8">
-                    <form name="PayFastPayNowForm" action="https://payment.payfast.io/eng/process" method="post">
+                    <form name="PayFastPayNowForm" action="https://payment.payfast.io/eng/process" method="post" className="w-full max-w-md">
                       <input required type="hidden" name="cmd" value="_paynow" />
                       <input required type="hidden" name="receiver" pattern="[0-9]" value="24347311" />
                       <input required type="hidden" name="amount" value="350" />
-                      <input required type="hidden" name="item_name" maxLength="255" value="All Prompt Packs For One Price R350" />
-                      <input type="hidden" name="item_description" maxLength="255" value="All Prompt Packs For One Price R350 - Prompt Packs for All Our AI Agents." />
+                      <input required type="hidden" name="item_name" maxLength="255" value="All 18 Prompt Packs For One Price R350" />
+                      <input type="hidden" name="item_description" maxLength="255" value="All 18 Prompt Packs For One Price R350 - Complete library of 18 specialized prompt packs covering Data Entry, Research, Lead Generation, AI Training, Content Architecture, Email Marketing, SEO Analysis, Customer Support, Social Media, Meeting Notes, Financial Reports, Product Descriptions, Legal Documents, Crisis Communications, Sales Pitches, HR Policies, Project Charters, and UX/UI Feedback." />
                       <button 
                         type="submit" 
-                        className="inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors w-full justify-center"
+                        className="inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-4 rounded-lg font-medium hover:bg-primary-700 transition-colors w-full hover:shadow-xl hover:-translate-y-1"
                       >
-                        <ShoppingCart size={18} />
-                        Buy All Prompt Packs Now (R350)
+                        <ShoppingCart size={20} />
+                        Buy All 18 Prompt Packs Now (R350)
                       </button>
                     </form>
                   </div>
@@ -1184,49 +1265,79 @@
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7 }}
-                  className="lg:w-1/2 relative w-full"
+                  className="lg:w-1/3 relative w-full"
                 >
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
-                     <div className="bg-slate-900 aspect-square md:aspect-[4/3] p-8 flex flex-col items-center justify-center relative overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary-900 to-slate-900"></div>
-                        
-                        {/* Floating Price Tag */}
-                        <motion.div 
-                          animate={{ y: [0, -10, 0] }}
-                          transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                          className="relative z-10 bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 w-3/4 mb-6"
-                        >
-                          <div className="flex items-center justify-between mb-4">
-                            <div className="text-white text-sm">All Prompt Packs For One Price</div>
-                            <div className="text-white font-bold text-2xl">R350</div>
-                          </div>
-                          <div className="text-white/80 text-sm">
-                            One-time purchase • Lifetime access • Regular updates • 30-day money back
-                          </div>
-                        </motion.div>
+                    <div className="bg-slate-900 aspect-square md:aspect-[4/3] p-8 flex flex-col items-center justify-center relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary-900 to-slate-900"></div>
+                      
+                      {/* Floating Price Tag */}
+                      <motion.div 
+                        animate={{ y: [0, -10, 0] }}
+                        transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                        className="relative z-10 bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 w-3/4 mb-6"
+                      >
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="text-white text-sm">All 18 Prompt Packs</div>
+                          <div className="text-white font-bold text-2xl">R350</div>
+                        </div>
+                        <div className="text-white/80 text-sm">
+                          One-time purchase • Lifetime access • Regular updates • 30-day money back
+                        </div>
+                      </motion.div>
 
-                         <motion.div 
-                          animate={{ y: [0, 10, 0] }}
-                          transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-                          className="relative z-10 bg-white p-4 rounded-xl shadow-lg w-2/3"
-                        >
-                          <div className="flex items-center gap-4 mb-3">
-                              <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600">
-                                  <ShoppingCart size={20} />
-                              </div>
-                              <div>
-                                  <div className="text-xs text-slate-500 uppercase font-semibold">Instant Access</div>
-                                  <div className="text-sm font-bold text-slate-900">Buy Now → Instant Download</div>
-                              </div>
+                      <motion.div 
+                        animate={{ y: [0, 10, 0] }}
+                        transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+                        className="relative z-10 bg-white p-4 rounded-xl shadow-lg w-2/3"
+                      >
+                        <div className="flex items-center gap-4 mb-3">
+                          <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600">
+                            <ShoppingCart size={20} />
                           </div>
-                          <div className="text-xs text-slate-500">
-                            Secure PayFast checkout • Instant access • Email delivery
+                          <div>
+                            <div className="text-xs text-slate-500 uppercase font-semibold">Instant Access</div>
+                            <div className="text-sm font-bold text-slate-900">Buy Now → Instant Download</div>
                           </div>
-                        </motion.div>
-                     </div>
+                        </div>
+                        <div className="text-xs text-slate-500">
+                          Secure PayFast checkout • Instant access • Email delivery
+                        </div>
+                      </motion.div>
+
+                      {/* Pack Count Badge */}
+                      <div className="relative z-10 mt-6 bg-primary-500/20 backdrop-blur-sm px-4 py-2 rounded-full border border-primary-500/30">
+                        <div className="text-white text-sm font-medium flex items-center gap-2">
+                          <span className="w-2 h-2 bg-primary-400 rounded-full animate-pulse"></span>
+                          18 Complete Prompt Packs Included
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Value Proposition */}
+                  <div className="mt-6 bg-slate-50 rounded-xl p-4 border border-slate-200">
+                    <h4 className="font-bold text-slate-900 mb-2">What You Get:</h4>
+                    <ul className="space-y-2 text-sm text-slate-600">
+                      <li className="flex items-start gap-2">
+                        <Check size={16} className="text-primary-600 mt-0.5 flex-shrink-0" />
+                        <span>18 complete prompt packs (PDF format)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <Check size={16} className="text-primary-600 mt-0.5 flex-shrink-0" />
+                        <span>Step-by-step implementation guides</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <Check size={16} className="text-primary-600 mt-0.5 flex-shrink-0" />
+                        <span>Lifetime updates to all packs</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <Check size={16} className="text-primary-600 mt-0.5 flex-shrink-0" />
+                        <span>30-day money back guarantee</span>
+                      </li>
+                    </ul>
                   </div>
                 </motion.div>
-
               </div>
             </div>
           </section>
@@ -1350,18 +1461,18 @@
             featured: false
           },
           {
-            name: "All Prompt Packs For One Price R350",
+            name: "All 18 Prompt Packs For One Price R350",
             price: "R350",
             period: "one-time",
-            description: "Core scalable product for instant ROI",
+            description: "Complete library of 18 specialized prompt packs for instant ROI",
             features: [
-              "Browse specialized packs",
-              "View detailed specifications",
+              "18 complete prompt packs (PDF)",
+              "Covers every business function",
               "Instant purchase and download",
               "Lifetime access to updates",
               "30-day money back guarantee"
             ],
-            ctaText: "Browse Packs",
+            ctaText: "Browse All 18 Packs",
             ctaLink: "#packs",
             featured: true
           },
@@ -1429,16 +1540,16 @@
                       ))}
                     </ul>
 
-                    {service.name === "All Prompt Packs For One Price R350" ? (
+                    {service.name === "All 18 Prompt Packs For One Price R350" ? (
                       <form name="PayFastPayNowForm" action="https://payment.payfast.io/eng/process" method="post" className="w-full">
                         <input required type="hidden" name="cmd" value="_paynow" />
                         <input required type="hidden" name="receiver" pattern="[0-9]" value="24347311" />
                         <input required type="hidden" name="amount" value="350" />
-                        <input required type="hidden" name="item_name" maxLength="255" value="All Prompt Packs For One Price R350" />
-                        <input type="hidden" name="item_description" maxLength="255" value="All Prompt Packs For One Price R350 - Prompt Packs for All Our AI Agents." />
+                        <input required type="hidden" name="item_name" maxLength="255" value="All 18 Prompt Packs For One Price R350" />
+                        <input type="hidden" name="item_description" maxLength="255" value="All 18 Prompt Packs For One Price R350 - Complete library of 18 specialized prompt packs covering Data Entry, Research, Lead Generation, AI Training, Content Architecture, Email Marketing, SEO Analysis, Customer Support, Social Media, Meeting Notes, Financial Reports, Product Descriptions, Legal Documents, Crisis Communications, Sales Pitches, HR Policies, Project Charters, and UX/UI Feedback." />
                         <button 
                           type="submit" 
-                          className={`block w-full py-3 rounded-lg text-center font-bold transition-all ${
+                          className={`block w-full py-3 rounded-lg text-center font-bold transition-all hover:shadow-xl hover:-translate-y-1 ${
                             service.featured 
                               ? 'bg-primary-600 hover:bg-primary-700 text-white' 
                               : 'bg-slate-100 hover:bg-slate-200 text-slate-900'
@@ -1452,7 +1563,7 @@
                         href={service.ctaLink}
                         target={service.ctaLink.startsWith('http') ? '_blank' : '_self'}
                         rel={service.ctaLink.startsWith('http') ? 'noopener noreferrer' : ''}
-                        className={`block w-full py-3 rounded-lg text-center font-bold transition-all ${
+                        className={`block w-full py-3 rounded-lg text-center font-bold transition-all hover:shadow-xl hover:-translate-y-1 ${
                           service.featured 
                             ? 'bg-primary-600 hover:bg-primary-700 text-white' 
                             : 'bg-slate-100 hover:bg-slate-200 text-slate-900'
@@ -1475,7 +1586,7 @@
         );
       };
 
-      // 11. SOCIAL PROOF SECTION - UPDATED WITHOUT TEAM NAMES
+      // 11. SOCIAL PROOF SECTION
       const SocialProof = () => {
         const guarantees = [
           {
@@ -1756,7 +1867,7 @@
                     <span className="text-primary-500">Concierge</span>
                   </div>
                   <p className="text-xs text-slate-500">
-                    Enterprise AI Automation Platform • 3X ROI Guarantee
+                    Enterprise AI Automation Platform • 18 Prompt Packs • 3X ROI Guarantee
                   </p>
                 </div>
                 
