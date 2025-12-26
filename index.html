@@ -38,6 +38,7 @@
             animation: {
               'blob': 'blob 7s infinite',
               'pulse-slow': 'pulse 3s infinite',
+              'float': 'float 3s ease-in-out infinite',
             },
             keyframes: {
               blob: {
@@ -45,6 +46,10 @@
                 '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
                 '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
                 '100%': { transform: 'translate(0px, 0px) scale(1)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
               }
             }
           }
@@ -125,7 +130,7 @@
       
       /* New styles */
       .glass-nav {
-        background: rgba(255, 255, 255, 0.85);
+        background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border-bottom: 1px solid rgba(226, 232, 240, 0.6);
@@ -148,6 +153,54 @@
         min-height: 700px;
         border: 1px solid #e2e8f0;
         border-radius: 12px;
+        overflow: hidden;
+      }
+      
+      /* Floating button override */
+      .cal-floating-button {
+        z-index: 9999 !important;
+      }
+      
+      /* Smooth hover effects */
+      .hover-lift {
+        transition: all 0.3s ease;
+      }
+      
+      .hover-lift:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      
+      /* Mobile optimizations */
+      @media (max-width: 768px) {
+        .mobile-stack {
+          flex-direction: column;
+        }
+        
+        .mobile-center {
+          text-align: center;
+        }
+        
+        .mobile-full {
+          width: 100%;
+        }
+        
+        .mobile-padding {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+        
+        .cal-com-embed {
+          min-height: 600px;
+        }
+      }
+      
+      /* Gradient text */
+      .gradient-text {
+        background: linear-gradient(135deg, #ec4899 0%, #0ea5e9 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
     </style>
 </head>
@@ -156,7 +209,7 @@
     <nav class="fixed w-full glass-nav z-50 border-b border-slate-200/60 py-3 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
             <!-- Logo -->
-            <a href="#" class="flex items-center gap-2">
+            <a href="#" class="flex items-center gap-2 hover-lift">
                 <span class="text-xl font-bold">
                     <span class="text-primary-600">Concierge</span>
                     <span class="text-slate-600 text-sm ml-1 hidden sm:inline">for SDRs & Sales Managers</span>
@@ -165,23 +218,23 @@
 
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center gap-6">
-                <a href="#hero" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Home</a>
-                <a href="#solution" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Solution</a>
-                <a href="#flowchart" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Flowchart</a>
-                <a href="#mcps" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">60+ MCPs</a>
-                <a href="#ecosystem" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Ecosystem</a>
-                <a href="#videos" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Videos</a>
-                <a href="#packs" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Free Prompt Packs</a>
-                <a href="#services" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Services</a>
-                <a href="#consulting" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Consulting</a>
-                <a href="#schedule" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Schedule Call</a>
-                <a href="https://www.browseros.com/" target="_blank" class="bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-700 transition-colors shadow-sm">
+                <a href="#hero" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors hover:scale-105">Home</a>
+                <a href="#solution" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors hover:scale-105">Solution</a>
+                <a href="#flowchart" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors hover:scale-105">Flowchart</a>
+                <a href="#mcps" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors hover:scale-105">60+ MCPs</a>
+                <a href="#ecosystem" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors hover:scale-105">Ecosystem</a>
+                <a href="#videos" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors hover:scale-105">Videos</a>
+                <a href="#packs" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors hover:scale-105">Free Prompt Packs</a>
+                <a href="#services" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors hover:scale-105">Services</a>
+                <a href="#consulting" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors hover:scale-105">Consulting</a>
+                <a href="#schedule" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors hover:scale-105">Schedule Call</a>
+                <a href="https://www.browseros.com/" target="_blank" class="bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-700 transition-colors shadow-sm hover-lift">
                     Get Free BrowserOS
                 </a>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden touch-target p-2 text-slate-700">
+            <button id="mobile-menu-btn" class="md:hidden touch-target p-2 text-slate-700 hover:bg-slate-100 rounded-lg transition-colors">
                 <svg id="menu-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -192,19 +245,19 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 hidden shadow-lg">
+        <div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 hidden shadow-lg animate-slideDown">
             <div class="px-4 py-4 flex flex-col gap-1">
-                <a href="#hero" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50">Home</a>
-                <a href="#solution" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50">Solution</a>
-                <a href="#flowchart" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50">Flowchart</a>
-                <a href="#mcps" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50">60+ MCP Servers</a>
-                <a href="#ecosystem" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50">Ecosystem</a>
-                <a href="#videos" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50">Videos</a>
-                <a href="#packs" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50">Free Prompt Packs</a>
-                <a href="#services" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50">Services</a>
-                <a href="#consulting" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50">Consulting</a>
-                <a href="#schedule" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50">Schedule Call</a>
-                <a href="https://www.browseros.com/" target="_blank" class="mt-2 bg-primary-600 text-white py-3 rounded-lg text-center font-medium shadow-sm">
+                <a href="#hero" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors">Home</a>
+                <a href="#solution" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors">Solution</a>
+                <a href="#flowchart" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors">Flowchart</a>
+                <a href="#mcps" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors">60+ MCP Servers</a>
+                <a href="#ecosystem" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors">Ecosystem</a>
+                <a href="#videos" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors">Videos</a>
+                <a href="#packs" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors">Free Prompt Packs</a>
+                <a href="#services" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors">Services</a>
+                <a href="#consulting" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors">Consulting</a>
+                <a href="#schedule" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors">Schedule Call</a>
+                <a href="https://www.browseros.com/" target="_blank" class="mt-2 bg-primary-600 text-white py-3 rounded-lg text-center font-medium shadow-sm hover:bg-primary-700 transition-colors">
                     Get BrowserOS Free
                 </a>
             </div>
@@ -222,13 +275,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl">
                 <!-- Badge -->
-                <span class="inline-block px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-xs font-semibold mb-6">
+                <span class="inline-block px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-xs font-semibold mb-6 animate-pulse-slow">
                     60+ Built-in MCP Servers • 80+ Free Prompt Packs • 2X ROI Guarantee or Money Back in 90 Days
                 </span>
                 
                 <!-- Headline -->
-                <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600">
+                <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-6 mobile-center">
+                    <span class="block gradient-text">
                         Automate 4-8 Hours Daily
                     </span>
                     <span class="block text-slate-900 mt-2 text-3xl md:text-5xl">
@@ -237,35 +290,35 @@
                 </h1>
                 
                 <!-- Description -->
-                <p class="text-lg md:text-xl text-slate-600 mb-8">
+                <p class="text-lg md:text-xl text-slate-600 mb-8 mobile-center max-w-3xl mx-auto">
                     Concierge's 60+ built-in MCP servers connect Gmail, Calendar, Salesforce, Slack, LinkedIn, HubSpot, Notion & more. Get free BrowserOS download, free 80+ prompt packs, free audit, and complete MCP implementation with onsite installation and training. <strong class="text-primary-700">2X ROI Guarantee or Money Back in 90 Days.</strong>
                 </p>
 
                 <!-- 4 Separate CTA Buttons -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12 mobile-stack">
                     <!-- Button 1: Free BrowserOS -->
-                    <a href="https://www.browseros.com/" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-primary-600 text-white px-6 py-5 rounded-xl font-semibold hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl text-center">
+                    <a href="https://www.browseros.com/" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-primary-600 text-white px-6 py-5 rounded-xl font-semibold hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl text-center hover-lift animate-float">
                         <span class="text-lg">⬇️</span>
                         <span class="text-sm font-bold">Get Free BrowserOS</span>
                         <span class="text-xs opacity-90">Download & Start Saving Time</span>
                     </a>
                     
                     <!-- Button 2: Free 80+ Prompt Packs -->
-                    <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-secondary-600 text-white px-6 py-5 rounded-xl font-semibold hover:bg-secondary-700 transition-colors shadow-lg hover:shadow-xl text-center">
+                    <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-secondary-600 text-white px-6 py-5 rounded-xl font-semibold hover:bg-secondary-700 transition-colors shadow-lg hover:shadow-xl text-center hover-lift">
                         <span class="text-lg">🎁</span>
                         <span class="text-sm font-bold">Get Free 80+ Prompt Packs</span>
                         <span class="text-xs opacity-90">Complete Library - Free Download</span>
                     </a>
                     
                     <!-- Button 3: Free Audit -->
-                    <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-green-600 text-white px-6 py-5 rounded-xl font-semibold hover:bg-green-700 transition-colors shadow-lg hover:shadow-xl text-center">
+                    <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-green-600 text-white px-6 py-5 rounded-xl font-semibold hover:bg-green-700 transition-colors shadow-lg hover:shadow-xl text-center hover-lift">
                         <span class="text-lg">🔍</span>
                         <span class="text-sm font-bold">Get Free Audit</span>
                         <span class="text-xs opacity-90">Identify 4-8 Hours Daily Savings</span>
                     </a>
                     
                     <!-- Button 4: R28,000 MCP Setup -->
-                    <a href="#consulting" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-slate-800 text-white px-6 py-5 rounded-xl font-semibold hover:bg-slate-900 transition-colors shadow-lg hover:shadow-xl text-center">
+                    <a href="#consulting" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-slate-800 text-white px-6 py-5 rounded-xl font-semibold hover:bg-slate-900 transition-colors shadow-lg hover:shadow-xl text-center hover-lift">
                         <span class="text-lg">⚙️</span>
                         <span class="text-sm font-bold">Get R28,000 MCP Setup</span>
                         <span class="text-xs opacity-90">Complete Implementation + Training</span>
@@ -297,21 +350,21 @@
 
     <!-- SDR Solution Section -->
     <section id="solution" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="max-w-4xl mx-auto text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mobile-center">
                     The SDR Productivity Crisis - Solved
                 </h2>
-                <p class="text-lg text-slate-600">
+                <p class="text-lg text-slate-600 mobile-center">
                     Your team spends 60-80% of their time on admin work instead of selling. 60+ MCP servers fix this.
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 items-start">
+            <div class="grid md:grid-cols-2 gap-8 items-start mobile-stack">
                 <!-- Pain Points -->
-                <div class="space-y-6">
-                    <div class="flex gap-4 p-4 bg-red-50 rounded-xl">
-                        <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-red-600 flex-shrink-0">
+                <div class="space-y-6 mobile-full">
+                    <div class="flex gap-4 p-4 bg-red-50 rounded-xl hover-lift transition-all duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-red-600 flex-shrink-0 shadow-sm">
                             <span class="text-2xl font-bold">5-10</span>
                         </div>
                         <div>
@@ -320,8 +373,8 @@
                         </div>
                     </div>
                     
-                    <div class="flex gap-4 p-4 bg-red-50 rounded-xl">
-                        <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-red-600 flex-shrink-0">
+                    <div class="flex gap-4 p-4 bg-red-50 rounded-xl hover-lift transition-all duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-red-600 flex-shrink-0 shadow-sm">
                             <span class="text-2xl font-bold">30%</span>
                         </div>
                         <div>
@@ -330,8 +383,8 @@
                         </div>
                     </div>
                     
-                    <div class="flex gap-4 p-4 bg-red-50 rounded-xl">
-                        <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-red-600 flex-shrink-0">
+                    <div class="flex gap-4 p-4 bg-red-50 rounded-xl hover-lift transition-all duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-red-600 flex-shrink-0 shadow-sm">
                             <span class="text-2xl font-bold">R15k-R30k</span>
                         </div>
                         <div>
@@ -342,13 +395,13 @@
                 </div>
                 
                 <!-- Solution Preview -->
-                <div class="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-xl overflow-hidden shadow-xl">
+                <div class="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-xl overflow-hidden shadow-xl hover-lift mobile-full">
                     <div class="bg-white/10 px-4 py-3 border-b border-white/20">
                         <div class="text-sm font-medium text-white">Concierge Automation Results</div>
                     </div>
                     <div class="p-6 text-white">
                         <div class="flex items-center gap-4 mb-6">
-                            <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+                            <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center animate-pulse-slow">
                                 <span class="text-2xl">⚡</span>
                             </div>
                             <div>
@@ -358,19 +411,19 @@
                         </div>
                         
                         <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+                            <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-all">
                                 <div class="text-2xl font-bold mb-1">Free</div>
                                 <div class="text-sm text-primary-100">BrowserOS Download</div>
                             </div>
-                            <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+                            <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-all">
                                 <div class="text-2xl font-bold mb-1">80+</div>
                                 <div class="text-sm text-primary-100">Free Prompt Packs</div>
                             </div>
-                            <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+                            <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-all">
                                 <div class="text-2xl font-bold mb-1">Free</div>
                                 <div class="text-sm text-primary-100">Automation Audit</div>
                             </div>
-                            <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+                            <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-all">
                                 <div class="text-2xl font-bold mb-1">2X</div>
                                 <div class="text-sm text-primary-100">ROI Guarantee</div>
                             </div>
@@ -383,12 +436,12 @@
 
     <!-- Comprehensive Flowchart Section -->
     <section id="flowchart" class="py-16 md:py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mobile-center">
                     Daily Time & Cost Savings Breakdown
                 </h2>
-                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto mobile-center">
                     15 pain points solved by Concierge's 60+ MCP servers - 4-8 hours saved DAILY per SDR
                 </p>
             </div>
@@ -396,7 +449,7 @@
             <!-- Mobile Flowchart -->
             <div class="flowchart-mobile space-y-6">
                 <!-- Step 1 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold">
                             1
@@ -421,7 +474,7 @@
                 </div>
 
                 <!-- Step 2 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold">
                             2
@@ -446,7 +499,7 @@
                 </div>
 
                 <!-- Step 3 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold">
                             3
@@ -471,7 +524,7 @@
                 </div>
 
                 <!-- Step 4 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold">
                             4
@@ -496,7 +549,7 @@
                 </div>
 
                 <!-- Step 5 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold">
                             5
@@ -521,7 +574,7 @@
                 </div>
 
                 <!-- Step 6 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold">
                             6
@@ -546,7 +599,7 @@
                 </div>
 
                 <!-- Step 7 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold">
                             7
@@ -571,7 +624,7 @@
                 </div>
 
                 <!-- Step 8 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold">
                             8
@@ -602,7 +655,7 @@
                     <!-- Column 1 -->
                     <div class="space-y-6">
                         <!-- Card 1 -->
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                             <div class="w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold mb-4 mx-auto">
                                 1
                             </div>
@@ -621,7 +674,7 @@
                         </div>
 
                         <!-- Card 4 -->
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                             <div class="w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold mb-4 mx-auto">
                                 4
                             </div>
@@ -640,7 +693,7 @@
                         </div>
 
                         <!-- Card 7 -->
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                             <div class="w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold mb-4 mx-auto">
                                 7
                             </div>
@@ -662,7 +715,7 @@
                     <!-- Column 2 -->
                     <div class="space-y-6">
                         <!-- Card 2 -->
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                             <div class="w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold mb-4 mx-auto">
                                 2
                             </div>
@@ -681,7 +734,7 @@
                         </div>
 
                         <!-- Card 5 -->
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                             <div class="w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold mb-4 mx-auto">
                                 5
                             </div>
@@ -700,7 +753,7 @@
                         </div>
 
                         <!-- Card 8 -->
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                             <div class="w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold mb-4 mx-auto">
                                 8
                             </div>
@@ -722,7 +775,7 @@
                     <!-- Column 3 -->
                     <div class="space-y-6">
                         <!-- Card 3 -->
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                             <div class="w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold mb-4 mx-auto">
                                 3
                             </div>
@@ -741,7 +794,7 @@
                         </div>
 
                         <!-- Card 6 -->
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                             <div class="w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold mb-4 mx-auto">
                                 6
                             </div>
@@ -760,7 +813,7 @@
                         </div>
 
                         <!-- Card 9 -->
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                             <div class="w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold mb-4 mx-auto">
                                 9
                             </div>
@@ -783,7 +836,7 @@
                 <!-- Additional Cards Row -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- Cards 10-13 -->
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                         <div class="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold mb-4 mx-auto">
                             10
                         </div>
@@ -798,7 +851,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                         <div class="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold mb-4 mx-auto">
                             11
                         </div>
@@ -813,7 +866,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                         <div class="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold mb-4 mx-auto">
                             12
                         </div>
@@ -828,7 +881,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                         <div class="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold mb-4 mx-auto">
                             13
                         </div>
@@ -846,12 +899,12 @@
             </div>
 
             <!-- Total Savings -->
-            <div class="mt-12 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl p-8 text-white text-center">
+            <div class="mt-12 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl p-8 text-white text-center hover-lift transition-all duration-300">
                 <h3 class="text-2xl font-bold mb-2">Total Daily Savings Per SDR</h3>
                 <div class="text-4xl md:text-5xl font-bold mb-2">4-8 Hours DAILY</div>
                 <div class="text-2xl font-bold mb-2">R15,000 - R30,000 Monthly Cost Savings</div>
                 <p class="text-primary-100">40-80% reduction in non-selling time, 100% automated workflow</p>
-                <div class="mt-4 inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full">
+                <div class="mt-4 inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full hover:bg-white/30 transition-all">
                     <span class="font-bold">💰 2X ROI Guarantee or Money Back in 90 Days</span>
                 </div>
             </div>
@@ -860,19 +913,19 @@
 
     <!-- 60+ MCP Servers Section -->
     <section id="mcps" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mobile-center">
                     60+ Built-in MCP Servers - Complete Sales Stack
                 </h2>
-                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto mobile-center">
                     Every tool your sales team uses, connected and automated
                 </p>
             </div>
 
             <div class="mcp-grid gap-4 mb-12">
                 <!-- AI MCP Servers -->
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600">
                             <span class="font-bold">AI</span>
@@ -882,7 +935,7 @@
                     <p class="text-sm text-slate-600">Advanced AI reasoning with sequential thinking capabilities</p>
                 </div>
 
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600">
                             <span class="font-bold">AI</span>
@@ -892,7 +945,7 @@
                     <p class="text-sm text-slate-600">AI-powered web search and research capabilities</p>
                 </div>
 
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600">
                             <span class="font-bold">AI</span>
@@ -902,7 +955,7 @@
                     <p class="text-sm text-slate-600">AI-powered search engine for research</p>
                 </div>
 
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600">
                             <span class="font-bold">AI</span>
@@ -913,7 +966,7 @@
                 </div>
 
                 <!-- Communication MCP Servers -->
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
                             <span class="font-bold">C</span>
@@ -923,7 +976,7 @@
                     <p class="text-sm text-slate-600">Customer messaging and engagement platform</p>
                 </div>
 
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
                             <span class="font-bold">T</span>
@@ -933,7 +986,7 @@
                     <p class="text-sm text-slate-600">Communication APIs for messaging, voice, and video</p>
                 </div>
 
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
                             <span class="font-bold">V</span>
@@ -943,7 +996,7 @@
                     <p class="text-sm text-slate-600">Voice AI platform for conversational applications</p>
                 </div>
 
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
                             <span class="font-bold">I</span>
@@ -954,7 +1007,7 @@
                 </div>
 
                 <!-- Analytics MCP Servers -->
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center text-green-600">
                             <span class="font-bold">H</span>
@@ -964,7 +1017,7 @@
                     <p class="text-sm text-slate-600">Connect to HubSpot CRM, marketing, and sales tools</p>
                 </div>
 
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center text-green-600">
                             <span class="font-bold">P</span>
@@ -974,7 +1027,7 @@
                     <p class="text-sm text-slate-600">Product analytics and feature flags via MCP</p>
                 </div>
 
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center text-green-600">
                             <span class="font-bold">G</span>
@@ -985,7 +1038,7 @@
                 </div>
 
                 <!-- Data MCP Servers -->
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center text-orange-600">
                             <span class="font-bold">H</span>
@@ -995,7 +1048,7 @@
                     <p class="text-sm text-slate-600">Email finder and verification service</p>
                 </div>
 
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center text-orange-600">
                             <span class="font-bold">C</span>
@@ -1006,7 +1059,7 @@
                 </div>
 
                 <!-- Productivity MCP Servers -->
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-pink-100 flex items-center justify-center text-pink-600">
                             <span class="font-bold">A</span>
@@ -1016,7 +1069,7 @@
                     <p class="text-sm text-slate-600">Project management and task tracking</p>
                 </div>
 
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-pink-100 flex items-center justify-center text-pink-600">
                             <span class="font-bold">C</span>
@@ -1026,7 +1079,7 @@
                     <p class="text-sm text-slate-600">CRM and sales automation platform</p>
                 </div>
 
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-pink-100 flex items-center justify-center text-pink-600">
                             <span class="font-bold">F</span>
@@ -1036,7 +1089,7 @@
                     <p class="text-sm text-slate-600">Meeting transcription and conversation intelligence</p>
                 </div>
 
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-pink-100 flex items-center justify-center text-pink-600">
                             <span class="font-bold">G</span>
@@ -1047,7 +1100,7 @@
                 </div>
 
                 <!-- Research MCP Servers -->
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600">
                             <span class="font-bold">B</span>
@@ -1057,7 +1110,7 @@
                     <p class="text-sm text-slate-600">Privacy-focused web search capabilities</p>
                 </div>
 
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600">
                             <span class="font-bold">E</span>
@@ -1068,7 +1121,7 @@
                 </div>
 
                 <!-- Original MCPs kept -->
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center text-red-600">
                             <span class="font-bold">G</span>
@@ -1078,7 +1131,7 @@
                     <p class="text-sm text-slate-600">Send, read, and search emails automatically</p>
                 </div>
 
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
                             <span class="font-bold">C</span>
@@ -1088,7 +1141,7 @@
                     <p class="text-sm text-slate-600">Create events, manage calendars</p>
                 </div>
 
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600">
                             <span class="font-bold">S</span>
@@ -1098,7 +1151,7 @@
                     <p class="text-sm text-slate-600">Post messages, manage channels</p>
                 </div>
 
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
                             <span class="font-bold">L</span>
@@ -1108,7 +1161,7 @@
                     <p class="text-sm text-slate-600">Post updates, manage connections</p>
                 </div>
 
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover-lift transition-all duration-300 hover:border-primary-200">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600">
                             <span class="font-bold">N</span>
@@ -1119,22 +1172,22 @@
                 </div>
             </div>
 
-            <div class="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-2xl p-8 text-center">
+            <div class="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-2xl p-8 text-center hover-lift transition-all duration-300">
                 <h3 class="text-2xl font-bold text-slate-900 mb-4">One Platform, 60+ Tools Connected</h3>
                 <p class="text-slate-600 mb-6 max-w-2xl mx-auto">
                     No more switching between apps. Concierge connects all 60+ tools into one automated workflow that saves 4-8 hours daily.
                 </p>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-                    <a href="https://www.browseros.com/" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors shadow-sm text-sm">
+                    <a href="https://www.browseros.com/" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors shadow-sm hover:shadow-md hover-lift text-sm">
                         Get Free BrowserOS
                     </a>
-                    <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-secondary-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-secondary-700 transition-colors shadow-sm text-sm">
+                    <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-secondary-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-secondary-700 transition-colors shadow-sm hover:shadow-md hover-lift text-sm">
                         Get Free 80+ Packs
                     </a>
-                    <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-green-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors shadow-sm text-sm">
+                    <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-green-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors shadow-sm hover:shadow-md hover-lift text-sm">
                         Get Free Audit
                     </a>
-                    <a href="#consulting" class="touch-target inline-flex items-center justify-center gap-2 bg-slate-800 text-white px-4 py-3 rounded-lg font-semibold hover:bg-slate-900 transition-colors shadow-sm text-sm">
+                    <a href="#consulting" class="touch-target inline-flex items-center justify-center gap-2 bg-slate-800 text-white px-4 py-3 rounded-lg font-semibold hover:bg-slate-900 transition-colors shadow-sm hover:shadow-md hover-lift text-sm">
                         Get MCP Setup
                     </a>
                 </div>
@@ -1144,18 +1197,18 @@
 
     <!-- Ecosystem Section -->
     <section id="ecosystem" class="py-16 md:py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mobile-center">
                     Four Ways to Automate Your Workflow
                 </h2>
-                <p class="text-lg text-slate-600">
+                <p class="text-lg text-slate-600 mobile-center">
                     Start free with BrowserOS and prompt packs, try the next-gen AI OS, or get a custom solution with <strong class="text-primary-700">2X ROI Guarantee or Money Back in 90 Days</strong>.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group text-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mobile-stack">
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover-lift transition-all duration-300 group text-center">
                     <div class="w-16 h-16 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
                         <span class="text-2xl">⬇️</span>
                     </div>
@@ -1177,7 +1230,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group text-center">
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover-lift transition-all duration-300 group text-center">
                     <div class="w-16 h-16 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center mx-auto mb-6 group-hover:bg-pink-600 group-hover:text-white transition-colors duration-300">
                         <span class="text-2xl">🔍</span>
                     </div>
@@ -1193,7 +1246,7 @@
                     </a>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group text-center">
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover-lift transition-all duration-300 group text-center">
                     <div class="w-16 h-16 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                         <span class="text-2xl">⚡</span>
                     </div>
@@ -1209,7 +1262,7 @@
                     </a>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group text-center">
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover-lift transition-all duration-300 group text-center">
                     <div class="w-16 h-16 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
                         <span class="text-2xl">💼</span>
                     </div>
@@ -1219,7 +1272,7 @@
                     <p class="text-slate-600 leading-relaxed mb-6">
                         Complete 60+ MCP server setup with onsite/remote team training, lifetime support, and onsite installation.
                     </p>
-                    <div class="bg-primary-50 p-3 rounded-lg mb-4">
+                    <div class="bg-primary-50 p-3 rounded-lg mb-4 group-hover:bg-primary-100 transition-colors">
                         <span class="text-sm font-bold text-primary-700">2X ROI Guarantee or Money Back in 90 Days</span>
                     </div>
                     <a href="#consulting" class="inline-flex items-center gap-2 text-primary-600 font-medium hover:text-primary-800 transition-colors">
@@ -1233,19 +1286,19 @@
 
     <!-- Videos Section -->
     <section id="videos" class="py-16 md:py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mobile-center">
                     See Concierge in Action
                 </h2>
-                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto mobile-center">
                     Watch how 60+ MCP servers automate 4-8 hours of daily work
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="grid md:grid-cols-2 gap-8 mb-12 mobile-stack">
                 <!-- Video 1 -->
-                <div class="video-container-custom">
+                <div class="video-container-custom hover-lift transition-all duration-300">
                     <video controls class="w-full h-auto">
                         <source src="https://github.com/Maribamedia/concierge/raw/refs/heads/main/Browse.mp4" type="video/mp4">
                         Your browser does not support the video tag.
@@ -1256,7 +1309,7 @@
                     </div>
                 </div>
 
-                <div class="video-container-custom">
+                <div class="video-container-custom hover-lift transition-all duration-300">
                     <video controls class="w-full h-auto">
                         <source src="https://github.com/Maribamedia/concierge/raw/refs/heads/main/Extract.mp4" type="video/mp4">
                         Your browser does not support the video tag.
@@ -1269,17 +1322,17 @@
             </div>
 
             <div class="text-center">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-                    <a href="https://www.browseros.com/" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors shadow-sm">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mobile-stack">
+                    <a href="https://www.browseros.com/" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors shadow-sm hover:shadow-md hover-lift mobile-full">
                         Get Free BrowserOS
                     </a>
-                    <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-secondary-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-secondary-700 transition-colors shadow-sm">
+                    <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-secondary-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-secondary-700 transition-colors shadow-sm hover:shadow-md hover-lift mobile-full">
                         Get Free 80+ Packs
                     </a>
-                    <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-green-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors shadow-sm">
+                    <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-green-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors shadow-sm hover:shadow-md hover-lift mobile-full">
                         Get Free Audit
                     </a>
-                    <a href="#consulting" class="touch-target inline-flex items-center justify-center gap-2 bg-slate-800 text-white px-4 py-3 rounded-lg font-semibold hover:bg-slate-900 transition-colors shadow-sm">
+                    <a href="#consulting" class="touch-target inline-flex items-center justify-center gap-2 bg-slate-800 text-white px-4 py-3 rounded-lg font-semibold hover:bg-slate-900 transition-colors shadow-sm hover:shadow-md hover-lift mobile-full">
                         Get MCP Setup
                     </a>
                 </div>
@@ -1289,19 +1342,19 @@
 
     <!-- Features & Use Cases -->
     <section id="features" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mobile-center">
                     Enterprise Features & Use Cases
                 </h2>
-                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto mobile-center">
                     Built for sales teams scaling from 5 to 500+ reps with <strong class="text-primary-700">2X ROI Guarantee or Money Back in 90 Days</strong>
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
+            <div class="grid md:grid-cols-3 gap-8 mb-12 mobile-stack">
                 <!-- Feature 1 -->
-                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 hover-lift transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center text-primary-600 mb-4">
                         <span class="text-2xl">⚡</span>
                     </div>
@@ -1313,7 +1366,7 @@
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 hover-lift transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-secondary-100 flex items-center justify-center text-secondary-600 mb-4">
                         <span class="text-2xl">🛡️</span>
                     </div>
@@ -1325,7 +1378,7 @@
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 hover-lift transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center text-green-600 mb-4">
                         <span class="text-2xl">📊</span>
                     </div>
@@ -1338,27 +1391,27 @@
             </div>
 
             <!-- Guarantees -->
-            <div class="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-2xl p-8">
+            <div class="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-2xl p-8 hover-lift transition-all duration-300">
                 <div class="text-center mb-8">
                     <h3 class="text-2xl font-bold text-slate-900 mb-4">Our Guarantees</h3>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-white p-6 rounded-xl text-center">
+                    <div class="bg-white p-6 rounded-xl text-center hover-lift transition-all duration-300">
                         <div class="text-3xl font-bold text-primary-600 mb-2">2X</div>
                         <div class="font-medium text-slate-900">ROI Guarantee</div>
                         <div class="text-sm text-slate-600 mt-1">Or money back in 90 days</div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl text-center">
+                    <div class="bg-white p-6 rounded-xl text-center hover-lift transition-all duration-300">
                         <div class="text-3xl font-bold text-primary-600 mb-2">4-8</div>
                         <div class="font-medium text-slate-900">Hours Saved Daily</div>
                         <div class="text-sm text-slate-600 mt-1">Per SDR guaranteed</div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl text-center">
+                    <div class="bg-white p-6 rounded-xl text-center hover-lift transition-all duration-300">
                         <div class="text-3xl font-bold text-primary-600 mb-2">Free</div>
                         <div class="font-medium text-slate-900">BrowserOS + Packs</div>
                         <div class="text-sm text-slate-600 mt-1">No credit card needed</div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl text-center">
+                    <div class="bg-white p-6 rounded-xl text-center hover-lift transition-all duration-300">
                         <div class="text-3xl font-bold text-primary-600 mb-2">24/7</div>
                         <div class="font-medium text-slate-900">Support</div>
                         <div class="text-sm text-slate-600 mt-1">Enterprise-grade SLA</div>
@@ -1370,19 +1423,19 @@
 
     <!-- Prompt Packs Section -->
     <section id="packs" class="py-16 md:py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row gap-8 md:gap-12">
-                <div class="lg:w-2/3">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
+            <div class="flex flex-col lg:flex-row gap-8 md:gap-12 mobile-stack">
+                <div class="lg:w-2/3 mobile-full">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 mobile-center">
                         Free 80+ Prompt Packs Included with BrowserOS
                     </h2>
-                    <p class="text-lg text-slate-600 mb-8">
+                    <p class="text-lg text-slate-600 mb-8 mobile-center">
                         Complete library of 80+ specialized prompt packs for SDRs, BDRs, and Sales Managers. Each pack is proven to save 4-8 hours daily. Now included free with your BrowserOS download.
                     </p>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                         <!-- Pack 1 -->
-                        <div class="flex gap-3 p-4 rounded-xl border border-slate-200 bg-white">
+                        <div class="flex gap-3 p-4 rounded-xl border border-slate-200 bg-white hover-lift transition-all duration-300">
                             <div class="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center text-primary-600 flex-shrink-0">
                                 <span class="font-bold">📈</span>
                             </div>
@@ -1393,7 +1446,7 @@
                         </div>
 
                         <!-- Pack 2 -->
-                        <div class="flex gap-3 p-4 rounded-xl border border-slate-200 bg-white">
+                        <div class="flex gap-3 p-4 rounded-xl border border-slate-200 bg-white hover-lift transition-all duration-300">
                             <div class="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center text-primary-600 flex-shrink-0">
                                 <span class="font-bold">✉️</span>
                             </div>
@@ -1404,7 +1457,7 @@
                         </div>
 
                         <!-- Pack 3 -->
-                        <div class="flex gap-3 p-4 rounded-xl border border-slate-200 bg-white">
+                        <div class="flex gap-3 p-4 rounded-xl border border-slate-200 bg-white hover-lift transition-all duration-300">
                             <div class="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center text-primary-600 flex-shrink-0">
                                 <span class="font-bold">📊</span>
                             </div>
@@ -1415,7 +1468,7 @@
                         </div>
 
                         <!-- Pack 4 -->
-                        <div class="flex gap-3 p-4 rounded-xl border border-slate-200 bg-white">
+                        <div class="flex gap-3 p-4 rounded-xl border border-slate-200 bg-white hover-lift transition-all duration-300">
                             <div class="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center text-primary-600 flex-shrink-0">
                                 <span class="font-bold">🎯</span>
                             </div>
@@ -1428,7 +1481,7 @@
                     
                     <!-- Additional packs -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                        <div class="flex gap-3 p-4 rounded-xl border border-slate-200 bg-white">
+                        <div class="flex gap-3 p-4 rounded-xl border border-slate-200 bg-white hover-lift transition-all duration-300">
                             <div class="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center text-primary-600 flex-shrink-0">
                                 <span class="font-bold">🤖</span>
                             </div>
@@ -1438,7 +1491,7 @@
                             </div>
                         </div>
 
-                        <div class="flex gap-3 p-4 rounded-xl border border-slate-200 bg-white">
+                        <div class="flex gap-3 p-4 rounded-xl border border-slate-200 bg-white hover-lift transition-all duration-300">
                             <div class="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center text-primary-600 flex-shrink-0">
                                 <span class="font-bold">📝</span>
                             </div>
@@ -1448,7 +1501,7 @@
                             </div>
                         </div>
 
-                        <div class="flex gap-3 p-4 rounded-xl border border-slate-200 bg-white">
+                        <div class="flex gap-3 p-4 rounded-xl border border-slate-200 bg-white hover-lift transition-all duration-300">
                             <div class="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center text-primary-600 flex-shrink-0">
                                 <span class="font-bold">🔍</span>
                             </div>
@@ -1458,7 +1511,7 @@
                             </div>
                         </div>
 
-                        <div class="flex gap-3 p-4 rounded-xl border border-slate-200 bg-white">
+                        <div class="flex gap-3 p-4 rounded-xl border border-slate-200 bg-white hover-lift transition-all duration-300">
                             <div class="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center text-primary-600 flex-shrink-0">
                                 <span class="font-bold">👥</span>
                             </div>
@@ -1470,23 +1523,23 @@
                     </div>
                     
                     <!-- Download Buttons -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-md">
-                        <a href="https://www.browseros.com/" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-md mx-auto mobile-stack">
+                        <a href="https://www.browseros.com/" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl hover-lift mobile-full">
                             Get Free BrowserOS
                         </a>
-                        <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-secondary-600 text-white px-6 py-4 rounded-lg font-semibold hover:bg-secondary-700 transition-colors shadow-lg hover:shadow-xl">
+                        <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-secondary-600 text-white px-6 py-4 rounded-lg font-semibold hover:bg-secondary-700 transition-colors shadow-lg hover:shadow-xl hover-lift mobile-full">
                             Get Free 80+ Packs
                         </a>
                     </div>
                 </div>
 
                 <!-- Price Card -->
-                <div class="lg:w-1/3">
-                    <div class="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-xl p-8 text-center text-white">
+                <div class="lg:w-1/3 mobile-full">
+                    <div class="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-xl p-8 text-center text-white hover-lift transition-all duration-300">
                         <div class="text-4xl font-bold mb-2">Free</div>
                         <div class="text-primary-100 text-sm mb-6">Included with BrowserOS download • Lifetime access</div>
                         
-                        <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg mb-6">
+                        <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg mb-6 hover:bg-white/20 transition-all">
                             <div class="text-white font-medium mb-4">What You Get:</div>
                             <div class="space-y-3 text-sm text-primary-100">
                                 <div class="flex items-center gap-3">
@@ -1523,15 +1576,15 @@
 
     <!-- Services & Pricing Section -->
     <section id="services" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Services & Pricing</h2>
-                <p class="text-slate-600">Clear pricing for all our automation solutions in South African Rands.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mobile-center">Services & Pricing</h2>
+                <p class="text-slate-600 mobile-center">Clear pricing for all our automation solutions in South African Rands.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start mobile-stack">
                 <!-- Free BrowserOS + Prompt Packs -->
-                <div class="relative rounded-2xl p-8 transition-all duration-300 bg-white border border-slate-200 text-slate-900 hover:shadow-xl">
+                <div class="relative rounded-2xl p-8 transition-all duration-300 bg-white border border-slate-200 text-slate-900 hover-lift">
                     <div class="mb-6">
                         <h3 class="text-lg font-medium mb-2 text-slate-500">Free BrowserOS + 80+ Prompt Packs</h3>
                         <p class="text-sm mb-4 text-slate-600">Complete automation starter kit with everything you need to begin</p>
@@ -1564,17 +1617,17 @@
                     </ul>
 
                     <div class="grid grid-cols-1 gap-2">
-                        <a href="https://www.browseros.com/" target="_blank" class="block w-full py-3 rounded-lg text-center font-bold transition-all hover:shadow-xl hover:-translate-y-1 bg-primary-600 hover:bg-primary-700 text-white">
+                        <a href="https://www.browseros.com/" target="_blank" class="block w-full py-3 rounded-lg text-center font-bold transition-all hover:shadow-xl hover-lift bg-primary-600 hover:bg-primary-700 text-white">
                             Get Free BrowserOS
                         </a>
-                        <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="block w-full py-3 rounded-lg text-center font-bold transition-all hover:shadow-xl hover:-translate-y-1 bg-secondary-600 hover:bg-secondary-700 text-white">
+                        <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="block w-full py-3 rounded-lg text-center font-bold transition-all hover:shadow-xl hover-lift bg-secondary-600 hover:bg-secondary-700 text-white">
                             Get Free 80+ Packs
                         </a>
                     </div>
                 </div>
 
                 <!-- Free Audit -->
-                <div class="relative rounded-2xl p-8 transition-all duration-300 bg-slate-900 text-white shadow-2xl scale-105 z-10">
+                <div class="relative rounded-2xl p-8 transition-all duration-300 bg-slate-900 text-white shadow-2xl scale-105 z-10 hover-lift">
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                         Most Popular
                     </div>
@@ -1611,13 +1664,13 @@
                         </li>
                     </ul>
 
-                    <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="block w-full py-3 rounded-lg text-center font-bold transition-all hover:shadow-xl hover:-translate-y-1 bg-primary-600 hover:bg-primary-700 text-white">
+                    <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="block w-full py-3 rounded-lg text-center font-bold transition-all hover:shadow-xl hover-lift bg-primary-600 hover:bg-primary-700 text-white">
                         Get Free Audit
                     </a>
                 </div>
 
                 <!-- R28,000 Full Setup -->
-                <div class="relative rounded-2xl p-8 transition-all duration-300 bg-white border border-slate-200 text-slate-900 hover:shadow-xl">
+                <div class="relative rounded-2xl p-8 transition-all duration-300 bg-white border border-slate-200 text-slate-900 hover-lift">
                     <div class="mb-6">
                         <h3 class="text-lg font-medium mb-2 text-slate-500">R28,000 Full 60+ MCP Setup</h3>
                         <p class="text-sm mb-4 text-slate-600">Complete enterprise implementation with training and support</p>
@@ -1650,7 +1703,7 @@
                         </li>
                     </ul>
 
-                    <a href="#consulting" class="block w-full py-3 rounded-lg text-center font-bold transition-all hover:shadow-xl hover:-translate-y-1 bg-green-600 hover:bg-green-700 text-white">
+                    <a href="#consulting" class="block w-full py-3 rounded-lg text-center font-bold transition-all hover:shadow-xl hover-lift bg-green-600 hover:bg-green-700 text-white">
                         View Full Details
                     </a>
                 </div>
@@ -1666,19 +1719,19 @@
 
     <!-- Consulting Section -->
     <section id="consulting" class="py-16 md:py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mobile-center">
                     Team Implementation & Consulting
                 </h2>
-                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto mobile-center">
                     Custom setup for sales teams with guaranteed 4-8 hours daily savings per SDR
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12 mobile-stack">
                 <!-- Tier 1 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 text-center shadow-sm">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 text-center shadow-sm hover-lift transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center text-primary-600 mx-auto mb-4">
                         <span class="text-xl">⬇️</span>
                     </div>
@@ -1691,17 +1744,17 @@
                         Get started immediately with free software and 80+ prompt packs
                     </p>
                     <div class="grid grid-cols-1 gap-2">
-                        <a href="https://www.browseros.com/" target="_blank" class="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-slate-800 transition-colors">
+                        <a href="https://www.browseros.com/" target="_blank" class="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-slate-800 transition-colors hover-lift">
                             Get Free BrowserOS
                         </a>
-                        <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="inline-flex items-center justify-center gap-2 bg-secondary-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-secondary-700 transition-colors">
+                        <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="inline-flex items-center justify-center gap-2 bg-secondary-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-secondary-700 transition-colors hover-lift">
                             Get Free 80+ Packs
                         </a>
                     </div>
                 </div>
 
                 <!-- Tier 2 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 text-center shadow-sm">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 text-center shadow-sm hover-lift transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center text-primary-600 mx-auto mb-4">
                         <span class="text-xl">🔍</span>
                     </div>
@@ -1713,13 +1766,13 @@
                     <p class="text-slate-600 mb-6">
                         Identify 4-8 hours of daily automation opportunities for your team
                     </p>
-                    <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-slate-800 transition-colors">
+                    <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-slate-800 transition-colors hover-lift">
                         Get Free Audit
                     </a>
                 </div>
 
                 <!-- Tier 3 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 text-center shadow-sm">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 text-center shadow-sm hover-lift transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center text-primary-600 mx-auto mb-4">
                         <span class="text-xl">⚙️</span>
                     </div>
@@ -1731,13 +1784,13 @@
                     <p class="text-slate-600 mb-6">
                         Full 60+ MCP server setup with onsite/remote team training, lifetime support, and onsite installation
                     </p>
-                    <a href="#schedule" class="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-slate-800 transition-colors">
+                    <a href="#schedule" class="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-slate-800 transition-colors hover-lift">
                         Request Proposal
                     </a>
                 </div>
             </div>
             
-            <div class="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl p-8 text-white text-center">
+            <div class="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl p-8 text-white text-center hover-lift transition-all duration-300">
                 <h3 class="text-2xl font-bold mb-4">Guaranteed 4-8 Hours Daily Savings with 2X ROI Guarantee</h3>
                 <p class="text-primary-100 mb-6 max-w-2xl mx-auto">
                     We guarantee each SDR will save 4-8 hours daily using Concierge's 60+ MCP servers, or we refund 100% of implementation costs. <strong>2X ROI Guarantee or Money Back in 90 Days.</strong>
@@ -1766,18 +1819,18 @@
 
     <!-- Social Proof Section -->
     <section id="proof" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mobile-center">
                     Trusted by Enterprise Teams
                 </h2>
-                <p class="text-lg text-slate-600">
+                <p class="text-lg text-slate-600 mobile-center">
                     Backed by businesses who have eliminated manual work and scaled their operations.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mobile-stack">
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover-lift transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600 mb-6">
                         <span class="text-2xl">🛡️</span>
                     </div>
@@ -1789,7 +1842,7 @@
                     </p>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover-lift transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600 mb-6">
                         <span class="text-2xl">📈</span>
                     </div>
@@ -1801,7 +1854,7 @@
                     </p>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover-lift transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600 mb-6">
                         <span class="text-2xl">🏆</span>
                     </div>
@@ -1815,7 +1868,7 @@
             </div>
 
             <!-- Testimonial Stats -->
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mobile-stack">
                 <div class="text-center">
                     <div class="text-2xl md:text-3xl font-bold text-primary-600 mb-1">98%</div>
                     <div class="text-sm text-slate-600">Client Retention</div>
@@ -1838,13 +1891,13 @@
 
     <!-- Download Section -->
     <section id="download" class="py-16 md:py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
-                <div class="lg:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
+            <div class="flex flex-col lg:flex-row items-center gap-8 md:gap-12 mobile-stack">
+                <div class="lg:w-1/2 mobile-full">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 mobile-center">
                         Start Saving 4-8 Hours Daily
                     </h2>
-                    <p class="text-lg text-slate-600 mb-6">
+                    <p class="text-lg text-slate-600 mb-6 mobile-center">
                         Get BrowserOS with 60+ built-in MCP servers plus 80+ prompt packs free. Connect your sales tools and start saving time immediately.
                     </p>
                     
@@ -1867,52 +1920,52 @@
                         </div>
                     </div>
                     
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <a href="https://www.browseros.com/" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-primary-600 text-white px-4 py-4 rounded-xl font-semibold hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl text-center">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mobile-stack">
+                        <a href="https://www.browseros.com/" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-primary-600 text-white px-4 py-4 rounded-xl font-semibold hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl text-center hover-lift mobile-full">
                             <span class="text-lg">⬇️</span>
                             <span class="text-sm font-bold">Free BrowserOS</span>
                         </a>
                         
-                        <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-secondary-600 text-white px-4 py-4 rounded-xl font-semibold hover:bg-secondary-700 transition-colors shadow-lg hover:shadow-xl text-center">
+                        <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-secondary-600 text-white px-4 py-4 rounded-xl font-semibold hover:bg-secondary-700 transition-colors shadow-lg hover:shadow-xl text-center hover-lift mobile-full">
                             <span class="text-lg">🎁</span>
                             <span class="text-sm font-bold">Free 80+ Packs</span>
                         </a>
                         
-                        <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-green-600 text-white px-4 py-4 rounded-xl font-semibold hover:bg-green-700 transition-colors shadow-lg hover:shadow-xl text-center">
+                        <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-green-600 text-white px-4 py-4 rounded-xl font-semibold hover:bg-green-700 transition-colors shadow-lg hover:shadow-xl text-center hover-lift mobile-full">
                             <span class="text-lg">🔍</span>
                             <span class="text-sm font-bold">Free Audit</span>
                         </a>
                         
-                        <a href="#schedule" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-slate-800 text-white px-4 py-4 rounded-xl font-semibold hover:bg-slate-900 transition-colors shadow-lg hover:shadow-xl text-center">
+                        <a href="#schedule" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-slate-800 text-white px-4 py-4 rounded-xl font-semibold hover:bg-slate-900 transition-colors shadow-lg hover:shadow-xl text-center hover-lift mobile-full">
                             <span class="text-lg">⚙️</span>
                             <span class="text-sm font-bold">MCP Setup</span>
                         </a>
                     </div>
                 </div>
                 
-                <div class="lg:w-1/2 w-full">
-                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+                <div class="lg:w-1/2 w-full mobile-full">
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm hover-lift transition-all duration-300">
                         <h3 class="text-xl font-bold text-slate-900 mb-6 text-center">Free Package Includes:</h3>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div class="flex items-center gap-3 p-4 rounded-lg bg-slate-50">
+                            <div class="flex items-center gap-3 p-4 rounded-lg bg-slate-50 hover:bg-primary-50 transition-colors">
                                 <span class="text-primary-600 font-bold">60+</span>
                                 <span class="text-slate-700">MCP Servers</span>
                             </div>
-                            <div class="flex items-center gap-3 p-4 rounded-lg bg-slate-50">
+                            <div class="flex items-center gap-3 p-4 rounded-lg bg-slate-50 hover:bg-primary-50 transition-colors">
                                 <span class="text-primary-600 font-bold">80+</span>
                                 <span class="text-slate-700">Prompt Packs</span>
                             </div>
-                            <div class="flex items-center gap-3 p-4 rounded-lg bg-slate-50">
+                            <div class="flex items-center gap-3 p-4 rounded-lg bg-slate-50 hover:bg-primary-50 transition-colors">
                                 <span class="text-primary-600 font-bold">24/7</span>
                                 <span class="text-slate-700">Community Support</span>
                             </div>
-                            <div class="flex items-center gap-3 p-4 rounded-lg bg-slate-50">
+                            <div class="flex items-center gap-3 p-4 rounded-lg bg-slate-50 hover:bg-primary-50 transition-colors">
                                 <span class="text-primary-600 font-bold">Free</span>
                                 <span class="text-slate-700">Forever Access</span>
                             </div>
                         </div>
                         
-                        <div class="mt-8 p-4 bg-primary-50 rounded-lg">
+                        <div class="mt-8 p-4 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors">
                             <div class="text-sm text-slate-600 text-center">
                                 <span class="font-bold text-primary-600">Total Value: R8,000+</span> • <span class="text-slate-500">Free forever for individual users</span>
                             </div>
@@ -1925,35 +1978,33 @@
 
     <!-- Cal.com Schedule Call Section -->
     <section id="schedule" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mobile-center">
                     Schedule a Free Consultation
                 </h2>
-                <p class="text-lg text-slate-600 mb-6">
+                <p class="text-lg text-slate-600 mb-6 mobile-center">
                     Book a 30-minute call to discuss your automation needs, get a free audit, or learn more about our R28,000 MCP setup with <strong class="text-primary-700">2X ROI Guarantee or Money Back in 90 Days</strong>.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-                    <a href="https://www.browseros.com/" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors shadow-sm">
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8 mobile-stack">
+                    <a href="https://www.browseros.com/" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors shadow-sm hover:shadow-md hover-lift mobile-full">
                         Get Free BrowserOS
                     </a>
-                    <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-secondary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-secondary-700 transition-colors shadow-sm">
+                    <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-secondary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-secondary-700 transition-colors shadow-sm hover:shadow-md hover-lift mobile-full">
                         Get Free 80+ Packs
                     </a>
-                    <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors shadow-sm">
+                    <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors shadow-sm hover:shadow-md hover-lift mobile-full">
                         Get Free Audit
                     </a>
                 </div>
             </div>
 
             <!-- Cal.com Embed -->
-            <div class="bg-slate-50 rounded-2xl p-8">
+            <div class="bg-slate-50 rounded-2xl p-8 hover-lift transition-all duration-300">
                 <h3 class="text-xl font-bold text-slate-900 mb-4 text-center">Book Your Free Consultation Call</h3>
                 <div class="cal-com-embed">
-                    <!-- Cal.com embed script -->
-                    <script type="text/javascript" src="https://cal.com/embed.js"></script>
-                    <link href="https://cal.com/embed.css" rel="stylesheet">
-                    <div data-cal-link="maribamedia/30min" style="width:100%;height:100%;overflow:scroll"></div>
+                    <!-- Cal.com inline embed will be loaded by the script below -->
+                    <div id="cal-inline-embed" class="w-full h-full"></div>
                 </div>
             </div>
         </div>
@@ -1964,27 +2015,27 @@
         <div class="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight mobile-center">
                 Stop Wasting Time on Manual Work
             </h2>
-            <p class="text-primary-100 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+            <p class="text-primary-100 text-lg md:text-xl max-w-2xl mx-auto mb-10 mobile-center">
                 Get free BrowserOS, free 80+ prompt packs, free audit, and complete MCP implementation with onsite installation.
                 <strong>2X ROI Guarantee or Money Back in 90 Days.</strong>
             </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
-                <a href="https://www.browseros.com/" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-white text-primary-700 px-6 py-4 rounded-xl font-bold hover:bg-primary-50 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto mobile-stack">
+                <a href="https://www.browseros.com/" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-white text-primary-700 px-6 py-4 rounded-xl font-bold hover:bg-primary-50 transition-all shadow-xl hover:shadow-2xl hover-lift mobile-full">
                     <span class="text-lg">⬇️</span>
                     <span class="text-sm">Get Free BrowserOS</span>
                 </a>
-                <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-white text-secondary-700 px-6 py-4 rounded-xl font-bold hover:bg-secondary-50 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-white text-secondary-700 px-6 py-4 rounded-xl font-bold hover:bg-secondary-50 transition-all shadow-xl hover:shadow-2xl hover-lift mobile-full">
                     <span class="text-lg">🎁</span>
                     <span class="text-sm">Get Free 80+ Packs</span>
                 </a>
-                <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-white text-green-700 px-6 py-4 rounded-xl font-bold hover:bg-green-50 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-white text-green-700 px-6 py-4 rounded-xl font-bold hover:bg-green-50 transition-all shadow-xl hover:shadow-2xl hover-lift mobile-full">
                     <span class="text-lg">🔍</span>
                     <span class="text-sm">Get Free Audit</span>
                 </a>
-                <a href="#schedule" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-white text-slate-800 px-6 py-4 rounded-xl font-bold hover:bg-slate-100 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                <a href="#schedule" class="touch-target inline-flex flex-col items-center justify-center gap-2 bg-white text-slate-800 px-6 py-4 rounded-xl font-bold hover:bg-slate-100 transition-all shadow-xl hover:shadow-2xl hover-lift mobile-full">
                     <span class="text-lg">⚙️</span>
                     <span class="text-sm">Get MCP Setup</span>
                 </a>
@@ -1994,18 +2045,18 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mobile-center">
                     Ready to Automate Your Workflow?
                 </h2>
-                <p class="text-lg text-slate-600">
+                <p class="text-lg text-slate-600 mobile-center">
                     Concierge is ready to deploy in corporate environments, government parastatals, and enterprise teams. <strong class="text-primary-700">2X ROI Guarantee or Money Back in 90 Days.</strong>
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-5xl mx-auto">
-                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 text-center md:col-span-3">
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover-lift transition-all duration-300 text-center md:col-span-3">
                     <div class="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600 mx-auto mb-4">
                         <span class="text-2xl">👨‍💻</span>
                     </div>
@@ -2016,17 +2067,17 @@
                     
                     <p class="text-slate-600 text-sm mb-1">victor@maribamedia.co.za</p>
                     
-                    <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-2 max-w-md mx-auto">
-                        <a href="https://www.browseros.com/" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-3 py-2 rounded-lg font-medium hover:bg-primary-700 transition-colors text-xs">
+                    <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-2 max-w-md mx-auto mobile-stack">
+                        <a href="https://www.browseros.com/" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-primary-600 text-white px-3 py-2 rounded-lg font-medium hover:bg-primary-700 transition-colors hover-lift text-xs mobile-full">
                             Free BrowserOS
                         </a>
-                        <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-secondary-600 text-white px-3 py-2 rounded-lg font-medium hover:bg-secondary-700 transition-colors text-xs">
+                        <a href="https://docs.google.com/document/d/11q0Xg1QKTkTH4dZtCnukPvhd-lRGKYESdtufXt-ieTQ/edit?usp=sharing" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-secondary-600 text-white px-3 py-2 rounded-lg font-medium hover:bg-secondary-700 transition-colors hover-lift text-xs mobile-full">
                             Free 80+ Packs
                         </a>
-                        <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-green-600 text-white px-3 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors text-xs">
+                        <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-green-600 text-white px-3 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors hover-lift text-xs mobile-full">
                             Free Audit
                         </a>
-                        <a href="#schedule" class="touch-target inline-flex items-center justify-center gap-2 bg-slate-800 text-white px-3 py-2 rounded-lg font-medium hover:bg-slate-900 transition-colors text-xs">
+                        <a href="#schedule" class="touch-target inline-flex items-center justify-center gap-2 bg-slate-800 text-white px-3 py-2 rounded-lg font-medium hover:bg-slate-900 transition-colors hover-lift text-xs mobile-full">
                             Schedule Call
                         </a>
                     </div>
@@ -2162,6 +2213,23 @@
                 }
             });
         });
+
+        // Add hover effects to cards
+        document.querySelectorAll('.hover-lift').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.3s ease';
+            });
+        });
     </script>
+
+    <!-- Cal.com floating-popup embed code -->
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "south-africa", {origin:"https://app.cal.com"});
+
+      Cal.ns["south-africa"]("floatingButton", {"calLink":"partner-discovery/south-africa","config":{"layout":"month_view"}}); 
+      Cal.ns["south-africa"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    </script>
+    <!-- Cal.com floating-popup embed code ends -->
 </body>
 </html>
