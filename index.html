@@ -106,87 +106,37 @@
         }
       }
       
+      /* MCP grid responsive */
+      .mcp-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+      }
+      
+      @media (max-width: 640px) {
+        .mcp-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      
       /* Video responsive */
       .video-container {
         position: relative;
         padding-bottom: 56.25%;
         height: 0;
         overflow: hidden;
-        background: #1a1a1a;
-        border-radius: 12px;
       }
       
+      .video-container iframe,
       .video-container video {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        object-fit: cover;
       }
       
-      /* Video showcase grid */
-      .video-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-      }
-      
-      @media (max-width: 640px) {
-        .video-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-      
-      /* Video card styling */
-      .video-card {
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-      }
-      
-      .video-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-      }
-      
-      .video-info {
-        padding: 1.5rem;
-      }
-      
-      .video-number {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 32px;
-        height: 32px;
-        background: linear-gradient(135deg, #ec4899 0%, #0ea5e9 100%);
-        color: white;
-        border-radius: 50%;
-        font-weight: bold;
-        font-size: 0.875rem;
-        margin-bottom: 1rem;
-      }
-      
-      /* Custom video controls */
-      .custom-video-controls {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-        padding: 1rem;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-      
-      .video-container:hover .custom-video-controls {
-        opacity: 1;
-      }
-      
-      /* Glass nav */
+      /* New styles */
       .glass-nav {
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(12px);
@@ -198,7 +148,14 @@
         will-change: transform;
       }
       
-      /* Cal.com embed */
+      .video-container-custom {
+        position: relative;
+        background: #1e293b;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      
+      /* Cal.com embed styles */
       .cal-com-embed {
         width: 100%;
         min-height: 700px;
@@ -244,10 +201,6 @@
         .cal-com-embed {
           min-height: 600px;
         }
-        
-        .video-grid {
-          gap: 1rem;
-        }
       }
       
       /* Gradient text */
@@ -290,16 +243,6 @@
         transform: translateY(-2px);
         box-shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.4);
       }
-      
-      /* Video loading animation */
-      @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
-      }
-      
-      .video-loading {
-        animation: pulse 2s infinite;
-      }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased text-center">
@@ -321,7 +264,7 @@
                 <a href="#flowchart" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors hover:scale-105">How It Works</a>
                 <a href="#results" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors hover:scale-105">Results</a>
                 <a href="#guarantee" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors hover:scale-105">Guarantee</a>
-                <a href="#video-showcase" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors hover:scale-105">Video Showcase</a>
+                <a href="#vsl" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors hover:scale-105">Video</a>
                 <a href="#pricing" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors hover:scale-105">Pricing</a>
                 <a href="#consultation" class="consultation-btn hover-lift">
                     Book Consultation
@@ -347,7 +290,7 @@
                 <a href="#flowchart" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors centered-container">How It Works</a>
                 <a href="#results" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors centered-container">Results</a>
                 <a href="#guarantee" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors centered-container">Guarantee</a>
-                <a href="#video-showcase" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors centered-container">Video Showcase</a>
+                <a href="#vsl" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors centered-container">Video</a>
                 <a href="#pricing" class="py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors centered-container">Pricing</a>
                 <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="mt-2 consultation-btn py-3 text-center font-medium">
                     Book Consultation
@@ -385,6 +328,20 @@
                 <p class="text-lg md:text-xl text-slate-600 mb-8 mx-auto text-center max-w-3xl">
                     We help Sales Managers generate 10+ qualified booked calls on a pay-per-appointment basis using our Concierge Business Development Rep Infrastructure. <strong class="text-primary-700">No upfront cash in 30 days or we work for free until you do.</strong>
                 </p>
+
+                <!-- YouTube VSL Embed -->
+                <div class="mb-12 text-center">
+                    <div class="video-container rounded-2xl overflow-hidden shadow-2xl mx-auto">
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="Concierge Business Development Rep - How We Generate 10+ Qualified Calls"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="text-center text-sm text-slate-500 mt-2">See how our business development infrastructure delivers qualified calls</p>
+                </div>
 
                 <!-- 4 Separate CTA Buttons -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12 mobile-stack centered-container">
@@ -428,7 +385,7 @@
                         <div class="text-sm text-slate-600">Appointment Basis</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-2xl md:text-3xl font-bold text-slate-900 mb-1">$0</div>
+                        <div class="text-2xl md:text-3xl font-bold text-slate-900 mb-1">R0</div>
                         <div class="text-sm text-slate-600">Upfront Cash Required</div>
                     </div>
                     <div class="text-center">
@@ -440,184 +397,8 @@
         </div>
     </section>
 
-    <!-- Video Showcase Section -->
-    <section id="video-showcase" class="py-16 md:py-24 bg-white text-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mx-auto text-center">
-                    See Our Business Development Rep in Action
-                </h2>
-                <p class="text-lg text-slate-600 max-w-2xl mx-auto text-center">
-                    Watch these 4 videos to understand how we generate 10+ qualified calls for sales teams
-                </p>
-            </div>
-
-            <!-- Video Grid -->
-            <div class="video-grid mb-12">
-                <!-- Video 1: Introduction -->
-                <div class="video-card hover-lift">
-                    <div class="relative">
-                        <div class="video-container">
-                            <video controls poster="https://raw.githubusercontent.com/your-username/your-repo/main/thumbnails/video1-thumb.jpg">
-                                <source src="https://raw.githubusercontent.com/your-username/your-repo/main/videos/introduction.mp4" type="video/mp4">
-                                <source src="https://raw.githubusercontent.com/your-username/your-repo/main/videos/introduction.webm" type="video/webm">
-                                Your browser does not support the video tag.
-                            </video>
-                            <div class="custom-video-controls">
-                                <div class="flex justify-center space-x-4">
-                                    <button class="text-white hover:text-primary-300 transition-colors">
-                                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M8 5v14l11-7z"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="absolute top-4 left-4 video-number">1</div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">Introduction to Our Service</h3>
-                        <p class="text-sm text-slate-600 mb-4">Learn how our Concierge Business Development Rep works and how we deliver 10+ qualified calls monthly</p>
-                        <div class="text-xs text-slate-500">Duration: 2:30 | Watch time: 3 min</div>
-                    </div>
-                </div>
-
-                <!-- Video 2: Process Walkthrough -->
-                <div class="video-card hover-lift">
-                    <div class="relative">
-                        <div class="video-container">
-                            <video controls poster="https://raw.githubusercontent.com/your-username/your-repo/main/thumbnails/video2-thumb.jpg">
-                                <source src="https://raw.githubusercontent.com/your-username/your-repo/main/videos/process-walkthrough.mp4" type="video/mp4">
-                                <source src="https://raw.githubusercontent.com/your-username/your-repo/main/videos/process-walkthrough.webm" type="video/webm">
-                                Your browser does not support the video tag.
-                            </video>
-                            <div class="custom-video-controls">
-                                <div class="flex justify-center space-x-4">
-                                    <button class="text-white hover:text-primary-300 transition-colors">
-                                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M8 5v14l11-7z"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="absolute top-4 left-4 video-number">2</div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">Our 4-Step Process</h3>
-                        <p class="text-sm text-slate-600 mb-4">See our AI-powered lead identification and multi-channel outreach automation in action</p>
-                        <div class="text-xs text-slate-500">Duration: 3:15 | Watch time: 4 min</div>
-                    </div>
-                </div>
-
-                <!-- Video 3: Case Study -->
-                <div class="video-card hover-lift">
-                    <div class="relative">
-                        <div class="video-container">
-                            <video controls poster="https://raw.githubusercontent.com/your-username/your-repo/main/thumbnails/video3-thumb.jpg">
-                                <source src="https://raw.githubusercontent.com/your-username/your-repo/main/videos/case-study.mp4" type="video/mp4">
-                                <source src="https://raw.githubusercontent.com/your-username/your-repo/main/videos/case-study.webm" type="video/webm">
-                                Your browser does not support the video tag.
-                            </video>
-                            <div class="custom-video-controls">
-                                <div class="flex justify-center space-x-4">
-                                    <button class="text-white hover:text-primary-300 transition-colors">
-                                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M8 5v14l11-7z"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="absolute top-4 left-4 video-number">3</div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">Client Case Study</h3>
-                        <p class="text-sm text-slate-600 mb-4">See how we delivered 12-15 qualified demos monthly for a SaaS company</p>
-                        <div class="text-xs text-slate-500">Duration: 4:20 | Watch time: 5 min</div>
-                    </div>
-                </div>
-
-                <!-- Video 4: Pay-Per-Appointment Model -->
-                <div class="video-card hover-lift">
-                    <div class="relative">
-                        <div class="video-container">
-                            <video controls poster="https://raw.githubusercontent.com/your-username/your-repo/main/thumbnails/video4-thumb.jpg">
-                                <source src="https://raw.githubusercontent.com/your-username/your-repo/main/videos/pay-per-appointment.mp4" type="video/mp4">
-                                <source src="https://raw.githubusercontent.com/your-username/your-repo/main/videos/pay-per-appointment.webm" type="video/webm">
-                                Your browser does not support the video tag.
-                            </video>
-                            <div class="custom-video-controls">
-                                <div class="flex justify-center space-x-4">
-                                    <button class="text-white hover:text-primary-300 transition-colors">
-                                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M8 5v14l11-7z"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="absolute top-4 left-4 video-number">4</div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">Pay-Per-Appointment Explained</h3>
-                        <p class="text-sm text-slate-600 mb-4">Understand our risk-free pricing model and 30-day free trial guarantee</p>
-                        <div class="text-xs text-slate-500">Duration: 2:45 | Watch time: 3 min</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Video Instructions -->
-            <div class="bg-primary-50 rounded-xl p-6 mb-8 text-center">
-                <h3 class="text-lg font-bold text-slate-900 mb-3">How to Watch These Videos</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-                    <div class="flex flex-col items-center">
-                        <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-2">
-                            <span class="text-lg">1</span>
-                        </div>
-                        <p class="text-sm text-slate-700">Replace GitHub URLs with your actual video files</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-2">
-                            <span class="text-lg">2</span>
-                        </div>
-                        <p class="text-sm text-slate-700">Upload videos to your GitHub repo in /videos folder</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-2">
-                            <span class="text-lg">3</span>
-                        </div>
-                        <p class="text-sm text-slate-700">Update src attributes with your raw GitHub URLs</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA Buttons -->
-            <div class="text-center">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto mobile-stack centered-container">
-                    <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="touch-target consultation-btn inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl hover-lift mobile-full centered-container">
-                        <span>📅</span>
-                        <span>Book Consultation</span>
-                    </a>
-                    <a href="#results" class="touch-target inline-flex items-center justify-center gap-2 bg-secondary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-secondary-700 transition-colors shadow-lg hover:shadow-xl hover-lift mobile-full centered-container">
-                        <span>📊</span>
-                        <span>View Case Studies</span>
-                    </a>
-                    <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors shadow-lg hover:shadow-xl hover-lift mobile-full centered-container">
-                        <span>🔍</span>
-                        <span>Free Campaign Audit</span>
-                    </a>
-                    <a href="#pricing" class="touch-target inline-flex items-center justify-center gap-2 bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-900 transition-colors shadow-lg hover:shadow-xl hover-lift mobile-full centered-container">
-                        <span>💰</span>
-                        <span>See Pricing</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Solution Section -->
-    <section id="solution" class="py-16 md:py-24 bg-slate-50 text-center">
+    <section id="solution" class="py-16 md:py-24 bg-white text-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="max-w-4xl mx-auto text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mx-auto text-center">
@@ -643,7 +424,7 @@
                     
                     <div class="flex gap-4 p-4 bg-red-50 rounded-xl hover-lift transition-all duration-300 centered-container">
                         <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-red-600 flex-shrink-0 shadow-sm centered-container">
-                            <span class="text-2xl font-bold">$0</span>
+                            <span class="text-2xl font-bold">R0</span>
                         </div>
                         <div class="text-center">
                             <h3 class="text-lg font-bold text-slate-900 mb-2">No Guaranteed Results</h3>
@@ -684,7 +465,7 @@
                                 <div class="text-sm text-primary-100">Calls Monthly</div>
                             </div>
                             <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-all centered-container">
-                                <div class="text-2xl font-bold mb-1">$0</div>
+                                <div class="text-2xl font-bold mb-1">R0</div>
                                 <div class="text-sm text-primary-100">Upfront Cost</div>
                             </div>
                             <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-all centered-container">
@@ -708,7 +489,7 @@
     </section>
 
     <!-- How It Works Section -->
-    <section id="flowchart" class="py-16 md:py-24 bg-white text-center">
+    <section id="flowchart" class="py-16 md:py-24 bg-slate-50 text-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mx-auto text-center">
@@ -811,7 +592,7 @@
     </section>
 
     <!-- Results Section -->
-    <section id="results" class="py-16 md:py-24 bg-slate-50 text-center">
+    <section id="results" class="py-16 md:py-24 bg-white text-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mx-auto text-center">
@@ -831,7 +612,7 @@
                     <h3 class="text-lg font-bold text-slate-900 mb-3 text-center">SaaS Company - B2B Sales</h3>
                     <p class="text-slate-600 mb-4 text-center">Generated 12-15 qualified demos monthly for their sales team</p>
                     <div class="text-sm text-slate-500 text-center">
-                        <span class="font-medium">Result:</span> $150k in closed deals from our appointments
+                        <span class="font-medium">Result:</span> R2.5M in closed deals from our appointments
                     </div>
                 </div>
 
@@ -843,7 +624,7 @@
                     <h3 class="text-lg font-bold text-slate-900 mb-3 text-center">Healthcare Tech - Enterprise Sales</h3>
                     <p class="text-slate-600 mb-4 text-center">Booked 10+ C-level meetings monthly in competitive industry</p>
                     <div class="text-sm text-slate-500 text-center">
-                        <span class="font-medium">Result:</span> 3 enterprise deals closed ($250k+ each)
+                        <span class="font-medium">Result:</span> 3 enterprise deals closed (R4.5M+ each)
                     </div>
                 </div>
 
@@ -853,7 +634,7 @@
                         <span class="text-2xl">🏦</span>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 mb-3 text-center">FinTech - High-Ticket Sales</h3>
-                    <p class="text-slate-600 mb-4 text-center">Delivered 8-10 qualified appointments for $50k+ deals</p>
+                    <p class="text-slate-600 mb-4 text-center">Delivered 8-10 qualified appointments for R850k+ deals</p>
                     <div class="text-sm text-slate-500 text-center">
                         <span class="font-medium">Result:</span> 40% conversion rate from our appointments
                     </div>
@@ -872,7 +653,7 @@
                         <div class="text-sm text-slate-600 mt-1 text-center">Monthly minimum</div>
                     </div>
                     <div class="bg-white p-6 rounded-xl text-center hover-lift transition-all duration-300">
-                        <div class="text-3xl font-bold text-primary-600 mb-2 text-center">$0</div>
+                        <div class="text-3xl font-bold text-primary-600 mb-2 text-center">R0</div>
                         <div class="font-medium text-slate-900 text-center">Upfront Cost</div>
                         <div class="text-sm text-slate-600 mt-1 text-center">Pay-per-appointment</div>
                     </div>
@@ -900,7 +681,7 @@
     </section>
 
     <!-- Guarantee Section -->
-    <section id="guarantee" class="py-16 md:py-24 bg-white text-center">
+    <section id="guarantee" class="py-16 md:py-24 bg-slate-50 text-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="flex flex-col lg:flex-row gap-8 md:gap-12 mobile-stack centered-container">
                 <div class="lg:w-2/3 mobile-full text-center">
@@ -942,7 +723,7 @@
                 
                 <div class="lg:w-1/3 w-full mobile-full text-center">
                     <div class="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-xl p-8 text-center text-white hover-lift transition-all duration-300 mx-auto">
-                        <div class="text-4xl font-bold mb-2 text-center">$0</div>
+                        <div class="text-4xl font-bold mb-2 text-center">R0</div>
                         <div class="text-primary-100 text-sm mb-6 text-center">Upfront Cost • 30-Day Free Trial</div>
                         
                         <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg mb-6 hover:bg-white/20 transition-all text-center">
@@ -980,6 +761,47 @@
         </div>
     </section>
 
+    <!-- VSL Section -->
+    <section id="vsl" class="py-16 md:py-24 bg-white text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mx-auto text-center">
+                    See Our Business Development Rep in Action
+                </h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto text-center">
+                    Watch how we generate 10+ qualified calls for sales teams
+                </p>
+            </div>
+
+            <div class="video-container rounded-2xl overflow-hidden shadow-2xl mb-12 mx-auto">
+                <iframe 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    title="Concierge Business Development Rep Case Study"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="text-center">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-3xl mx-auto mobile-stack centered-container">
+                    <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="touch-target consultation-btn inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-semibold shadow-sm hover:shadow-md hover-lift mobile-full centered-container">
+                        Book Consultation
+                    </a>
+                    <a href="#results" class="touch-target inline-flex items-center justify-center gap-2 bg-secondary-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-secondary-700 transition-colors shadow-sm hover:shadow-md hover-lift mobile-full centered-container">
+                        View Case Studies
+                    </a>
+                    <a href="https://form.typeform.com/to/J1m2sjvm" target="_blank" class="touch-target inline-flex items-center justify-center gap-2 bg-green-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors shadow-sm hover:shadow-md hover-lift mobile-full centered-container">
+                        Free Campaign Audit
+                    </a>
+                    <a href="#pricing" class="touch-target inline-flex items-center justify-center gap-2 bg-slate-800 text-white px-4 py-3 rounded-lg font-semibold hover:bg-slate-900 transition-colors shadow-sm hover:shadow-md hover-lift mobile-full centered-container">
+                        See Pricing
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing Section -->
     <section id="pricing" class="py-16 md:py-24 bg-slate-50 text-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
@@ -995,7 +817,7 @@
                         <h3 class="text-lg font-medium mb-2 text-slate-500 text-center">30-Day Free Trial</h3>
                         <p class="text-sm mb-4 text-slate-600 text-center">Test our business development rep with zero risk</p>
                         <div class="flex items-baseline gap-1 centered-container">
-                            <span class="text-3xl md:text-4xl font-bold text-green-600 text-center">$0</span>
+                            <span class="text-3xl md:text-4xl font-bold text-green-600 text-center">R0</span>
                             <span class="text-slate-500 text-center">upfront</span>
                         </div>
                     </div>
@@ -1038,7 +860,7 @@
                         <h3 class="text-lg font-medium mb-2 text-slate-300 text-center">Pay-Per-Appointment</h3>
                         <p class="text-sm mb-4 text-slate-400 text-center">Only pay for qualified calls that show up</p>
                         <div class="flex items-baseline gap-1 centered-container">
-                            <span class="text-3xl md:text-4xl font-bold text-white text-center">$299</span>
+                            <span class="text-3xl md:text-4xl font-bold text-white text-center">R1700</span>
                             <span class="text-sm text-slate-400 text-center">per qualified call</span>
                         </div>
                     </div>
@@ -1327,36 +1149,6 @@
                     });
                 }
             });
-        });
-
-        // Video loading and play functionality
-        document.querySelectorAll('video').forEach(video => {
-            // Show loading state
-            video.addEventListener('loadstart', () => {
-                video.classList.add('video-loading');
-            });
-            
-            // Remove loading state when video can play
-            video.addEventListener('canplay', () => {
-                video.classList.remove('video-loading');
-            });
-            
-            // Custom play button functionality
-            const container = video.closest('.video-container');
-            if (container) {
-                const customControls = container.querySelector('.custom-video-controls button');
-                if (customControls) {
-                    customControls.addEventListener('click', () => {
-                        if (video.paused) {
-                            video.play();
-                            customControls.innerHTML = '<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
-                        } else {
-                            video.pause();
-                            customControls.innerHTML = '<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
-                        }
-                    });
-                }
-            }
         });
 
         // Add animation to stats on scroll
