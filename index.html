@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
-    <title>Concierge for Contractors | 10+ Extra Guaranteed Jobs | 100% Commission | No Upfront Fee</title>
-    <meta name="description" content="Get 10+ guaranteed extra jobs with our 24/7 dedicated team. No upfront fees. We take 30% commission only when you get paid. No revenue? No jobs? We have the solution.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>Your 24/7 Business Development Network | 10+ Qualified Appointments | Zero Upfront Costs</title>
+    <meta name="description" content="Get 10+ guaranteed qualified appointments monthly. Your 24/7 dedicated team books appointments, manages your calendar, and handles business development. Zero upfront fees.">
     
-    <!-- Favicon - Black and White Version -->
+    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23000000%22/><path d=%22M40 30L60 50L40 70%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 fill=%22none%22/></svg>" type="image/svg+xml">
     
     <!-- Fonts -->
@@ -39,6 +39,7 @@
               'blob': 'blob 7s infinite',
               'pulse-slow': 'pulse 3s infinite',
               'float': 'float 3s ease-in-out infinite',
+              'fade-in': 'fadeIn 0.5s ease-in',
             },
             keyframes: {
               blob: {
@@ -50,6 +51,10 @@
               float: {
                 '0%, 100%': { transform: 'translateY(0)' },
                 '50%': { transform: 'translateY(-10px)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
               }
             }
           }
@@ -66,7 +71,6 @@
       body {
         font-family: 'Inter', system-ui, -apple-system, sans-serif;
         overflow-x: hidden;
-        text-align: center;
         background-color: #ffffff;
         color: #000000;
       }
@@ -82,28 +86,6 @@
         min-width: 44px;
       }
       
-      .video-container {
-        position: relative;
-        padding-bottom: 56.25%;
-        height: 0;
-        overflow: hidden;
-      }
-      
-      .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-      
-      .glass-nav {
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 2px solid #000000;
-      }
-      
       .hover-lift {
         transition: all 0.3s ease;
       }
@@ -111,25 +93,6 @@
       .hover-lift:hover {
         transform: translateY(-4px);
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      }
-      
-      @media (max-width: 768px) {
-        .mobile-stack {
-          flex-direction: column;
-        }
-        
-        .mobile-center {
-          text-align: center;
-        }
-        
-        .mobile-full {
-          width: 100%;
-        }
-        
-        .mobile-padding {
-          padding-left: 1rem;
-          padding-right: 1rem;
-        }
       }
       
       .consultation-btn {
@@ -160,18 +123,6 @@
         border: 2px solid #000000;
         font-weight: 700;
         letter-spacing: 0.05em;
-      }
-      
-      .commission-badge {
-        background-color: #ffffff;
-        color: #000000;
-        border: 2px solid #000000;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-      }
-      
-      .section-divider {
-        border-bottom: 2px solid #000000;
       }
       
       .card-border {
@@ -208,61 +159,125 @@
         color: #ffffff;
       }
       
-      .text-emphasis {
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
-      
       .stats-number {
         font-weight: 700;
         font-size: 2.5rem;
       }
       
-      .border-black {
-        border-color: #000000;
+      .section-divider {
+        border-bottom: 2px solid #000000;
       }
       
-      .process-timeline {
+      /* WhatsApp Widget Styles */
+      #whatsapp-widget {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 1000;
+        animation: fade-in 0.5s ease-in;
+      }
+      
+      .whatsapp-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background-color: #25D366;
+        border-radius: 50%;
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+        transition: all 0.3s ease;
+        border: 2px solid #000000;
         position: relative;
       }
       
-      .process-timeline::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        width: 2px;
-        background-color: #000000;
-        transform: translateX(-50%);
+      .whatsapp-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        background-color: #128C7E;
       }
       
+      .whatsapp-button svg {
+        width: 32px;
+        height: 32px;
+        fill: #ffffff;
+      }
+      
+      .whatsapp-pulse {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: #25D366;
+        animation: pulse-slow 2s infinite;
+        z-index: -1;
+      }
+      
+      .whatsapp-tooltip {
+        position: absolute;
+        bottom: 70px;
+        right: 0;
+        background: #000000;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        pointer-events: none;
+        border: 1px solid #333;
+        font-weight: 500;
+      }
+      
+      .whatsapp-button:hover + .whatsapp-tooltip {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* Mobile Responsive Adjustments */
       @media (max-width: 768px) {
-        .process-timeline::before {
-          left: 20px;
+        .mobile-stack {
+          flex-direction: column;
+        }
+        
+        .mobile-full {
+          width: 100%;
+        }
+        
+        .mobile-padding {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+        
+        #whatsapp-widget {
+          bottom: 20px;
+          right: 20px;
+        }
+        
+        .whatsapp-button {
+          width: 56px;
+          height: 56px;
         }
       }
     </style>
 </head>
-<body class="bg-white text-black antialiased text-center">
+<body class="bg-white text-black antialiased">
     <!-- Navigation -->
-    <nav class="fixed w-full glass-nav z-50 py-3 shadow-sm text-center">
+    <nav class="fixed w-full bg-white z-50 py-3 shadow-sm border-b-2 border-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
             <!-- Logo -->
-            <a href="#" class="flex items-center gap-2 hover-lift centered-container">
-                <span class="text-xl font-bold">
-                    <span class="text-black">CONCIERGE</span>
-                    <span class="text-gray-600 text-sm ml-1 hidden sm:inline">FOR CONTRACTORS</span>
-                </span>
+            <a href="#" class="flex items-center gap-2 hover-lift">
+                <span class="text-xl font-bold text-black">CONCIERGE</span>
+                <span class="text-gray-600 text-sm hidden sm:inline">YOUR 24/7 BUSINESS DEVELOPMENT NETWORK</span>
             </a>
 
             <!-- Desktop Navigation -->
-            <div class="hidden md:flex items-center gap-6 centered-container">
+            <div class="hidden md:flex items-center gap-6">
                 <a href="#hero" class="text-sm font-medium text-gray-700 hover:text-black transition-colors hover:scale-105">HOME</a>
                 <a href="#pain" class="text-sm font-medium text-gray-700 hover:text-black transition-colors hover:scale-105">THE PROBLEM</a>
-                <a href="#solution" class="text-sm font-medium text-gray-700 hover:text-black transition-colors hover:scale-105">OUR SOLUTION</a>
-                <a href="#products" class="text-sm font-medium text-gray-700 hover:text-black transition-colors hover:scale-105">PRODUCTS</a>
+                <a href="#solution" class="text-sm font-medium text-gray-700 hover:text-black transition-colors hover:scale-105">SOLUTION</a>
                 <a href="#guarantee" class="text-sm font-medium text-gray-700 hover:text-black transition-colors hover:scale-105">GUARANTEE</a>
                 <a href="#process" class="text-sm font-medium text-gray-700 hover:text-black transition-colors hover:scale-105">PROCESS</a>
                 <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="consultation-btn hover-lift">
@@ -271,7 +286,7 @@
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden touch-target p-2 text-gray-800 hover:bg-gray-100 rounded-lg transition-colors centered-container">
+            <button id="mobile-menu-btn" class="md:hidden touch-target p-2 text-gray-800 hover:bg-gray-100 rounded-lg transition-colors">
                 <svg id="menu-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -282,14 +297,13 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-white border-b-2 border-black hidden shadow-lg text-center">
-            <div class="px-4 py-4 flex flex-col gap-1 centered-container">
-                <a href="#hero" class="py-3 px-4 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors centered-container border-b border-gray-200">HOME</a>
-                <a href="#pain" class="py-3 px-4 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors centered-container border-b border-gray-200">THE PROBLEM</a>
-                <a href="#solution" class="py-3 px-4 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors centered-container border-b border-gray-200">OUR SOLUTION</a>
-                <a href="#products" class="py-3 px-4 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors centered-container border-b border-gray-200">PRODUCTS</a>
-                <a href="#guarantee" class="py-3 px-4 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors centered-container border-b border-gray-200">GUARANTEE</a>
-                <a href="#process" class="py-3 px-4 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors centered-container border-b border-gray-200">PROCESS</a>
+        <div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-white border-b-2 border-black hidden shadow-lg">
+            <div class="px-4 py-4 flex flex-col gap-1">
+                <a href="#hero" class="py-3 px-4 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors border-b border-gray-200">HOME</a>
+                <a href="#pain" class="py-3 px-4 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors border-b border-gray-200">THE PROBLEM</a>
+                <a href="#solution" class="py-3 px-4 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors border-b border-gray-200">SOLUTION</a>
+                <a href="#guarantee" class="py-3 px-4 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors border-b border-gray-200">GUARANTEE</a>
+                <a href="#process" class="py-3 px-4 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors border-b border-gray-200">PROCESS</a>
                 <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="mt-2 consultation-btn py-3 text-center font-medium">
                     BOOK FREE CONSULTATION
                 </a>
@@ -305,64 +319,66 @@
             <div class="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-gray-800 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto">
                 <!-- Badge -->
-                <span class="inline-block px-4 py-2 rounded-full no-risk-badge text-sm mb-6 animate-pulse-slow centered-container">
-                    🚀 10+ GUARANTEED EXTRA JOBS • 100% COMMISSION • NO UPFRONT FEE
+                <span class="inline-block px-4 py-2 rounded-full no-risk-badge text-sm mb-6 animate-pulse-slow">
+                    🚀 10+ QUALIFIED APPOINTMENTS • NO UPFRONT FEES • COMMISSION ONLY
                 </span>
                 
                 <!-- Headline -->
-                <h1 class="text-4xl md:text-6xl font-bold mb-6 mx-auto text-center">
-                    <span class="block text-gray-800 text-center">
-                        No Revenue? No Jobs?
-                    </span>
-                    <span class="block text-black mt-2 text-3xl md:text-5xl text-center">
-                        Get 10+ Guaranteed Extra Jobs on 100% Commission
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                    <span class="block text-black">
+                        Your 24/7 Business Development Network
                     </span>
                 </h1>
                 
+                <!-- Sub-headline -->
+                <h2 class="text-2xl md:text-3xl font-semibold mb-8 text-gray-800">
+                    We help home service contractors fill their calendars with <u>10+ Qualified Appointments</u>
+                </h2>
+                
                 <!-- Description -->
-                <p class="text-lg md:text-xl text-gray-700 mb-8 mx-auto text-center max-w-3xl">
-                    We're your 24/7 dedicated team that books appointments, manages your calendar, and handles business development. <strong class="font-bold text-black">No upfront fees. We only get paid 30% when YOU get paid.</strong>
+                <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
+                    <strong class="font-bold text-black">We only get paid when you get paid, no upfront costs.</strong> Focus on your trade while we handle appointment booking, client communication, and business development.
                 </p>
 
-                <!-- YouTube VSL Embed -->
-                <div class="mb-12 text-center">
-                    <div class="video-container rounded-2xl overflow-hidden shadow-2xl mx-auto max-w-4xl border-2 border-black">
-                        <iframe 
-                            src="https://www.youtube.com/embed/Z2Vzbn33KYg" 
-                            title="Concierge for Contractors - Get 10+ Guaranteed Jobs"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
+                <!-- Key Stats -->
+                <div class="bg-gray-50 rounded-xl p-6 mb-8 card-border max-w-2xl mx-auto">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-black mb-1">28+</div>
+                            <div class="text-sm text-gray-700 font-medium">Hours Weekly Time Savings</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-black mb-1">10+</div>
+                            <div class="text-sm text-gray-700 font-medium">Qualified Appointments Guaranteed</div>
+                        </div>
                     </div>
-                    <p class="text-center text-sm text-gray-600 mt-2">See how we guarantee 10+ extra jobs for contractors</p>
                 </div>
 
-                <!-- Main CTA Button -->
-                <div class="mb-12 centered-container">
+                <!-- Main CTA -->
+                <div class="mb-12">
                     <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="touch-target consultation-btn px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover-lift animate-float inline-flex items-center gap-3">
                         <span>📅</span>
-                        <span>BOOK FREE CONSULTATION & GET 10+ JOBS GUARANTEE</span>
+                        <span>GET YOUR 10+ APPOINTMENTS GUARANTEE</span>
                         <span>→</span>
                     </a>
                 </div>
 
                 <!-- Stats -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t-2 border-black text-center">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t-2 border-black">
                     <div class="text-center">
                         <div class="stats-number mb-1">10+</div>
-                        <div class="text-sm text-gray-700">GUARANTEED EXTRA JOBS</div>
+                        <div class="text-sm text-gray-700">QUALIFIED APPOINTMENTS</div>
                     </div>
                     <div class="text-center">
-                        <div class="stats-number mb-1">R0</div>
+                        <div class="stats-number mb-1">24/7</div>
+                        <div class="text-sm text-gray-700">BUSINESS DEVELOPMENT</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="stats-number mb-1">$0</div>
                         <div class="text-sm text-gray-700">UPFRONT FEES</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="stats-number mb-1">100%</div>
-                        <div class="text-sm text-gray-700">COMMISSION BASIS</div>
                     </div>
                     <div class="text-center">
                         <div class="stats-number mb-1">30%</div>
@@ -374,104 +390,112 @@
     </section>
 
     <!-- Pain Points Section -->
-    <section id="pain" class="py-16 md:py-24 bg-white text-center section-divider">
+    <section id="pain" class="py-16 md:py-24 bg-white section-divider">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="max-w-4xl mx-auto text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 mx-auto text-center">
-                    Tired of No Revenue & No Jobs?
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Stop Chasing Leads, Start Doing Your Job
                 </h2>
-                <p class="text-lg text-gray-700 mx-auto text-center">
-                    You're great at your trade, but struggling to find consistent work. We solve the #1 problem contractors face.
+                <p class="text-lg text-gray-700">
+                    You became a contractor to do great work, not to spend hours on admin and lead chasing.
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 items-start mobile-stack centered-container max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 items-start mobile-stack max-w-5xl mx-auto">
                 <!-- Pain Points -->
-                <div class="space-y-6 mobile-full text-center">
-                    <div class="flex gap-4 p-6 gray-bg rounded-xl hover-lift transition-all duration-300 centered-container card-border">
-                        <div class="icon-circle">
-                            <span class="text-2xl">💰</span>
-                        </div>
-                        <div class="text-center">
-                            <h3 class="text-lg font-bold mb-2">Irregular Income</h3>
-                            <p class="text-gray-700">Feast or famine cycles with no steady cash flow</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex gap-4 p-6 gray-bg rounded-xl hover-lift transition-all duration-300 centered-container card-border">
-                        <div class="icon-circle">
-                            <span class="text-2xl">📞</span>
-                        </div>
-                        <div class="text-center">
-                            <h3 class="text-lg font-bold mb-2">Constantly Chasing Leads</h3>
-                            <p class="text-gray-700">Spending more time on admin than actual work</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex gap-4 p-6 gray-bg rounded-xl hover-lift transition-all duration-300 centered-container card-border">
-                        <div class="icon-circle">
+                <div class="space-y-6 mobile-full">
+                    <div class="flex gap-4 p-6 gray-bg rounded-xl hover-lift transition-all duration-300 card-border">
+                        <div class="icon-circle flex-shrink-0">
                             <span class="text-2xl">⏰</span>
                         </div>
-                        <div class="text-center">
-                            <h3 class="text-lg font-bold mb-2">Wasted Time on Admin</h3>
-                            <p class="text-gray-700">Booking, billing, and follow-ups stealing your work time</p>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">Wasting Time on Admin</h3>
+                            <p class="text-gray-700">Spending 20+ hours weekly on calls, bookings, and follow-ups instead of billable work</p>
                         </div>
                     </div>
                     
-                    <div class="flex gap-4 p-6 gray-bg rounded-xl hover-lift transition-all duration-300 centered-container card-border">
-                        <div class="icon-circle">
-                            <span class="text-2xl">🎯</span>
+                    <div class="flex gap-4 p-6 gray-bg rounded-xl hover-lift transition-all duration-300 card-border">
+                        <div class="icon-circle flex-shrink-0">
+                            <span class="text-2xl">📞</span>
                         </div>
-                        <div class="text-center">
-                            <h3 class="text-lg font-bold mb-2">No Job Guarantees</h3>
-                            <p class="text-gray-700">Working hard but not knowing where the next job comes from</p>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">Missing Opportunities</h3>
+                            <p class="text-gray-700">Leads slipping through when you're on-site or after hours</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4 p-6 gray-bg rounded-xl hover-lift transition-all duration-300 card-border">
+                        <div class="icon-circle flex-shrink-0">
+                            <span class="text-2xl">💰</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">Inconsistent Pipeline</h3>
+                            <p class="text-gray-700">Feast-or-famine cycles with no steady flow of qualified appointments</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4 p-6 gray-bg rounded-xl hover-lift transition-all duration-300 card-border">
+                        <div class="icon-circle flex-shrink-0">
+                            <span class="text-2xl">😫</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">Wearing Too Many Hats</h3>
+                            <p class="text-gray-700">Trying to be the technician, salesperson, and admin all at once</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Solution Preview -->
-                <div class="black-bg rounded-xl overflow-hidden shadow-xl hover-lift mobile-full text-center h-full card-border">
-                    <div class="px-6 py-4 border-b-2 border-white text-center">
-                        <div class="text-lg font-bold text-white">YOUR COMPLETE SOLUTION</div>
+                <div class="black-bg rounded-xl overflow-hidden shadow-xl hover-lift mobile-full h-full card-border">
+                    <div class="px-6 py-4 border-b-2 border-white">
+                        <div class="text-lg font-bold text-white">YOUR COMPLETE BUSINESS DEVELOPMENT TEAM</div>
                     </div>
-                    <div class="p-8 text-white text-center">
-                        <div class="flex items-center gap-4 mb-8 centered-container">
-                            <div class="icon-circle icon-circle-black animate-pulse-slow centered-container">
-                                <span class="text-3xl">✅</span>
+                    <div class="p-8 text-white">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="icon-circle icon-circle-black animate-pulse-slow">
+                                <span class="text-3xl">🚀</span>
                             </div>
-                            <div class="text-center">
-                                <h3 class="text-xl font-bold">EVERYTHING HANDLED FOR YOU</h3>
-                                <p class="text-gray-300">Focus on your trade while we handle the rest</p>
-                            </div>
-                        </div>
-                        
-                        <div class="space-y-4 text-left pl-4">
-                            <div class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">✓</span>
-                                <span class="text-gray-300">24/7 Dedicated Appointment Booking</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">✓</span>
-                                <span class="text-gray-300">Dedicated Receptionist</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">✓</span>
-                                <span class="text-gray-300">Dedicated Business Development</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">✓</span>
-                                <span class="text-gray-300">Dedicated Billing & Collections</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">✓</span>
-                                <span class="text-gray-300">10+ Guaranteed Extra Jobs Monthly</span>
+                            <div>
+                                <h3 class="text-xl font-bold">FOCUS ON WHAT YOU DO BEST</h3>
+                                <p class="text-gray-300">We handle everything else 24/7</p>
                             </div>
                         </div>
                         
-                        <!-- Consultation Button -->
-                        <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="mt-8 inline-block bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-colors hover-lift w-full card-border">
-                            GET YOUR 10+ JOBS GUARANTEE
-                        </a>
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">✓</span>
+                                <span class="text-gray-300">24/7 Qualified Appointment Booking</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">✓</span>
+                                <span class="text-gray-300">Professional Client Communication</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">✓</span>
+                                <span class="text-gray-300">Active Lead Generation & Qualification</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">✓</span>
+                                <span class="text-gray-300">Calendar & Schedule Management</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">✓</span>
+                                <span class="text-gray-300">10+ Monthly Appointments Guaranteed</span>
+                            </div>
+                        </div>
+                        
+                        <!-- WhatsApp CTA Inside Solution Box -->
+                        <div class="mt-8 pt-6 border-t border-white/20">
+                            <p class="text-gray-300 mb-4 text-sm">Quick question? Chat directly with our team:</p>
+                            <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I'm%20a%20contractor%20interested%20in%20your%2010%2B%20appointments%20guarantee." 
+                               target="_blank" 
+                               class="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#128C7E] transition-colors w-full justify-center card-border">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.304-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"/>
+                                </svg>
+                                <span>Chat on WhatsApp</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -479,172 +503,83 @@
     </section>
 
     <!-- Solution Section -->
-    <section id="solution" class="py-16 md:py-24 gray-bg text-center">
+    <section id="solution" class="py-16 md:py-24 gray-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 mx-auto text-center">
-                    Your 24/7 Dedicated Team
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Your 24/7 Business Development Network
                 </h2>
-                <p class="text-lg text-gray-700 max-w-2xl mx-auto text-center">
-                    We become your business development department, handling everything so you can focus on your trade
+                <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+                    We become your dedicated team that handles appointment booking, client communication, and business development around the clock
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6 mb-12 mobile-stack centered-container max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-6 mb-12 mobile-stack max-w-6xl mx-auto">
                 <!-- Service 1 -->
                 <div class="bg-white p-6 rounded-xl card-border shadow-sm hover-lift transition-all duration-300 text-center h-full">
                     <div class="icon-circle mx-auto mb-4">
                         <span class="text-3xl">📅</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">24/7 Appointment Booking</h3>
-                    <p class="text-gray-700 mb-4 text-center">Never miss a lead. We book appointments around the clock and sync directly to your calendar.</p>
+                    <h3 class="text-xl font-bold mb-3">Qualified Appointment Booking</h3>
+                    <p class="text-gray-700 mb-4">We book 10+ qualified appointments monthly that sync directly to your calendar. No tire-kickers, just serious clients.</p>
                 </div>
 
                 <!-- Service 2 -->
                 <div class="bg-white p-6 rounded-xl card-border shadow-sm hover-lift transition-all duration-300 text-center h-full">
                     <div class="icon-circle mx-auto mb-4">
-                        <span class="text-3xl">👩‍💼</span>
+                        <span class="text-3xl">👥</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Dedicated Receptionist</h3>
-                    <p class="text-gray-700 mb-4 text-center">Professional call handling, lead qualification, and customer service so you look like a big company.</p>
+                    <h3 class="text-xl font-bold mb-3">24/7 Client Communication</h3>
+                    <p class="text-gray-700 mb-4">Professional handling of all calls, emails, and inquiries so you never miss an opportunity.</p>
                 </div>
 
                 <!-- Service 3 -->
                 <div class="bg-white p-6 rounded-xl card-border shadow-sm hover-lift transition-all duration-300 text-center h-full">
                     <div class="icon-circle mx-auto mb-4">
-                        <span class="text-3xl">🚀</span>
+                        <span class="text-3xl">🎯</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Business Development</h3>
-                    <p class="text-gray-700 mb-4 text-center">We actively find and qualify new leads, run marketing campaigns, and fill your pipeline daily.</p>
+                    <h3 class="text-xl font-bold mb-3">Business Development</h3>
+                    <p class="text-gray-700 mb-4">Active lead generation, qualification, and pipeline management to keep your calendar full.</p>
                 </div>
             </div>
 
-            <!-- Guarantee Box -->
-            <div class="mt-12 black-bg rounded-2xl p-8 text-white text-center hover-lift transition-all duration-300 mx-auto max-w-4xl card-border">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div class="text-center md:text-left">
-                        <h3 class="text-2xl font-bold mb-2 text-center md:text-left">10+ GUARANTEED EXTRA JOBS</h3>
-                        <p class="text-gray-300">Pay nothing upfront. We only succeed when you succeed.</p>
+            <!-- WhatsApp CTA Box -->
+            <div class="mt-12 max-w-4xl mx-auto">
+                <div class="bg-gradient-to-r from-black to-gray-900 rounded-2xl p-8 text-white hover-lift transition-all duration-300 card-border">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">HAVE QUESTIONS? CHAT WITH US NOW</h3>
+                            <p class="text-gray-300">Get instant answers about our 10+ appointments guarantee</p>
+                        </div>
+                        <a href="https://wa.me/27766473499?text=Hi!%20I%20have%20a%20question%20about%20the%2010%2B%20appointments%20guarantee." 
+                           target="_blank" 
+                           class="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#128C7E] transition-colors hover-lift whitespace-nowrap card-border">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.304-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"/>
+                            </svg>
+                            <span>Message Us on WhatsApp</span>
+                        </a>
                     </div>
-                    <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="consultation-btn inline-flex items-center gap-2 hover-lift whitespace-nowrap">
-                        <span>START RISK-FREE TODAY</span>
-                        <span>→</span>
-                    </a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products" class="py-16 md:py-24 bg-white text-center section-divider">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 mx-auto text-center">
-                    Complete Business Solutions
-                </h2>
-                <p class="text-lg text-gray-700 max-w-2xl mx-auto text-center">
-                    Eight essential products designed to handle every aspect of your contracting business
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 mobile-stack centered-container max-w-6xl mx-auto">
-                <!-- Product 1 -->
-                <div class="bg-white p-6 rounded-xl card-border shadow-sm hover-lift transition-all duration-300 text-center h-full">
-                    <div class="icon-circle mx-auto mb-4">
-                        <span class="text-3xl">📞</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">24/7 Call Answering</h3>
-                    <p class="text-gray-700 mb-4 text-center">Never miss a customer call with our round-the-clock professional receptionists.</p>
-                </div>
-
-                <!-- Product 2 -->
-                <div class="bg-white p-6 rounded-xl card-border shadow-sm hover-lift transition-all duration-300 text-center h-full">
-                    <div class="icon-circle mx-auto mb-4">
-                        <span class="text-3xl">📅</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Appointment Scheduling</h3>
-                    <p class="text-gray-700 mb-4 text-center">Automated booking system that syncs with your calendar in real-time.</p>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="bg-white p-6 rounded-xl card-border shadow-sm hover-lift transition-all duration-300 text-center h-full">
-                    <div class="icon-circle mx-auto mb-4">
-                        <span class="text-3xl">🔍</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Lead Generation</h3>
-                    <p class="text-gray-700 mb-4 text-center">Active prospecting and qualification of new business opportunities daily.</p>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="bg-white p-6 rounded-xl card-border shadow-sm hover-lift transition-all duration-300 text-center h-full">
-                    <div class="icon-circle mx-auto mb-4">
-                        <span class="text-3xl">📧</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Email Management</h3>
-                    <p class="text-gray-700 mb-4 text-center">Professional handling of all business correspondence and customer inquiries.</p>
-                </div>
-
-                <!-- Product 5 -->
-                <div class="bg-white p-6 rounded-xl card-border shadow-sm hover-lift transition-all duration-300 text-center h-full">
-                    <div class="icon-circle mx-auto mb-4">
-                        <span class="text-3xl">💰</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Billing & Invoicing</h3>
-                    <p class="text-gray-700 mb-4 text-center">Professional invoice creation, sending, and payment tracking.</p>
-                </div>
-
-                <!-- Product 6 -->
-                <div class="bg-white p-6 rounded-xl card-border shadow-sm hover-lift transition-all duration-300 text-center h-full">
-                    <div class="icon-circle mx-auto mb-4">
-                        <span class="text-3xl">📊</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Collections Management</h3>
-                    <p class="text-gray-700 mb-4 text-center">Professional follow-up on outstanding payments and accounts receivable.</p>
-                </div>
-
-                <!-- Product 7 -->
-                <div class="bg-white p-6 rounded-xl card-border shadow-sm hover-lift transition-all duration-300 text-center h-full">
-                    <div class="icon-circle mx-auto mb-4">
-                        <span class="text-3xl">📱</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">CRM Integration</h3>
-                    <p class="text-gray-700 mb-4 text-center">Seamless integration with your existing customer relationship management system.</p>
-                </div>
-
-                <!-- Product 8 -->
-                <div class="bg-white p-6 rounded-xl card-border shadow-sm hover-lift transition-all duration-300 text-center h-full">
-                    <div class="icon-circle mx-auto mb-4">
-                        <span class="text-3xl">📈</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Performance Reporting</h3>
-                    <p class="text-gray-700 mb-4 text-center">Weekly and monthly reports on leads, conversions, and revenue performance.</p>
-                </div>
-            </div>
-
-            <!-- CTA -->
-            <div class="centered-container">
-                <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="touch-target consultation-btn inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg hover-lift mobile-full centered-container">
-                    GET ALL 8 PRODUCTS BUNDLED
-                </a>
             </div>
         </div>
     </section>
 
     <!-- Guarantee Section -->
-    <section id="guarantee" class="py-16 md:py-24 gray-bg-light text-center">
+    <section id="guarantee" class="py-16 md:py-24 gray-bg-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="max-w-6xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12 mx-auto text-center">
-                    Our Iron-Clad Guarantee
+                <h2 class="text-3xl md:text-4xl font-bold mb-12">
+                    Our Iron-Clad Appointment Guarantee
                 </h2>
                 
-                <div class="grid lg:grid-cols-2 gap-8 mobile-stack centered-container">
+                <div class="grid lg:grid-cols-2 gap-8 mobile-stack">
                     <!-- Left Column -->
                     <div class="bg-white p-8 rounded-xl card-border text-center h-full">
                         <div class="icon-circle icon-circle-black mx-auto mb-6">
                             <span class="text-3xl">✓</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-6 text-center">WHAT WE GUARANTEE</h3>
+                        <h3 class="text-2xl font-bold mb-6">WHAT WE GUARANTEE</h3>
                         
                         <div class="space-y-6 text-left">
                             <div class="flex items-start gap-4">
@@ -652,8 +587,8 @@
                                     <span class="text-xl">✓</span>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-lg mb-1">Minimum 10 Extra Jobs Monthly</h4>
-                                    <p class="text-gray-700">We guarantee to deliver at least 10 additional qualified jobs to your business every single month.</p>
+                                    <h4 class="font-bold text-lg mb-1">10+ Qualified Appointments Monthly</h4>
+                                    <p class="text-gray-700">We guarantee to book at least 10 qualified appointments for your business every month.</p>
                                 </div>
                             </div>
                             
@@ -662,8 +597,8 @@
                                     <span class="text-xl">✓</span>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-lg mb-1">100% Commission-Based</h4>
-                                    <p class="text-gray-700">Zero upfront costs. We only earn when you get paid, aligning our success directly with yours.</p>
+                                    <h4 class="font-bold text-lg mb-1">Zero Upfront Costs</h4>
+                                    <p class="text-gray-700">No setup fees, no monthly retainers. You only pay when we deliver results.</p>
                                 </div>
                             </div>
                             
@@ -672,8 +607,8 @@
                                     <span class="text-xl">✓</span>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-lg mb-1">30% Only on Completed Jobs</h4>
-                                    <p class="text-gray-700">Our commission is a flat 30% taken only from successfully completed and paid jobs.</p>
+                                    <h4 class="font-bold text-lg mb-1">30% Only on Completed Work</h4>
+                                    <p class="text-gray-700">Our commission is 30% of completed jobs from the appointments we book.</p>
                                 </div>
                             </div>
                         </div>
@@ -688,231 +623,158 @@
                         <div class="icon-circle icon-circle-black mx-auto mb-6">
                             <span class="text-3xl">🛡️</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-6 text-center">RISK-FREE PREMIUM IMPLEMENTATION</h3>
+                        <h3 class="text-2xl font-bold mb-6">28+ HOURS WEEKLY TIME SAVINGS</h3>
                         
                         <div class="space-y-6 text-left">
                             <div class="flex items-start gap-4">
                                 <div class="icon-circle flex-shrink-0 mt-1">
-                                    <span class="text-xl">1</span>
+                                    <span class="text-xl">⏰</span>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-lg mb-1">Dedicated Onboarding Specialist</h4>
-                                    <p class="text-gray-700">Your personal specialist handles setup, integration, and training with no effort from you.</p>
+                                    <h4 class="font-bold text-lg mb-1">No More Admin Work</h4>
+                                    <p class="text-gray-700">Recover 20+ hours weekly spent on calls, emails, and appointment setting.</p>
                                 </div>
                             </div>
                             
                             <div class="flex items-start gap-4">
                                 <div class="icon-circle flex-shrink-0 mt-1">
-                                    <span class="text-xl">2</span>
+                                    <span class="text-xl">💰</span>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-lg mb-1">24/7 Account Management</h4>
-                                    <p class="text-gray-700">Round-the-clock support and management ensuring your service runs smoothly.</p>
+                                    <h4 class="font-bold text-lg mb-1">Focus on Billable Work</h4>
+                                    <p class="text-gray-700">Spend your time on actual contracting work that generates revenue.</p>
                                 </div>
                             </div>
                             
                             <div class="flex items-start gap-4">
                                 <div class="icon-circle flex-shrink-0 mt-1">
-                                    <span class="text-xl">3</span>
+                                    <span class="text-xl">📈</span>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-lg mb-1">Performance Monitoring & Optimization</h4>
-                                    <p class="text-gray-700">Continuous tracking and improvement of lead quality and conversion rates.</p>
+                                    <h4 class="font-bold text-lg mb-1">Scale Your Business</h4>
+                                    <p class="text-gray-700">With consistent appointments, you can plan growth and hire help.</p>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="mt-8 pt-6 border-t-2 border-black">
-                            <span class="inline-block px-4 py-2 rounded-full bg-black text-white text-sm font-bold">FULLY MANAGED • NO HIDDEN COSTS</span>
+                            <span class="inline-block px-4 py-2 rounded-full bg-black text-white text-sm font-bold">FOCUS ON YOUR TRADE • WE HANDLE THE REST</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- CTA -->
-                <div class="mt-12 centered-container">
-                    <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="touch-target consultation-btn inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg hover-lift mobile-full centered-container">
-                        CLAIM YOUR RISK-FREE GUARANTEE
+                <!-- Dual CTA -->
+                <div class="mt-12 grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                    <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="touch-target consultation-btn inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg hover-lift mobile-full">
+                        BOOK FREE CONSULTATION
+                    </a>
+                    <a href="https://wa.me/27766473499?text=I'm%20interested%20in%20the%2028%2B%20hours%20time%20savings%20guarantee." 
+                       target="_blank" 
+                       class="touch-target inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#128C7E] transition-colors hover-lift mobile-full card-border">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.304-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"/>
+                        </svg>
+                        <span>QUICK CHAT ON WHATSAPP</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section id="process" class="py-16 md:py-24 bg-white text-center section-divider">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 mx-auto text-center">
-                    Simple 5-Step Process
-                </h2>
-                <p class="text-lg text-gray-700 max-w-2xl mx-auto text-center">
-                    From signup to your first guaranteed job in less than 48 hours
-                </p>
-            </div>
-
-            <div class="process-timeline max-w-4xl mx-auto">
-                <!-- Step 1 -->
-                <div class="flex flex-col md:flex-row items-center mb-12 relative">
-                    <div class="md:w-1/2 md:text-right md:pr-12 mb-6 md:mb-0 text-center md:text-right">
-                        <div class="inline-block bg-black text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg mb-4">1</div>
-                        <h3 class="text-xl font-bold mb-2">FREE CONSULTATION</h3>
-                        <p class="text-gray-700">30-minute strategy session to understand your business and goals</p>
-                    </div>
-                    <div class="md:w-1/2 md:pl-12 text-center md:text-left">
-                        <div class="bg-white p-6 rounded-xl card-border">
-                            <div class="icon-circle mx-auto md:mx-0 mb-4">
-                                <span class="text-2xl">📅</span>
-                            </div>
-                            <p class="text-gray-700">Book your no-obligation consultation to see how we can guarantee 10+ extra jobs</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="flex flex-col md:flex-row items-center mb-12 relative">
-                    <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 text-center md:text-right order-2 md:order-1">
-                        <div class="bg-white p-6 rounded-xl card-border">
-                            <div class="icon-circle mx-auto md:mx-0 mb-4">
-                                <span class="text-2xl">⚡</span>
-                            </div>
-                            <p class="text-gray-700">We set up all systems within 24 hours - no technical knowledge needed</p>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 md:pl-12 text-center md:text-left order-1 md:order-2 mb-6 md:mb-0">
-                        <div class="inline-block bg-black text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg mb-4">2</div>
-                        <h3 class="text-xl font-bold mb-2">RAPID ONBOARDING</h3>
-                        <p class="text-gray-700">24-hour setup of all systems and integration with your calendar</p>
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="flex flex-col md:flex-row items-center mb-12 relative">
-                    <div class="md:w-1/2 md:text-right md:pr-12 mb-6 md:mb-0 text-center md:text-right">
-                        <div class="inline-block bg-black text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg mb-4">3</div>
-                        <h3 class="text-xl font-bold mb-2">ACTIVE LEAD GENERATION</h3>
-                        <p class="text-gray-700">Our team immediately begins finding and qualifying leads for you</p>
-                    </div>
-                    <div class="md:w-1/2 md:pl-12 text-center md:text-left">
-                        <div class="bg-white p-6 rounded-xl card-border">
-                            <div class="icon-circle mx-auto md:mx-0 mb-4">
-                                <span class="text-2xl">🔍</span>
-                            </div>
-                            <p class="text-gray-700">We start filling your pipeline with qualified leads from day one</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="flex flex-col md:flex-row items-center mb-12 relative">
-                    <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 text-center md:text-right order-2 md:order-1">
-                        <div class="bg-white p-6 rounded-xl card-border">
-                            <div class="icon-circle mx-auto md:mx-0 mb-4">
-                                <span class="text-2xl">📞</span>
-                            </div>
-                            <p class="text-gray-700">We handle all calls, bookings, and client communications 24/7</p>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 md:pl-12 text-center md:text-left order-1 md:order-2 mb-6 md:mb-0">
-                        <div class="inline-block bg-black text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg mb-4">4</div>
-                        <h3 class="text-xl font-bold mb-2">24/7 OPERATIONS</h3>
-                        <p class="text-gray-700">Full management of appointments, calls, and client communications</p>
-                    </div>
-                </div>
-
-                <!-- Step 5 -->
-                <div class="flex flex-col md:flex-row items-center relative">
-                    <div class="md:w-1/2 md:text-right md:pr-12 mb-6 md:mb-0 text-center md:text-right">
-                        <div class="inline-block bg-black text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg mb-4">5</div>
-                        <h3 class="text-xl font-bold mb-2">GET PAID & WE GET PAID</h3>
-                        <p class="text-gray-700">You complete the work, get paid, and we take our 30% commission</p>
-                    </div>
-                    <div class="md:w-1/2 md:pl-12 text-center md:text-left">
-                        <div class="bg-white p-6 rounded-xl card-border">
-                            <div class="icon-circle mx-auto md:mx-0 mb-4">
-                                <span class="text-2xl">💰</span>
-                            </div>
-                            <p class="text-gray-700">Only when you receive payment do we take our commission - your success is our success</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Process CTA -->
-            <div class="mt-12 centered-container">
-                <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="touch-target consultation-btn inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg hover-lift mobile-full centered-container">
-                    START THE 5-STEP PROCESS NOW
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- WhatsApp Widget -->
+    <div id="whatsapp-widget">
+        <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I%20saw%20your%20website%20and%20I'm%20interested%20in%20learning%20more%20about%20your%2010%2B%20appointments%20guarantee%20for%20contractors." 
+           class="whatsapp-button hover-lift" 
+           target="_blank" 
+           aria-label="Chat with us on WhatsApp"
+           id="whatsapp-button">
+            <div class="whatsapp-pulse"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.304-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"/>
+            </svg>
+        </a>
+        <div class="whatsapp-tooltip">Chat with us on WhatsApp!</div>
+    </div>
 
     <!-- Final CTA Section -->
-    <section class="py-16 md:py-24 black-bg relative overflow-hidden text-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight mx-auto text-center">
-                READY FOR 10+ GUARANTEED EXTRA JOBS?
+    <section class="py-16 md:py-24 black-bg relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight text-center text-white">
+                READY FOR 10+ QUALIFIED APPOINTMENTS MONTHLY?
             </h2>
             <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 text-center">
-                Stop struggling with inconsistent work. Get your dedicated team today and start growing your business risk-free.
+                Stop wasting time on admin. Get your 24/7 business development team today and focus on what you do best.
             </p>
             
-            <!-- Final CTA -->
-            <div class="mb-12 centered-container">
-                <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="touch-target inline-flex items-center justify-center gap-3 bg-white text-black px-8 py-5 rounded-xl font-bold text-xl hover:bg-gray-100 transition-all shadow-2xl hover:shadow-3xl hover-lift animate-pulse-slow mobile-full centered-container max-w-md mx-auto card-border">
+            <!-- Triple CTA Options -->
+            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+                <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="touch-target inline-flex items-center justify-center gap-3 bg-white text-black px-6 py-5 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl hover:shadow-3xl hover-lift card-border">
                     <span class="text-2xl">📅</span>
-                    <span>BOOK FREE CONSULTATION</span>
-                    <span class="text-2xl">→</span>
+                    <span>BOOK CONSULTATION</span>
+                </a>
+                
+                <a href="tel:+27766473499" class="touch-target inline-flex items-center justify-center gap-3 bg-gray-800 text-white px-6 py-5 rounded-xl font-bold text-lg hover:bg-gray-700 transition-all shadow-2xl hover:shadow-3xl hover-lift card-border">
+                    <span class="text-2xl">📞</span>
+                    <span>CALL US NOW</span>
+                </a>
+                
+                <a href="https://wa.me/27766473499?text=Hello!%20I'm%20ready%20to%20get%20started%20with%20the%2010%2B%20appointments%20guarantee." 
+                   target="_blank" 
+                   class="touch-target inline-flex items-center justify-center gap-3 bg-[#25D366] text-white px-6 py-5 rounded-xl font-bold text-lg hover:bg-[#128C7E] transition-all shadow-2xl hover:shadow-3xl hover-lift card-border">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.304-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"/>
+                    </svg>
+                    <span>WHATSAPP US</span>
                 </a>
             </div>
             
             <!-- Guarantee Badges -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
                 <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl text-center card-border">
-                    <div class="text-2xl font-bold mb-1">10+</div>
-                    <div class="text-sm text-gray-300">JOBS GUARANTEED</div>
+                    <div class="text-2xl font-bold mb-1 text-white">10+</div>
+                    <div class="text-sm text-gray-300">QUALIFIED APPOINTMENTS</div>
                 </div>
                 <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl text-center card-border">
-                    <div class="text-2xl font-bold mb-1">R0</div>
-                    <div class="text-sm text-gray-300">UPFRONT COST</div>
+                    <div class="text-2xl font-bold mb-1 text-white">28+</div>
+                    <div class="text-sm text-gray-300">HOURS SAVED WEEKLY</div>
                 </div>
                 <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl text-center card-border">
-                    <div class="text-2xl font-bold mb-1">100%</div>
-                    <div class="text-sm text-gray-300">COMMISSION BASED</div>
+                    <div class="text-2xl font-bold mb-1 text-white">$0</div>
+                    <div class="text-sm text-gray-300">UPFRONT COSTS</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black text-gray-400 py-8 text-center">
+    <footer class="bg-black text-gray-400 py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-center">
-                <div class="text-center md:text-center">
-                    <div class="text-xl font-bold text-white mb-2 text-center">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <div class="text-xl font-bold text-white mb-2">
                         <span class="text-white">CONCIERGE</span>
-                        <span class="text-gray-400"> FOR CONTRACTORS</span>
+                        <span class="text-gray-400"> | YOUR 24/7 BUSINESS DEVELOPMENT NETWORK</span>
                     </div>
-                    <p class="text-sm text-gray-500 text-center">
-                        10+ GUARANTEED EXTRA JOBS • 100% COMMISSION • NO UPFRONT FEE • 24/7 DEDICATED TEAM
+                    <p class="text-sm text-gray-500">
+                        10+ QUALIFIED APPOINTMENTS GUARANTEED • 28+ HOURS WEEKLY TIME SAVINGS • ZERO UPFRONT FEES
                     </p>
                 </div>
                 
-                <div class="text-sm text-gray-500 text-center md:text-center">
-                    <p class="mb-1 text-center">COMPANY REGISTRATION: 2024 / 132788 / 07</p>
-                    <p class="text-center">© 2024 CONCIERGE FOR CONTRACTORS. ALL RIGHTS RESERVED.</p>
+                <div class="text-sm text-gray-500">
+                    <p class="mb-1">COMPANY REGISTRATION: 2024 / 132788 / 07</p>
+                    <p>© 2024 CONCIERGE FOR CONTRACTORS. ALL RIGHTS RESERVED.</p>
                 </div>
             </div>
             
-            <!-- Footer Links -->
+            <!-- Contact Links -->
             <div class="mt-8 pt-6 border-t border-gray-800">
                 <div class="flex flex-wrap justify-center gap-6">
                     <a href="#hero" class="text-sm text-gray-400 hover:text-white transition-colors">HOME</a>
                     <a href="#solution" class="text-sm text-gray-400 hover:text-white transition-colors">SOLUTION</a>
-                    <a href="#products" class="text-sm text-gray-400 hover:text-white transition-colors">PRODUCTS</a>
                     <a href="#guarantee" class="text-sm text-gray-400 hover:text-white transition-colors">GUARANTEE</a>
-                    <a href="#process" class="text-sm text-gray-400 hover:text-white transition-colors">PROCESS</a>
-                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">PRIVACY POLICY</a>
-                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">TERMS OF SERVICE</a>
+                    <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="text-sm text-gray-400 hover:text-white transition-colors">BOOK CONSULTATION</a>
+                    <a href="tel:+27766473499" class="text-sm text-gray-400 hover:text-white transition-colors">CALL: +27 76 647 3499</a>
+                    <a href="https://wa.me/27766473499" target="_blank" class="text-sm text-gray-400 hover:text-white transition-colors">WHATSAPP</a>
                 </div>
             </div>
         </div>
@@ -934,12 +796,10 @@
                     mobileMenu.classList.remove('hidden');
                     menuOpenIcon.classList.add('hidden');
                     menuCloseIcon.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden';
                 } else {
                     mobileMenu.classList.add('hidden');
                     menuOpenIcon.classList.remove('hidden');
                     menuCloseIcon.classList.add('hidden');
-                    document.body.style.overflow = '';
                 }
             });
 
@@ -949,18 +809,7 @@
                     mobileMenu.classList.add('hidden');
                     menuOpenIcon.classList.remove('hidden');
                     menuCloseIcon.classList.add('hidden');
-                    document.body.style.overflow = '';
                 });
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', (event) => {
-                if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target) && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                    menuOpenIcon.classList.remove('hidden');
-                    menuCloseIcon.classList.add('hidden');
-                    document.body.style.overflow = '';
-                }
             });
         }
 
@@ -979,7 +828,6 @@
                         mobileMenu.classList.add('hidden');
                         menuOpenIcon.classList.remove('hidden');
                         menuCloseIcon.classList.add('hidden');
-                        document.body.style.overflow = '';
                     }
                     
                     // Calculate header height
@@ -993,6 +841,15 @@
                 }
             });
         });
+
+        // WhatsApp button click tracking (optional)
+        const whatsappButton = document.getElementById('whatsapp-button');
+        if (whatsappButton) {
+            whatsappButton.addEventListener('click', function() {
+                // You can add analytics here
+                console.log('WhatsApp button clicked');
+            });
+        }
 
         // Add animation to stats on scroll
         const observerOptions = {
@@ -1011,22 +868,6 @@
         document.querySelectorAll('.stats-number').forEach(stat => {
             observer.observe(stat);
         });
-
-        // Add hover effects to cards
-        document.querySelectorAll('.hover-lift').forEach(element => {
-            element.addEventListener('mouseenter', function() {
-                this.style.transition = 'all 0.3s ease';
-            });
-        });
-    </script>
-
-    <!-- Cal.com floating-popup embed code -->
-    <script type="text/javascript">
-      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-      Cal("init", "south-africa", {origin:"https://app.cal.com"});
-
-      Cal.ns["south-africa"]("floatingButton", {"calLink":"partner-discovery/south-africa","config":{"layout":"month_view"}}); 
-      Cal.ns["south-africa"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
     </script>
 </body>
 </html>
