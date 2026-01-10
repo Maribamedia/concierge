@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-    <title>Your 24/7 Business Development Network | 10+ Qualified Appointments | Zero Upfront Costs</title>
+    <title>Concierge - Dedicated Business Development, We help Home Service Contractors fill their calendars with 10+ Qualified New Jobs, New Revenue and we charge zero money upfront. We only get paid when you get paid, no upfront costs. Focus on your trade while we handle appointment booking, client communication, and business development.</title>
     <meta name="description" content="Get 10+ guaranteed qualified appointments monthly. Your 24/7 dedicated team books appointments, manages your calendar, and handles business development. Zero upfront fees.">
     
     <!-- Favicon -->
@@ -168,6 +168,24 @@
         border-bottom: 2px solid #000000;
       }
       
+      /* Video Container */
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 12px;
+        border: 2px solid #000000;
+      }
+      
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      
       /* WhatsApp Widget Styles */
       #whatsapp-widget {
         position: fixed;
@@ -260,6 +278,10 @@
           width: 56px;
           height: 56px;
         }
+        
+        .video-container {
+          margin-top: 2rem;
+        }
       }
     </style>
 </head>
@@ -270,7 +292,7 @@
             <!-- Logo -->
             <a href="#" class="flex items-center gap-2 hover-lift">
                 <span class="text-xl font-bold text-black">CONCIERGE</span>
-                <span class="text-gray-600 text-sm hidden sm:inline">YOUR 24/7 BUSINESS DEVELOPMENT NETWORK</span>
+                <span class="text-gray-600 text-sm hidden sm:inline">DEDICATED BUSINESS DEVELOPMENT</span>
             </a>
 
             <!-- Desktop Navigation -->
@@ -312,7 +334,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="pt-24 pb-16 md:pt-32 md:pb-24 relative overflow-hidden text-center">
+    <section id="hero" class="pt-24 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">
         <!-- Background Pattern -->
         <div class="absolute inset-0 -z-10 overflow-hidden opacity-5">
             <div class="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-gray-900 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
@@ -320,69 +342,103 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-4xl mx-auto">
-                <!-- Badge -->
-                <span class="inline-block px-4 py-2 rounded-full no-risk-badge text-sm mb-6 animate-pulse-slow">
-                    🚀 10+ QUALIFIED APPOINTMENTS • NO UPFRONT FEES • COMMISSION ONLY
-                </span>
-                
-                <!-- Headline -->
-                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                    <span class="block text-black">
-                        Your 24/7 Business Development Network
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Column: Text Content -->
+                <div>
+                    <!-- Badge -->
+                    <span class="inline-block px-4 py-2 rounded-full no-risk-badge text-sm mb-6 animate-pulse-slow">
+                        🚀 10+ QUALIFIED JOBS • NO UPFRONT FEES • COMMISSION ONLY
                     </span>
-                </h1>
-                
-                <!-- Sub-headline -->
-                <h2 class="text-2xl md:text-3xl font-semibold mb-8 text-gray-800">
-                    We help home service contractors fill their calendars with <u>10+ Qualified Appointments</u>
-                </h2>
-                
-                <!-- Description -->
-                <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-                    <strong class="font-bold text-black">We only get paid when you get paid, no upfront costs.</strong> Focus on your trade while we handle appointment booking, client communication, and business development.
-                </p>
+                    
+                    <!-- Headline -->
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        <span class="block text-black">
+                            Concierge - Dedicated Business Development
+                        </span>
+                    </h1>
+                    
+                    <!-- Sub-headline -->
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-8 text-gray-800">
+                        We help Home Service Contractors fill their calendars with <u>10+ Qualified New Jobs, New Revenue</u> and we charge zero money upfront.
+                    </h2>
+                    
+                    <!-- Description -->
+                    <p class="text-lg md:text-xl text-gray-700 mb-8">
+                        <strong class="font-bold text-black">We only get paid when you get paid, no upfront costs.</strong> Focus on your trade while we handle appointment booking, client communication, and business development.
+                    </p>
 
-                <!-- Key Stats -->
-                <div class="bg-gray-50 rounded-xl p-6 mb-8 card-border max-w-2xl mx-auto">
-                    <div class="grid grid-cols-2 gap-4">
+                    <!-- Key Stats -->
+                    <div class="bg-gray-50 rounded-xl p-6 mb-8 card-border">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-black mb-1">28+</div>
+                                <div class="text-sm text-gray-700 font-medium">Hours Weekly Time Savings</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-black mb-1">10+</div>
+                                <div class="text-sm text-gray-700 font-medium">Qualified Jobs Guaranteed</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main CTA -->
+                    <div class="mb-8">
+                        <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="touch-target consultation-btn px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover-lift animate-float inline-flex items-center gap-3">
+                            <span>📅</span>
+                            <span>GET YOUR 10+ JOBS GUARANTEE</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t-2 border-black">
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-black mb-1">28+</div>
-                            <div class="text-sm text-gray-700 font-medium">Hours Weekly Time Savings</div>
+                            <div class="stats-number mb-1">10+</div>
+                            <div class="text-sm text-gray-700">QUALIFIED JOBS</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-black mb-1">10+</div>
-                            <div class="text-sm text-gray-700 font-medium">Qualified Appointments Guaranteed</div>
+                            <div class="stats-number mb-1">24/7</div>
+                            <div class="text-sm text-gray-700">BUSINESS DEVELOPMENT</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="stats-number mb-1">$0</div>
+                            <div class="text-sm text-gray-700">UPFRONT FEES</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="stats-number mb-1">30%</div>
+                            <div class="text-sm text-gray-700">ONLY WHEN YOU GET PAID</div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Main CTA -->
-                <div class="mb-12">
-                    <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="touch-target consultation-btn px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover-lift animate-float inline-flex items-center gap-3">
-                        <span>📅</span>
-                        <span>GET YOUR 10+ APPOINTMENTS GUARANTEE</span>
-                        <span>→</span>
-                    </a>
-                </div>
-
-                <!-- Stats -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t-2 border-black">
-                    <div class="text-center">
-                        <div class="stats-number mb-1">10+</div>
-                        <div class="text-sm text-gray-700">QUALIFIED APPOINTMENTS</div>
+                
+                <!-- Right Column: YouTube VSL Embed -->
+                <div>
+                    <div class="video-container shadow-2xl hover-lift">
+                        <!-- Replace VIDEO_ID with your actual YouTube video ID -->
+                        <iframe 
+                            src="https://www.youtube.com/embed/VIDEO_ID_HERE" 
+                            title="Concierge Business Development - How We Get You 10+ Qualified Jobs Monthly"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
                     </div>
-                    <div class="text-center">
-                        <div class="stats-number mb-1">24/7</div>
-                        <div class="text-sm text-gray-700">BUSINESS DEVELOPMENT</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="stats-number mb-1">$0</div>
-                        <div class="text-sm text-gray-700">UPFRONT FEES</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="stats-number mb-1">30%</div>
-                        <div class="text-sm text-gray-700">ONLY WHEN YOU GET PAID</div>
+                    <p class="text-center text-gray-600 mt-4 text-sm font-medium">
+                        📺 Watch how we generate 10+ qualified jobs for contractors
+                    </p>
+                    
+                    <!-- WhatsApp CTA below video -->
+                    <div class="mt-8 bg-gradient-to-r from-black to-gray-900 rounded-xl p-6 text-white card-border hover-lift">
+                        <h3 class="text-xl font-bold mb-3">QUICK QUESTIONS? CHAT NOW</h3>
+                        <p class="text-gray-300 mb-4 text-sm">Get instant answers about our 10+ jobs guarantee</p>
+                        <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I%20just%20watched%20your%20video%20and%20I'm%20interested%20in%20your%2010%2B%20jobs%20guarantee%20for%20contractors." 
+                           target="_blank" 
+                           class="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#128C7E] transition-colors w-full justify-center card-border">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.304-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"/>
+                            </svg>
+                            <span>Chat on WhatsApp</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -480,14 +536,14 @@
                             </div>
                             <div class="flex items-center gap-3">
                                 <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">✓</span>
-                                <span class="text-gray-300">10+ Monthly Appointments Guaranteed</span>
+                                <span class="text-gray-300">10+ Monthly Jobs Guaranteed</span>
                             </div>
                         </div>
                         
                         <!-- WhatsApp CTA Inside Solution Box -->
                         <div class="mt-8 pt-6 border-t border-white/20">
                             <p class="text-gray-300 mb-4 text-sm">Quick question? Chat directly with our team:</p>
-                            <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I'm%20a%20contractor%20interested%20in%20your%2010%2B%20appointments%20guarantee." 
+                            <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I'm%20a%20contractor%20interested%20in%20your%2010%2B%20jobs%20guarantee." 
                                target="_blank" 
                                class="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#128C7E] transition-colors w-full justify-center card-border">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
@@ -520,8 +576,8 @@
                     <div class="icon-circle mx-auto mb-4">
                         <span class="text-3xl">📅</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Qualified Appointment Booking</h3>
-                    <p class="text-gray-700 mb-4">We book 10+ qualified appointments monthly that sync directly to your calendar. No tire-kickers, just serious clients.</p>
+                    <h3 class="text-xl font-bold mb-3">Qualified Job Booking</h3>
+                    <p class="text-gray-700 mb-4">We book 10+ qualified jobs monthly that sync directly to your calendar. No tire-kickers, just serious clients.</p>
                 </div>
 
                 <!-- Service 2 -->
@@ -549,9 +605,9 @@
                     <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                         <div>
                             <h3 class="text-2xl font-bold mb-2">HAVE QUESTIONS? CHAT WITH US NOW</h3>
-                            <p class="text-gray-300">Get instant answers about our 10+ appointments guarantee</p>
+                            <p class="text-gray-300">Get instant answers about our 10+ jobs guarantee</p>
                         </div>
-                        <a href="https://wa.me/27766473499?text=Hi!%20I%20have%20a%20question%20about%20the%2010%2B%20appointments%20guarantee." 
+                        <a href="https://wa.me/27766473499?text=Hi!%20I%20have%20a%20question%20about%20the%2010%2B%20jobs%20guarantee." 
                            target="_blank" 
                            class="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#128C7E] transition-colors hover-lift whitespace-nowrap card-border">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -570,7 +626,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="max-w-6xl mx-auto text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-12">
-                    Our Iron-Clad Appointment Guarantee
+                    Our Iron-Clad Job Guarantee
                 </h2>
                 
                 <div class="grid lg:grid-cols-2 gap-8 mobile-stack">
@@ -587,8 +643,8 @@
                                     <span class="text-xl">✓</span>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-lg mb-1">10+ Qualified Appointments Monthly</h4>
-                                    <p class="text-gray-700">We guarantee to book at least 10 qualified appointments for your business every month.</p>
+                                    <h4 class="font-bold text-lg mb-1">10+ Qualified Jobs Monthly</h4>
+                                    <p class="text-gray-700">We guarantee to book at least 10 qualified jobs for your business every month.</p>
                                 </div>
                             </div>
                             
@@ -652,7 +708,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-lg mb-1">Scale Your Business</h4>
-                                    <p class="text-gray-700">With consistent appointments, you can plan growth and hire help.</p>
+                                    <p class="text-gray-700">With consistent jobs, you can plan growth and hire help.</p>
                                 </div>
                             </div>
                         </div>
@@ -681,9 +737,61 @@
         </div>
     </section>
 
+    <!-- Process Section -->
+    <section id="process" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    How It Works: Simple 3-Step Process
+                </h2>
+                <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+                    Get started with your dedicated business development team in less than 48 hours
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="icon-circle icon-circle-black mx-auto mb-6">
+                        <span class="text-3xl">1</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Book Free Consultation</h3>
+                    <p class="text-gray-700">Schedule a 15-minute call to discuss your business and goals</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="icon-circle icon-circle-black mx-auto mb-6">
+                        <span class="text-3xl">2</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Onboard Your Team</h3>
+                    <p class="text-gray-700">We set up systems and understand your ideal clients</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="icon-circle icon-circle-black mx-auto mb-6">
+                        <span class="text-3xl">3</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Get 10+ Qualified Jobs</h3>
+                    <p class="text-gray-700">We start booking appointments immediately - you focus on the work</p>
+                </div>
+            </div>
+
+            <!-- Final CTA -->
+            <div class="mt-16 text-center">
+                <a href="https://cal.com/partner-discovery/south-africa" target="_blank" class="touch-target consultation-btn px-10 py-5 rounded-xl font-bold text-xl shadow-2xl hover-lift inline-flex items-center gap-3 mx-auto">
+                    <span>🚀</span>
+                    <span>START GETTING 10+ JOBS MONTHLY</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- WhatsApp Widget -->
     <div id="whatsapp-widget">
-        <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I%20saw%20your%20website%20and%20I'm%20interested%20in%20learning%20more%20about%20your%2010%2B%20appointments%20guarantee%20for%20contractors." 
+        <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I%20saw%20your%20website%20and%20I'm%20interested%20in%20learning%20more%20about%20your%2010%2B%20jobs%20guarantee%20for%20contractors." 
            class="whatsapp-button hover-lift" 
            target="_blank" 
            aria-label="Chat with us on WhatsApp"
@@ -700,7 +808,7 @@
     <section class="py-16 md:py-24 black-bg relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight text-center text-white">
-                READY FOR 10+ QUALIFIED APPOINTMENTS MONTHLY?
+                READY FOR 10+ QUALIFIED JOBS MONTHLY?
             </h2>
             <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 text-center">
                 Stop wasting time on admin. Get your 24/7 business development team today and focus on what you do best.
@@ -718,7 +826,7 @@
                     <span>CALL US NOW</span>
                 </a>
                 
-                <a href="https://wa.me/27766473499?text=Hello!%20I'm%20ready%20to%20get%20started%20with%20the%2010%2B%20appointments%20guarantee." 
+                <a href="https://wa.me/27766473499?text=Hello!%20I'm%20ready%20to%20get%20started%20with%20the%2010%2B%20jobs%20guarantee." 
                    target="_blank" 
                    class="touch-target inline-flex items-center justify-center gap-3 bg-[#25D366] text-white px-6 py-5 rounded-xl font-bold text-lg hover:bg-[#128C7E] transition-all shadow-2xl hover:shadow-3xl hover-lift card-border">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -732,7 +840,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
                 <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl text-center card-border">
                     <div class="text-2xl font-bold mb-1 text-white">10+</div>
-                    <div class="text-sm text-gray-300">QUALIFIED APPOINTMENTS</div>
+                    <div class="text-sm text-gray-300">QUALIFIED JOBS</div>
                 </div>
                 <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl text-center card-border">
                     <div class="text-2xl font-bold mb-1 text-white">28+</div>
@@ -753,10 +861,10 @@
                 <div>
                     <div class="text-xl font-bold text-white mb-2">
                         <span class="text-white">CONCIERGE</span>
-                        <span class="text-gray-400"> | YOUR 24/7 BUSINESS DEVELOPMENT NETWORK</span>
+                        <span class="text-gray-400"> | DEDICATED BUSINESS DEVELOPMENT</span>
                     </div>
                     <p class="text-sm text-gray-500">
-                        10+ QUALIFIED APPOINTMENTS GUARANTEED • 28+ HOURS WEEKLY TIME SAVINGS • ZERO UPFRONT FEES
+                        10+ QUALIFIED JOBS GUARANTEED • 28+ HOURS WEEKLY TIME SAVINGS • ZERO UPFRONT FEES
                     </p>
                 </div>
                 
