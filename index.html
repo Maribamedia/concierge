@@ -1,871 +1,1616 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-    <title>Concierge for Local Professionals | 10+ Guaranteed Bookings Monthly | Zero Upfront Fees</title>
-    <meta name="description" content="Local professionals: Get 10+ guaranteed qualified appointments monthly. Your 24/7 dedicated team books appointments while you focus on your work. Pay only when you get paid.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>EnglishConcierge - Your 24/7 AI English Language Tutor | Free English Assessment</title>
+    <meta name="description" content="EnglishConcierge: Your 24/7 AI English Language Tutor providing personalized language coaching, conversation practice, and grammar correction. Get a Free English Assessment with accredited TEFL Tutor Victor Mariba.">
     
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23000000%22/><path d=%22M40 30L60 50L40 70%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 fill=%22none%22/></svg>" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%2214%22 fill=%22%23000000%22/><text x=%2216%22 y=%2222%22 text-anchor=%22middle%22 font-size=%2218%22 fill=%22white%22 font-family=%22Arial%22>AI</text></svg>">
+    <meta name="theme-color" content="#000000">
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              gray: {
-                50: '#fafafa',
-                100: '#f5f5f5',
-                200: '#e5e5e5',
-                300: '#d4d4d4',
-                400: '#a3a3a3',
-                500: '#737373',
-                600: '#525252',
-                700: '#404040',
-                800: '#262626',
-                900: '#171717',
-              }
-            },
-            fontFamily: {
-              sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-            },
-            animation: {
-              'blob': 'blob 7s infinite',
-              'pulse-slow': 'pulse 3s infinite',
-              'float': 'float 3s ease-in-out infinite',
-              'fade-in': 'fadeIn 0.5s ease-in',
-            },
-            keyframes: {
-              blob: {
-                '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                '100%': { transform: 'translate(0px, 0px) scale(1)' },
-              },
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-10px)' },
-              },
-              fadeIn: {
-                '0%': { opacity: '0', transform: 'translateY(10px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gray: {
+                            50: '#fafafa',
+                            100: '#f5f5f5',
+                            200: '#e5e5e5',
+                            300: '#d4d4d4',
+                            400: '#a3a3a3',
+                            500: '#737373',
+                            600: '#525252',
+                            700: '#404040',
+                            800: '#262626',
+                            900: '#171717',
+                        },
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'slide-up': 'slide-up 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
+                        'fade-in': 'fade-in 0.8s ease-out',
+                        'gradient': 'gradient 8s ease infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-in': 'bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+                        'slide-in-left': 'slide-in-left 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                        'slide-in-right': 'slide-in-right 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                        'scale-in': 'scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+                        'shimmer': 'shimmer 3s infinite linear',
+                        'blob': 'blob 10s infinite',
+                        'wave': 'wave 2s ease-in-out infinite',
+                        'tilt': 'tilt 10s infinite linear',
+                        'glow': 'glow 2s ease-in-out infinite',
+                        'typewriter': 'typewriter 3.5s steps(40, end)',
+                        'fade-in-up': 'fade-in-up 0.8s ease-out',
+                        'rotate': 'rotate 20s linear infinite',
+                        'shimmer-text': 'shimmer-text 3s infinite linear',
+                        'border-glow': 'border-glow 3s ease-in-out infinite',
+                        'card-hover': 'card-hover 0.3s ease-out',
+                        'ripple': 'ripple 0.8s linear infinite',
+                        'neon-pulse': 'neon-pulse 2s ease-in-out infinite',
+                        'slide-down': 'slide-down 0.3s ease-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-20px) rotate(5deg)' },
+                        },
+                        'slide-up': {
+                            from: { transform: 'translateY(40px)', opacity: 0 },
+                            to: { transform: 'translateY(0)', opacity: 1 },
+                        },
+                        'fade-in': {
+                            from: { opacity: 0 },
+                            to: { opacity: 1 },
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        'bounce-in': {
+                            '0%': { transform: 'scale(0.3)', opacity: 0 },
+                            '50%': { transform: 'scale(1.05)' },
+                            '70%': { transform: 'scale(0.9)' },
+                            '100%': { transform: 'scale(1)', opacity: 1 },
+                        },
+                        'slide-in-left': {
+                            from: { transform: 'translateX(-40px)', opacity: 0 },
+                            to: { transform: 'translateX(0)', opacity: 1 },
+                        },
+                        'slide-in-right': {
+                            from: { transform: 'translateX(40px)', opacity: 0 },
+                            to: { transform: 'translateX(0)', opacity: 1 },
+                        },
+                        'scale-in': {
+                            from: { transform: 'scale(0.9)', opacity: 0 },
+                            to: { transform: 'scale(1)', opacity: 1 },
+                        },
+                        shimmer: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(100%)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        wave: {
+                            '0%, 100%': { transform: 'rotate(0deg)' },
+                            '25%': { transform: 'rotate(5deg)' },
+                            '75%': { transform: 'rotate(-5deg)' },
+                        },
+                        tilt: {
+                            '0%, 100%': { transform: 'rotate(0deg)' },
+                            '25%': { transform: 'rotate(2deg)' },
+                            '75%': { transform: 'rotate(-2deg)' },
+                        },
+                        glow: {
+                            '0%, 100%': { opacity: 1 },
+                            '50%': { opacity: 0.7 },
+                        },
+                        typewriter: {
+                            from: { width: '0' },
+                            to: { width: '100%' },
+                        },
+                        'fade-in-up': {
+                            from: { transform: 'translateY(20px)', opacity: 0 },
+                            to: { transform: 'translateY(0)', opacity: 1 },
+                        },
+                        rotate: {
+                            from: { transform: 'rotate(0deg)' },
+                            to: { transform: 'rotate(360deg)' },
+                        },
+                        'shimmer-text': {
+                            '0%': { backgroundPosition: '-200% center' },
+                            '100%': { backgroundPosition: '200% center' },
+                        },
+                        'border-glow': {
+                            '0%, 100%': { borderColor: 'rgba(0, 0, 0, 0.2)' },
+                            '50%': { borderColor: 'rgba(0, 0, 0, 0.5)' },
+                        },
+                        'card-hover': {
+                            from: { transform: 'translateY(0) scale(1)' },
+                            to: { transform: 'translateY(-8px) scale(1.02)' },
+                        },
+                        ripple: {
+                            '0%': { transform: 'scale(0)', opacity: 1 },
+                            '100%': { transform: 'scale(4)', opacity: 0 },
+                        },
+                        'neon-pulse': {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(0, 0, 0, 0.1)' },
+                            '50%': { boxShadow: '0 0 40px rgba(0, 0, 0, 0.2)' },
+                        },
+                        'slide-down': {
+                            from: { transform: 'translateY(-10px)', opacity: 0 },
+                            to: { transform: 'translateY(0)', opacity: 1 },
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     </script>
     
     <style>
-      html {
-        -webkit-text-size-adjust: 100%;
-        -webkit-tap-highlight-color: transparent;
-      }
-      
-      body {
-        font-family: 'Inter', system-ui, -apple-system, sans-serif;
-        overflow-x: hidden;
-        background-color: #ffffff;
-        color: #000000;
-      }
-      
-      .touch-target {
-        min-height: 44px;
-        min-width: 44px;
-      }
-      
-      .hover-lift {
-        transition: all 0.3s ease;
-      }
-      
-      .hover-lift:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      }
-      
-      .consultation-btn {
-        background-color: #000000;
-        color: #ffffff;
-        padding: 12px 24px;
-        border-radius: 8px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        border: 2px solid #000000;
-      }
-      
-      .consultation-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-        background-color: #ffffff;
-        color: #000000;
-      }
-      
-      .no-risk-badge {
-        background-color: #000000;
-        color: #ffffff;
-        animation: pulse 2s infinite;
-        border: 2px solid #000000;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-      }
-      
-      .card-border {
-        border: 2px solid #000000;
-        border-radius: 12px;
-      }
-      
-      .icon-circle {
-        width: 64px;
-        height: 64px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 2px solid #000000;
-        background-color: #ffffff;
-      }
-      
-      .icon-circle-black {
-        background-color: #000000;
-        color: #ffffff;
-      }
-      
-      .gray-bg {
-        background-color: #f5f5f5;
-      }
-      
-      .gray-bg-light {
-        background-color: #fafafa;
-      }
-      
-      .black-bg {
-        background-color: #000000;
-        color: #ffffff;
-      }
-      
-      .stats-number {
-        font-weight: 700;
-        font-size: 2.5rem;
-      }
-      
-      .section-divider {
-        border-bottom: 2px solid #000000;
-      }
-      
-      /* Video Container */
-      .video-container {
-        position: relative;
-        padding-bottom: 56.25%;
-        height: 0;
-        overflow: hidden;
-        border-radius: 12px;
-        border: 2px solid #000000;
-      }
-      
-      .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-      
-      /* WhatsApp Widget Styles */
-      #whatsapp-widget {
-        position: fixed;
-        bottom: 25px;
-        right: 25px;
-        z-index: 1000;
-        animation: fade-in 0.5s ease-in;
-      }
-      
-      .whatsapp-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 60px;
-        height: 60px;
-        background-color: #25D366;
-        border-radius: 50%;
-        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-        transition: all 0.3s ease;
-        border: 2px solid #000000;
-        position: relative;
-      }
-      
-      .whatsapp-button:hover {
-        transform: scale(1.1);
-        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-        background-color: #128C7E;
-      }
-      
-      .whatsapp-button svg {
-        width: 32px;
-        height: 32px;
-        fill: #ffffff;
-      }
-      
-      .whatsapp-pulse {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        background-color: #25D366;
-        animation: pulse-slow 2s infinite;
-        z-index: -1;
-      }
-      
-      .whatsapp-tooltip {
-        position: absolute;
-        bottom: 70px;
-        right: 0;
-        background: #000000;
-        color: white;
-        padding: 8px 12px;
-        border-radius: 6px;
-        font-size: 0.875rem;
-        white-space: nowrap;
-        opacity: 0;
-        transform: translateY(10px);
-        transition: all 0.3s ease;
-        pointer-events: none;
-        border: 1px solid #333;
-        font-weight: 500;
-      }
-      
-      .whatsapp-button:hover + .whatsapp-tooltip {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      
-      /* Mobile Responsive Adjustments */
-      @media (max-width: 768px) {
-        .mobile-stack {
-          flex-direction: column;
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
         }
         
-        .mobile-full {
-          width: 100%;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        .mobile-padding {
-          padding-left: 1rem;
-          padding-right: 1rem;
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
         }
         
-        #whatsapp-widget {
-          bottom: 20px;
-          right: 20px;
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #000000;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 0, 0, 0.02) 0%, transparent 20%),
+                radial-gradient(circle at 90% 40%, rgba(0, 0, 0, 0.01) 0%, transparent 20%);
+        }
+        
+        .floating-shapes {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.05;
+            animation: blob 20s infinite linear;
+        }
+        
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: #000000;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+        
+        .shape-2 {
+            width: 400px;
+            height: 400px;
+            background: #404040;
+            top: 60%;
+            right: 10%;
+            animation-delay: 5s;
+        }
+        
+        /* Glass Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+        
+        .glass-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Black Text */
+        .black-text {
+            color: #000000;
+        }
+        
+        .black-bg {
+            background: #000000;
+        }
+        
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* WhatsApp Widget Styles */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            z-index: 9999;
+            animation: fade-in 0.8s ease-out 1s both;
         }
         
         .whatsapp-button {
-          width: 56px;
-          height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: #000000;
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            overflow: hidden;
+            text-decoration: none;
         }
         
-        .video-container {
-          margin-top: 2rem;
+        .whatsapp-button:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
         }
-      }
+        
+        .whatsapp-button:active {
+            transform: scale(0.95);
+        }
+        
+        .whatsapp-button i {
+            color: white;
+            font-size: 34px;
+        }
+        
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 75px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #000000;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .whatsapp-button:hover + .whatsapp-tooltip {
+            opacity: 1;
+            right: 85px;
+        }
+        
+        .whatsapp-pulse {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #000000;
+            animation: pulse-slow 2s infinite;
+            z-index: -1;
+        }
+        
+        /* AI Chat Embed Container */
+        .ai-chat-container {
+            position: relative;
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+        
+        .ai-chat-container iframe {
+            display: block;
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+        
+        /* Mobile Optimizations */
+        @media (max-width: 640px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero-buttons a {
+                width: 100%;
+                max-width: 320px;
+            }
+            
+            .section-padding {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            h2 {
+                font-size: 2rem !important;
+            }
+            
+            .whatsapp-widget {
+                bottom: 90px;
+                right: 20px;
+            }
+            
+            .whatsapp-button {
+                width: 56px;
+                height: 56px;
+            }
+            
+            .whatsapp-button i {
+                font-size: 30px;
+            }
+            
+            .whatsapp-tooltip {
+                display: none;
+            }
+            
+            .ai-chat-container {
+                border-radius: 12px;
+                margin: 1rem 0;
+            }
+            
+            .ai-chat-container iframe {
+                height: 500px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .ai-chat-container iframe {
+                height: 500px;
+            }
+        }
+        
+        /* Modern Button */
+        .modern-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid #000000;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Ripple Effect */
+        .ripple-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ripple-btn .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.1);
+            transform: scale(0);
+            animation: ripple 0.8s linear;
+            pointer-events: none;
+        }
+        
+        /* Card Hover Effects */
+        .pricing-card, .feature-card, .benefit-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .pricing-card:hover, .feature-card:hover, .benefit-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.1),
+                0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Feature Check */
+        .feature-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 8px 0;
+        }
+        
+        .feature-check i {
+            color: #000000;
+            font-size: 1.1rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #000000;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Typography */
+        h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        
+        h2 {
+            font-size: 3rem;
+            line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+        
+        h3 {
+            font-size: 2rem;
+            line-height: 1.3;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            h3 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Section Spacing */
+        .section-padding {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        
+        /* Feature Cards */
+        .feature-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+        
+        .feature-card .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 28px;
+            background: #000000;
+            color: white;
+        }
+        
+        /* Pricing Cards */
+        .pricing-card {
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .pricing-card.popular {
+            border-color: #000000;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Badge Styling */
+        .badge {
+            background: #000000;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+
+        /* Icon Circles */
+        .icon-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000000;
+            color: white;
+            font-size: 1rem;
+        }
+
+        /* Benefit Cards */
+        .benefit-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            border-color: #000000;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-card .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            background: #000000;
+            color: white;
+        }
+        
+        /* Hero Heading Emphasis */
+        .hero-heading {
+            background: linear-gradient(135deg, #000000 0%, #404040 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Guarantee Badge */
+        .guarantee-badge {
+            background: linear-gradient(135deg, #000000, #2d3748);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .guarantee-badge i {
+            color: #10b981;
+            font-size: 1.3rem;
+        }
+        
+        /* AI Gradient */
+        .ai-gradient {
+            background: linear-gradient(135deg, #000000, #4a5568);
+            color: white;
+        }
+        
+        /* AI Pulse Animation */
+        .ai-pulse {
+            animation: pulse-slow 2s infinite;
+        }
+        
+        /* Free Assessment Badge */
+        .free-assessment-badge {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: pulse-slow 2s infinite;
+        }
+        
+        .free-assessment-badge i {
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Tutor Profile */
+        .tutor-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tutor-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #000000, #4a5568);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .tutor-badge {
+            background: #10b981;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 5px;
+        }
     </style>
 </head>
-<body class="bg-white text-black antialiased">
+<body class="antialiased">
+    <!-- Loading Bar -->
+    <div class="loading-bar" style="position: fixed; top: 0; left: 0; height: 3px; background: #000000; width: 0%; z-index: 9999;"></div>
+    
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    <div class="floating-shapes">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up text-lg"></i>
+    </div>
+    
+    <!-- WhatsApp Widget -->
+    <div class="whatsapp-widget" id="whatsappWidget">
+        <a href="https://wa.me/27766473499?text=Hi%20Victor!%20I'd%20like%20to%20book%20a%20Free%20English%20Assessment%20with%20you." 
+           target="_blank" 
+           class="whatsapp-button ripple-btn"
+           aria-label="Chat with Victor on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <div class="whatsapp-tooltip">FREE ASSESSMENT! 🎯</div>
+    </div>
+    
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white z-50 py-3 shadow-sm border-b-2 border-black">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="#" class="flex items-center gap-2 hover-lift">
-                <span class="text-xl font-bold text-black">CONCIERGE</span>
-                <span class="text-gray-600 text-sm hidden sm:inline">FOR LOCAL PROFESSIONALS</span>
-            </a>
-
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex items-center gap-6">
-                <a href="#hero" class="text-sm font-medium text-gray-700 hover:text-black transition-colors hover:scale-105">HOME</a>
-                <a href="#pain" class="text-sm font-medium text-gray-700 hover:text-black transition-colors hover:scale-105">THE PROBLEM</a>
-                <a href="#solution" class="text-sm font-medium text-gray-700 hover:text-black transition-colors hover:scale-105">SOLUTION</a>
-                <a href="#guarantee" class="text-sm font-medium text-gray-700 hover:text-black transition-colors hover:scale-105">GUARANTEE</a>
-                <a href="#process" class="text-sm font-medium text-gray-700 hover:text-black transition-colors hover:scale-105">PROCESS</a>
-                <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I'm%20a%20local%20professional%20interested%20in%20your%2010%2B%20bookings%20guarantee." target="_blank" class="consultation-btn hover-lift">
-                    📱 START WHATSAPP CHAT
+    <nav class="fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300 glass" id="navbar">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group animate-slide-in-left">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl black-bg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <i class="fas fa-robot text-white text-xl md:text-2xl"></i>
+                    </div>
+                    <div>
+                        <div class="text-2xl md:text-3xl font-bold font-heading">
+                            <span class="text-black">English</span><span class="text-black">Concierge</span>
+                        </div>
+                        <div class="text-xs text-gray-600 -mt-1 font-medium tracking-wide">AI ENGLISH LANGUAGE TUTOR</div>
+                    </div>
                 </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-8 animate-slide-in-right">
+                    <a href="#features" class="text-sm font-semibold text-gray-800 hover:text-black transition-colors duration-200">Features</a>
+                    <a href="#benefits" class="text-sm font-semibold text-gray-800 hover:text-black transition-colors duration-200">Benefits</a>
+                    <a href="#pricing" class="text-sm font-semibold text-gray-800 hover:text-black transition-colors duration-200">Pricing</a>
+                    <a href="https://bey.chat/b7b1a789-c940-42d6-bd1d-d82d09fb4698" target="_blank" class="text-sm font-semibold text-gray-800 hover:text-black transition-colors duration-200">Try AI Tutor</a>
+                    
+                    <a href="https://wa.me/27766473499?text=Hi%20Victor!%20I'd%20like%20to%20book%20a%20Free%20English%20Assessment%20with%20you." 
+                       target="_blank"
+                       class="modern-btn ripple-btn bg-black text-white px-6 py-3 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 shadow-md relative">
+                        <span>Free Assessment</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuButton" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                    <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
             </div>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden touch-target p-2 text-gray-800 hover:bg-gray-100 rounded-lg transition-colors">
-                <svg id="menu-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-                <svg id="menu-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-white border-b-2 border-black hidden shadow-lg">
-            <div class="px-4 py-4 flex flex-col gap-1">
-                <a href="#hero" class="py-3 px-4 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors border-b border-gray-200">HOME</a>
-                <a href="#pain" class="py-3 px-4 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors border-b border-gray-200">THE PROBLEM</a>
-                <a href="#solution" class="py-3 px-4 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors border-b border-gray-200">SOLUTION</a>
-                <a href="#guarantee" class="py-3 px-4 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors border-b border-gray-200">GUARANTEE</a>
-                <a href="#process" class="py-3 px-4 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors border-b border-gray-200">PROCESS</a>
-                <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I'm%20a%20local%20professional%20interested%20in%20your%2010%2B%20bookings%20guarantee." target="_blank" class="mt-2 consultation-btn py-3 text-center font-medium">
-                    📱 START WHATSAPP CHAT
-                </a>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="md:hidden mt-4 hidden animate-slide-down glass rounded-2xl overflow-hidden">
+                <div class="p-4 space-y-2">
+                    <a href="#features" class="block py-3 px-4 text-gray-800 hover:text-black hover:bg-gray-50 rounded-xl transition-all duration-200">Features</a>
+                    <a href="#benefits" class="block py-3 px-4 text-gray-800 hover:text-black hover:bg-gray-50 rounded-xl transition-all duration-200">Benefits</a>
+                    <a href="#pricing" class="block py-3 px-4 text-gray-800 hover:text-black hover:bg-gray-50 rounded-xl transition-all duration-200">Pricing</a>
+                    <a href="https://bey.chat/b7b1a789-c940-42d6-bd1d-d82d09fb4698" target="_blank" class="block py-3 px-4 text-gray-800 hover:text-black hover:bg-gray-50 rounded-xl transition-all duration-200">Try AI Tutor</a>
+                    <a href="https://wa.me/27766473499?text=Hi%20Victor!%20I'd%20like%20to%20book%20a%20Free%20English%20Assessment%20with%20you." 
+                       target="_blank"
+                       class="block mt-4 modern-btn bg-black text-white py-3 rounded-xl text-center font-semibold shadow-md">
+                        Free Assessment
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="pt-24 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0 -z-10 overflow-hidden opacity-5">
-            <div class="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-gray-900 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-            <div class="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-gray-800 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+    <section class="pt-32 md:pt-40 pb-16 md:pb-24 relative overflow-hidden section-padding">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 -z-10 overflow-hidden">
+            <div class="absolute -top-20 -right-20 w-64 h-64 md:w-96 md:h-96 rounded-full bg-gray-100 blur-3xl opacity-50 floating"></div>
+            <div class="absolute -bottom-20 -left-20 w-64 h-64 md:w-96 md:h-96 rounded-full bg-gray-100 blur-3xl opacity-50 floating" style="animation-delay: 2s;"></div>
         </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Left Column: Text Content -->
-                <div>
-                    <!-- Badge -->
-                    <span class="inline-block px-4 py-2 rounded-full no-risk-badge text-sm mb-6 animate-pulse-slow">
-                        🚀 FOR LOCAL PROFESSIONALS • 10+ BOOKINGS GUARANTEED • PAY ONLY WHEN PAID
-                    </span>
-                    
-                    <!-- Headline -->
-                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                        <span class="block text-black">
-                            Concierge for Local Professionals
-                        </span>
-                    </h1>
-                    
-                    <!-- Sub-headline -->
-                    <h2 class="text-2xl md:text-3xl font-semibold mb-8 text-gray-800">
-                        Transform Your Business: <u>Focus on Your Work</u> While We Fill Your Calendar with 10+ Qualified Bookings Monthly
-                    </h2>
-                    
-                    <!-- Description -->
-                    <p class="text-lg md:text-xl text-gray-700 mb-8">
-                        <strong class="font-bold text-black">Complete Risk Reversal:</strong> We only earn 30% when you get paid. Zero upfront costs. Your dedicated 24/7 booking team handles appointments while you do what you do best.
-                    </p>
-
-                    <!-- Transformative Outcomes -->
-                    <div class="bg-gray-50 rounded-xl p-6 mb-8 card-border">
-                        <h3 class="text-xl font-bold mb-4 text-center">TRANSFORMATIVE OUTCOMES</h3>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="text-center">
-                                <div class="text-3xl font-bold text-black mb-1">28+</div>
-                                <div class="text-sm text-gray-700 font-medium">Hours Weekly Reclaimed</div>
+        
+        <div class="container mx-auto">
+            <div class="max-w-6xl mx-auto">
+                <!-- AI Badge -->
+                <div class="mb-8 md:mb-12 max-w-2xl mx-auto animate-slide-up">
+                    <div class="rounded-2xl p-4 md:p-5 shadow-lg ai-gradient">
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 relative z-10">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded-full bg-white border-2 border-black flex items-center justify-center shadow-sm">
+                                    <i class="fas fa-brain text-black text-lg"></i>
+                                </div>
+                                <span class="font-bold text-white text-sm md:text-base tracking-wider uppercase">24/7 AI ENGLISH LANGUAGE TUTOR</span>
                             </div>
-                            <div class="text-center">
-                                <div class="text-3xl font-bold text-black mb-1">10+</div>
-                                <div class="text-sm text-gray-700 font-medium">Guaranteed Monthly Bookings</div>
+                            <div class="text-white text-lg md:text-xl font-bold text-center">
+                                Personalized Coaching + Conversation Practice + Grammar Correction
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Main CTA -->
-                    <div class="mb-8">
-                        <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I'm%20a%20local%20professional%20ready%20for%20the%2010%2B%20bookings%20guarantee." target="_blank" class="touch-target consultation-btn px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover-lift animate-float inline-flex items-center gap-3">
-                            <span>📱</span>
-                            <span>START WHATSAPP CHAT NOW</span>
-                            <span>→</span>
-                        </a>
-                        <p class="text-center text-gray-600 mt-3 text-sm">Get instant response within 5 minutes</p>
-                    </div>
-
-                    <!-- Stats -->
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t-2 border-black">
-                        <div class="text-center">
-                            <div class="stats-number mb-1">10+</div>
-                            <div class="text-sm text-gray-700">GUARANTEED BOOKINGS</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="stats-number mb-1">$0</div>
-                            <div class="text-sm text-gray-700">UPFRONT FEES</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="stats-number mb-1">30%</div>
-                            <div class="text-sm text-gray-700">ONLY WHEN PAID</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="stats-number mb-1">28+</div>
-                            <div class="text-sm text-gray-700">HOURS RECLAIMED</div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Right Column: YouTube VSL Embed -->
-                <div>
-                    <div class="video-container shadow-2xl hover-lift">
-                        <!-- Replace VIDEO_ID with your actual YouTube video ID -->
-                        <iframe 
-                            src="https://www.youtube.com/embed/VIDEO_ID_HERE" 
-                            title="Concierge for Local Professionals - How We Get You 10+ Bookings Monthly"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
+                <!-- Main Content -->
+                <div class="text-center mb-12 md:mb-16">
+                    <!-- Hero Heading -->
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 leading-tight animate-slide-up font-heading">
+                        <span class="block hero-heading">EnglishConcierge</span>
+                        <span class="block mt-2 text-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Your 24/7 AI English Language Tutor</span>
+                    </h1>
+                    
+                    <div class="mb-8 md:mb-10 animate-fade-in" style="animation-delay: 0.1s">
+                        <div class="free-assessment-badge inline-flex">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Free English Assessment with Accredited TEFL Tutor</span>
+                        </div>
                     </div>
-                    <p class="text-center text-gray-600 mt-4 text-sm font-medium">
-                        📺 See how local professionals get 10+ bookings guaranteed
+                    
+                    <p class="text-2xl md:text-3xl text-gray-800 mb-8 md:mb-10 max-w-4xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.2s">
+                        Personalized Language Coaching • Conversation Practice • Grammar Correction
                     </p>
                     
-                    <!-- WhatsApp CTA below video -->
-                    <div class="mt-8 bg-gradient-to-r from-black to-gray-900 rounded-xl p-6 text-white card-border hover-lift">
-                        <h3 class="text-xl font-bold mb-3">GET INSTANT ANSWERS</h3>
-                        <p class="text-gray-300 mb-4 text-sm">Chat directly with our team about your specific profession</p>
-                        <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I'm%20a%20%5BYour%20Profession%5D%20interested%20in%20your%2010%2B%20bookings%20guarantee." 
-                           target="_blank" 
-                           class="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#128C7E] transition-colors w-full justify-center card-border">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.304-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"/>
-                            </svg>
-                            <span>Chat Now on WhatsApp</span>
+                    <!-- Live AI Chat Embed -->
+                    <div class="mb-10 md:mb-14 max-w-6xl mx-auto animate-fade-in" style="animation-delay: 0.3s">
+                        <h3 class="text-2xl font-bold mb-6 text-black">Try Our AI English Tutor Now</h3>
+                        <div class="ai-chat-container">
+                            <iframe 
+                                src="https://bey.chat/b7b1a789-c940-42d6-bd1d-d82d09fb4698" 
+                                width="100%" 
+                                height="600px" 
+                                frameborder="0" 
+                                allowfullscreen
+                                allow="camera; microphone; fullscreen"
+                                style="border: none; max-width: 100%;"
+                            ></iframe>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-4 text-center">Chat with our AI tutor right now - try conversation practice, grammar correction, and personalized coaching</p>
+                    </div>
+                    
+                    <!-- Tutor Profile -->
+                    <div class="mb-10 md:mb-14 max-w-2xl mx-auto animate-fade-in" style="animation-delay: 0.4s">
+                        <div class="tutor-profile">
+                            <div class="tutor-avatar">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="text-left">
+                                <h4 class="text-xl font-bold text-black">Victor Mariba</h4>
+                                <div class="tutor-badge">Accredited TEFL Tutor</div>
+                                <p class="text-gray-600 mt-2">Get a personalized English assessment with our lead tutor. WhatsApp: <a href="https://wa.me/27766473499" class="font-bold text-black hover:underline">+27 76 647 3499</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Platform Stats -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-10 md:mb-14 animate-fade-in" style="animation-delay: 0.5s">
+                        <div class="glass-card rounded-2xl p-4 text-center hover:scale-105 transition-transform duration-300 border border-gray-200">
+                            <div class="stat-number text-2xl md:text-3xl font-bold text-black">12%+</div>
+                            <div class="text-xs md:text-sm text-gray-600 font-medium">Proven Improvement</div>
+                        </div>
+                        <div class="glass-card rounded-2xl p-4 text-center hover:scale-105 transition-transform duration-300 border border-gray-200">
+                            <div class="stat-number text-2xl md:text-3xl font-bold text-black">24/7</div>
+                            <div class="text-xs md:text-sm text-gray-600 font-medium">AI Tutor Available</div>
+                        </div>
+                        <div class="glass-card rounded-2xl p-4 text-center hover:scale-105 transition-transform duration-300 border border-gray-200">
+                            <div class="stat-number text-2xl md:text-3xl font-bold text-black">Free</div>
+                            <div class="text-xs md:text-sm text-gray-600 font-medium">English Assessment</div>
+                        </div>
+                        <div class="glass-card rounded-2xl p-4 text-center hover:scale-105 transition-transform duration-300 border border-gray-200">
+                            <div class="stat-number text-2xl md:text-3xl font-bold text-black">R280</div>
+                            <div class="text-xs md:text-sm text-gray-600 font-medium">Monthly Access</div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center animate-slide-up hero-buttons" style="animation-delay: 0.6s">
+                        <a href="https://wa.me/27766473499?text=Hi%20Victor!%20I'd%20like%20to%20book%20a%20Free%20English%20Assessment%20with%20you." 
+                           target="_blank"
+                           class="group modern-btn ripple-btn bg-black text-white px-8 py-4 md:px-10 md:py-5 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 shadow-lg flex items-center justify-center gap-3 text-lg">
+                            <i class="fab fa-whatsapp text-lg"></i>
+                            <span class="font-semibold">Book Free Assessment</span>
+                            <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform duration-300"></i>
                         </a>
-                        <p class="text-center text-gray-400 text-xs mt-2">+27 76 647 3499</p>
+                        
+                        <a href="https://bey.chat/b7b1a789-c940-42d6-bd1d-d82d09fb4698" 
+                           target="_blank"
+                           class="group modern-btn glass-card text-black px-8 py-4 md:px-10 md:py-5 rounded-xl font-bold border-2 border-gray-200 hover:border-black hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 text-lg">
+                            <i class="fas fa-robot text-lg"></i>
+                            <span class="font-semibold">Try AI Tutor Now</span>
+                        </a>
+                    </div>
+                    
+                    <p class="text-sm text-gray-600 mt-6 animate-fade-in" style="animation-delay: 0.7s">
+                        <i class="fas fa-check-circle mr-2 text-green-500"></i>Start with a free English assessment, then get unlimited AI tutor access for only R280/month
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Assessment Section -->
+    <section id="assessment" class="py-16 md:py-24 bg-gray-50 relative section-padding animate-on-scroll">
+        <div class="container mx-auto">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12 md:mb-16">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 font-heading">
+                        <span class="text-black">Free English Assessment</span>
+                        <span class="block text-2xl sm:text-3xl md:text-4xl text-gray-800 mt-2">With Accredited TEFL Tutor Victor Mariba</span>
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">
+                        Get a personalized evaluation of your English skills and a custom learning plan
+                    </p>
+                </div>
+                
+                <!-- Assessment Benefits -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <div class="glass-card rounded-3xl p-8 border border-gray-200">
+                        <h3 class="text-2xl font-bold mb-6 text-black">What You Get in Your Free Assessment</h3>
+                        <ul class="space-y-4">
+                            <li class="feature-check">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span><strong>Personalized English skill evaluation</strong> - Comprehensive assessment of your current level</span>
+                            </li>
+                            <li class="feature-check">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span><strong>Speaking & conversation analysis</strong> - Get feedback on your pronunciation and fluency</span>
+                            </li>
+                            <li class="feature-check">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span><strong>Grammar & vocabulary assessment</strong> - Identify your strengths and areas for improvement</span>
+                            </li>
+                            <li class="feature-check">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span><strong>Customized learning roadmap</strong> - Get your personalized study plan</span>
+                            </li>
+                            <li class="feature-check">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span><strong>AI tutor demonstration</strong> - Experience how our AI technology can help you</span>
+                            </li>
+                            <li class="feature-check">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span><strong>Progress prediction</strong> - See how quickly you can improve with our system</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="glass-card rounded-3xl p-8 border border-gray-200">
+                        <h3 class="text-2xl font-bold mb-6 text-black">Book Your Free Assessment Now</h3>
+                        <div class="mb-8">
+                            <div class="text-5xl font-bold text-black mb-4">FREE</div>
+                            <p class="text-gray-600 mb-6">Personalized English assessment with accredited TEFL tutor</p>
+                            <div class="p-4 bg-green-50 rounded-lg mb-6">
+                                <p class="text-green-700 font-semibold text-center">
+                                    <i class="fas fa-gift mr-2"></i>
+                                    No cost • No commitment • Professional evaluation
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <a href="https://wa.me/27766473499?text=Hi%20Victor!%20I'd%20like%20to%20book%20a%20Free%20English%20Assessment%20with%20you." 
+                               target="_blank"
+                               class="block w-full modern-btn ripple-btn bg-black text-white py-4 rounded-xl font-bold hover:shadow-xl transition-all duration-300 text-center">
+                                <i class="fab fa-whatsapp mr-2"></i>
+                                WhatsApp Victor for Free Assessment
+                            </a>
+                            
+                            <a href="https://bey.chat/b7b1a789-c940-42d6-bd1d-d82d09fb4698" 
+                               target="_blank"
+                               class="block w-full modern-btn glass-card text-black py-4 rounded-xl font-bold border-2 border-gray-200 hover:border-black transition-all duration-300 text-center">
+                                <i class="fas fa-robot mr-2"></i>
+                                Try AI Tutor First
+                            </a>
+                        </div>
+                        
+                        <div class="mt-6 text-center">
+                            <p class="text-sm text-gray-600">
+                                <i class="fas fa-user-graduate mr-2"></i>Assessment conducted by:<br>
+                                <span class="font-bold text-black">Victor Mariba, Accredited TEFL Tutor</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial -->
+                <div class="glass-card rounded-3xl p-8 border border-gray-200 max-w-3xl mx-auto">
+                    <div class="text-center">
+                        <i class="fas fa-quote-left text-4xl text-gray-300 mb-6"></i>
+                        <p class="text-xl text-gray-700 mb-6 italic">
+                            "The free assessment with Victor was incredibly helpful. He identified exactly where I needed to improve and created a personalized plan. The AI tutor complements his teaching perfectly - I get 24/7 practice with instant feedback!"
+                        </p>
+                        <div class="flex items-center justify-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center">
+                                <i class="fas fa-user text-gray-600"></i>
+                            </div>
+                            <div class="text-left">
+                                <div class="font-bold text-black">Michael T.</div>
+                                <div class="text-sm text-gray-600">Business Analyst, Cape Town</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pain Points Section -->
-    <section id="pain" class="py-16 md:py-24 bg-white section-divider">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
-            <div class="max-w-4xl mx-auto text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    Local Professionals: Stop Trading Time for Money
-                </h2>
-                <p class="text-lg text-gray-700">
-                    You became a professional to serve clients, not to become a full-time salesperson and administrator.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8 items-start mobile-stack max-w-5xl mx-auto">
-                <!-- Pain Points -->
-                <div class="space-y-6 mobile-full">
-                    <div class="flex gap-4 p-6 gray-bg rounded-xl hover-lift transition-all duration-300 card-border">
-                        <div class="icon-circle flex-shrink-0">
-                            <span class="text-2xl">⏰</span>
+    <!-- Features Section -->
+    <section id="features" class="py-16 md:py-24 bg-white relative section-padding animate-on-scroll">
+        <div class="container mx-auto">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12 md:mb-16">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 font-heading">
+                        <span class="text-black">AI-Powered English Mastery</span>
+                        <span class="block text-2xl sm:text-3xl md:text-4xl text-gray-800 mt-2">Everything You Need for Language Success</span>
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">
+                        Our intelligent AI tutor adapts to your learning style and goals
+                    </p>
+                </div>
+                
+                <!-- Features Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    <!-- Feature 1: Personalized Coaching -->
+                    <div class="feature-card">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-user-graduate"></i>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-bold mb-2">28+ Hours Lost Weekly</h3>
-                            <p class="text-gray-700">Spending time on calls, scheduling, and admin instead of billable professional work</p>
-                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-black">Personalized Language Coaching</h3>
+                        <p class="text-gray-600 mb-6">AI that analyzes your strengths and weaknesses to create a customized learning path just for you.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Adaptive learning algorithm</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Skill gap analysis</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Customized lesson plans</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Progress tracking dashboard</span>
+                            </li>
+                        </ul>
                     </div>
                     
-                    <div class="flex gap-4 p-6 gray-bg rounded-xl hover-lift transition-all duration-300 card-border">
-                        <div class="icon-circle flex-shrink-0">
-                            <span class="text-2xl">📞</span>
+                    <!-- Feature 2: Conversation Practice -->
+                    <div class="feature-card">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-comments"></i>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-bold mb-2">Missing After-Hours Clients</h3>
-                            <p class="text-gray-700">Potential clients calling when you're with family or other clients</p>
-                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-black">Real Conversation Practice</h3>
+                        <p class="text-gray-600 mb-6">Practice speaking English in realistic scenarios with immediate AI feedback on pronunciation and fluency.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Real-world scenarios</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Pronunciation correction</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Fluency assessment</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Conversation simulations</span>
+                            </li>
+                        </ul>
                     </div>
                     
-                    <div class="flex gap-4 p-6 gray-bg rounded-xl hover-lift transition-all duration-300 card-border">
-                        <div class="icon-circle flex-shrink-0">
-                            <span class="text-2xl">💰</span>
+                    <!-- Feature 3: Grammar Correction -->
+                    <div class="feature-card">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-spell-check"></i>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-bold mb-2">Inconsistent Income</h3>
-                            <p class="text-gray-700">Feast-or-famine cycles instead of steady, predictable bookings</p>
-                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-black">Instant Grammar Correction</h3>
+                        <p class="text-gray-600 mb-6">Get immediate corrections and explanations for grammar mistakes in your writing and speaking.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Real-time error detection</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Detailed explanations</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Common mistake patterns</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Practice exercises</span>
+                            </li>
+                        </ul>
                     </div>
                     
-                    <div class="flex gap-4 p-6 gray-bg rounded-xl hover-lift transition-all duration-300 card-border">
-                        <div class="icon-circle flex-shrink-0">
-                            <span class="text-2xl">😫</span>
+                    <!-- Feature 4: 24/7 Availability -->
+                    <div class="feature-card">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-clock"></i>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-bold mb-2">Wearing All the Hats</h3>
-                            <p class="text-gray-700">Professional + Marketer + Salesperson + Admin = Burnout</p>
+                        <h3 class="text-2xl font-bold mb-4 text-black">24/7 AI Tutor Availability</h3>
+                        <p class="text-gray-600 mb-6">Practice English anytime, anywhere - our AI tutor is always ready to help you improve.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Always available</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Mobile app access</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">No scheduling needed</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Instant responses</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Feature 5: Vocabulary Building -->
+                    <div class="feature-card">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-book-open"></i>
                         </div>
+                        <h3 class="text-2xl font-bold mb-4 text-black">Smart Vocabulary Building</h3>
+                        <p class="text-gray-600 mb-6">Learn words in context with AI that introduces vocabulary relevant to your interests and goals.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Contextual learning</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Spaced repetition system</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Thematic word lists</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Usage examples</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Feature 6: Progress Analytics -->
+                    <div class="feature-card">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-black">Detailed Progress Analytics</h3>
+                        <p class="text-gray-600 mb-6">Track your improvement with comprehensive analytics and personalized recommendations.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Progress visualization</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Weekly reports</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Achievement milestones</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-black"></i>
+                                <span class="text-gray-700">Improvement predictions</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 
-                <!-- Solution Preview -->
-                <div class="black-bg rounded-xl overflow-hidden shadow-xl hover-lift mobile-full h-full card-border">
-                    <div class="px-6 py-4 border-b-2 border-white">
-                        <div class="text-lg font-bold text-white">YOUR 24/7 BOOKING TEAM SOLUTION</div>
+                <!-- Free Assessment CTA -->
+                <div class="text-center">
+                    <a href="https://wa.me/27766473499?text=Hi%20Victor!%20I'd%20like%20to%20book%20a%20Free%20English%20Assessment%20with%20you." 
+                       target="_blank"
+                       class="inline-block modern-btn ripple-btn bg-black text-white px-10 py-5 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 shadow-lg text-lg">
+                        <i class="fab fa-whatsapp mr-3"></i>
+                        Book Your Free English Assessment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-16 md:py-24 bg-gray-50 relative section-padding animate-on-scroll">
+        <div class="container mx-auto">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12 md:mb-16">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 font-heading">
+                        <span class="text-black">Why Choose EnglishConcierge?</span>
+                        <span class="block text-2xl sm:text-3xl md:text-4xl text-gray-800 mt-2">Transform Your English Skills</span>
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">
+                        Experience measurable improvements in language proficiency
+                    </p>
+                </div>
+                
+                <!-- Benefits Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    <!-- Benefit 1 -->
+                    <div class="benefit-card">
+                        <div class="icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-black">12% Proficiency Improvement</h3>
+                        <p class="text-gray-600">Proven results: Students improve their English proficiency by 12%+ within 90 days, guaranteed or your money back.</p>
                     </div>
-                    <div class="p-8 text-white">
-                        <div class="flex items-center gap-4 mb-8">
-                            <div class="icon-circle icon-circle-black animate-pulse-slow">
-                                <span class="text-3xl">🚀</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold">TRANSFORMATIVE OUTCOME</h3>
-                                <p class="text-gray-300">Focus 100% on professional work while we handle bookings</p>
-                            </div>
+                    
+                    <!-- Benefit 2 -->
+                    <div class="benefit-card">
+                        <div class="icon">
+                            <i class="fas fa-clock"></i>
                         </div>
-                        
-                        <div class="space-y-4 mb-8">
-                            <div class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">✓</span>
-                                <span class="text-gray-300"><strong>10+ Bookings Guaranteed</strong> Monthly</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">✓</span>
-                                <span class="text-gray-300"><strong>Zero Upfront Costs</strong> - Pay Only 30% When Paid</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">✓</span>
-                                <span class="text-gray-300"><strong>28+ Hours Weekly</strong> Reclaimed for Billable Work</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">✓</span>
-                                <span class="text-gray-300"><strong>24/7 Professional</strong> Client Communication</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">✓</span>
-                                <span class="text-gray-300"><strong>Complete Risk Reversal</strong> - No Bookings = No Pay</span>
-                            </div>
+                        <h3 class="text-xl font-bold mb-3 text-black">Learn Anytime, Anywhere</h3>
+                        <p class="text-gray-600">24/7 access means you can practice when it's convenient for you, fitting language learning into your busy schedule.</p>
+                    </div>
+                    
+                    <!-- Benefit 3 -->
+                    <div class="benefit-card">
+                        <div class="icon">
+                            <i class="fas fa-money-bill-wave"></i>
                         </div>
-                        
-                        <!-- WhatsApp CTA Inside Solution Box -->
-                        <div class="mt-8 pt-6 border-t border-white/20">
-                            <p class="text-gray-300 mb-4 text-sm">Get specific answers for your profession:</p>
-                            <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I'm%20a%20%5BYour%20Profession%5D%20and%20have%20questions%20about%20the%2010%2B%20bookings%20guarantee." 
-                               target="_blank" 
-                               class="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#128C7E] transition-colors w-full justify-center card-border">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.304-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"/>
-                                </svg>
-                                <span>WhatsApp Our Team</span>
+                        <h3 class="text-xl font-bold mb-3 text-black">Cost-Effective Solution</h3>
+                        <p class="text-gray-600">Complete AI tutor access for R280/month is more affordable than traditional tutoring while offering more flexibility.</p>
+                    </div>
+                    
+                    <!-- Benefit 4 -->
+                    <div class="benefit-card">
+                        <div class="icon">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-black">Personalized Learning</h3>
+                        <p class="text-gray-600">AI adapts to your unique learning style, pace, and goals for maximum efficiency and effectiveness.</p>
+                    </div>
+                    
+                    <!-- Benefit 5 -->
+                    <div class="benefit-card">
+                        <div class="icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-black">Immediate Feedback</h3>
+                        <p class="text-gray-600">Get instant corrections and explanations, accelerating your learning curve compared to traditional methods.</p>
+                    </div>
+                    
+                    <!-- Benefit 6 -->
+                    <div class="benefit-card">
+                        <div class="icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-black">Confidence Building</h3>
+                        <p class="text-gray-600">Regular practice with supportive AI feedback builds speaking confidence and reduces language anxiety.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 md:py-24 bg-white relative section-padding animate-on-scroll">
+        <div class="container mx-auto">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12 md:mb-16">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 font-heading">
+                        <span class="text-black">Simple, Affordable Pricing</span>
+                        <span class="block text-2xl sm:text-3xl md:text-4xl text-gray-800 mt-2">After Your Free Assessment</span>
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">
+                        Start with a free assessment, then choose unlimited access
+                    </p>
+                </div>
+                
+                <!-- Pricing Cards -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Free Assessment -->
+                    <div class="pricing-card bg-white">
+                        <div class="p-8">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-2xl font-bold text-black">Free Assessment</h3>
+                                <div class="badge bg-green-500">START HERE</div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <div class="text-5xl font-bold text-black mb-2">FREE</div>
+                                <p class="text-gray-600">English assessment with accredited TEFL tutor</p>
+                            </div>
+                            
+                            <ul class="space-y-4 mb-8">
+                                <li class="feature-check">
+                                    <i class="fas fa-check text-black"></i>
+                                    <span>Personalized skill evaluation</span>
+                                </li>
+                                <li class="feature-check">
+                                    <i class="fas fa-check text-black"></i>
+                                    <span>Speaking & conversation analysis</span>
+                                </li>
+                                <li class="feature-check">
+                                    <i class="fas fa-check text-black"></i>
+                                    <span>Customized learning roadmap</span>
+                                </li>
+                                <li class="feature-check">
+                                    <i class="fas fa-check text-black"></i>
+                                    <span>Grammar & vocabulary assessment</span>
+                                </li>
+                                <li class="feature-check">
+                                    <i class="fas fa-check text-black"></i>
+                                    <span>AI tutor demonstration</span>
+                                </li>
+                                <li class="feature-check">
+                                    <i class="fas fa-check text-black"></i>
+                                    <span>No cost, no commitment</span>
+                                </li>
+                            </ul>
+                            
+                            <a href="https://wa.me/27766473499?text=Hi%20Victor!%20I'd%20like%20to%20book%20a%20Free%20English%20Assessment%20with%20you." 
+                               target="_blank"
+                               class="w-full modern-btn ripple-btn bg-black text-white py-4 rounded-xl font-bold hover:shadow-xl transition-all duration-300 text-center block">
+                                WhatsApp for Free Assessment
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Unlimited Access -->
+                    <div class="pricing-card bg-white popular">
+                        <div class="p-8">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-2xl font-bold text-black">Unlimited AI Access</h3>
+                                <div class="badge bg-green-500">BEST VALUE</div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <div class="text-5xl font-bold text-black mb-2">R280</div>
+                                <p class="text-gray-600">per month, cancel anytime</p>
+                                <div class="mt-2 p-3 bg-green-50 rounded-lg">
+                                    <p class="text-green-700 font-semibold">
+                                        <i class="fas fa-shield-alt mr-2"></i>
+                                        Guarantees 12% improvement in 90 days
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <ul class="space-y-4 mb-8">
+                                <li class="feature-check">
+                                    <i class="fas fa-check text-black"></i>
+                                    <span><strong>After your free assessment</strong></span>
+                                </li>
+                                <li class="feature-check">
+                                    <i class="fas fa-check text-black"></i>
+                                    <span>Unlimited conversation practice</span>
+                                </li>
+                                <li class="feature-check">
+                                    <i class="fas fa-check text-black"></i>
+                                    <span>24/7 AI tutor access</span>
+                                </li>
+                                <li class="feature-check">
+                                    <i class="fas fa-check text-black"></i>
+                                    <span>Personalized learning path</span>
+                                </li>
+                                <li class="feature-check">
+                                    <i class="fas fa-check text-black"></i>
+                                    <span>Progress tracking dashboard</span>
+                                </li>
+                                <li class="feature-check">
+                                    <i class="fas fa-check text-black"></i>
+                                    <span>Vocabulary building system</span>
+                                </li>
+                                <li class="feature-check">
+                                    <i class="fas fa-check text-black"></i>
+                                    <span>Mobile app access</span>
+                                </li>
+                            </ul>
+                            
+                            <a href="https://wa.me/27766473499?text=I've%20completed%20my%20free%20assessment%20and%20want%20to%20upgrade%20to%20unlimited%20AI%20access%20(R280%20per%20month)" 
+                               target="_blank"
+                               class="w-full modern-btn ripple-btn bg-black text-white py-4 rounded-xl font-bold hover:shadow-xl transition-all duration-300 text-center block">
+                                Upgrade to Unlimited Access
                             </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section id="solution" class="py-16 md:py-24 gray-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    Your Dedicated Booking Team
-                </h2>
-                <p class="text-lg text-gray-700 max-w-2xl mx-auto">
-                    We become your 24/7 front desk, handling everything from first contact to booked appointment
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6 mb-12 mobile-stack max-w-6xl mx-auto">
-                <!-- Service 1 -->
-                <div class="bg-white p-6 rounded-xl card-border shadow-sm hover-lift transition-all duration-300 text-center h-full">
-                    <div class="icon-circle mx-auto mb-4">
-                        <span class="text-3xl">📅</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">10+ Bookings Guaranteed</h3>
-                    <p class="text-gray-700 mb-4">We guarantee minimum 10 qualified appointments monthly. No bookings = No pay. Complete risk reversal.</p>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="bg-white p-6 rounded-xl card-border shadow-sm hover-lift transition-all duration-300 text-center h-full">
-                    <div class="icon-circle mx-auto mb-4">
-                        <span class="text-3xl">👥</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">24/7 Client Management</h3>
-                    <p class="text-gray-700 mb-4">Professional handling of calls, emails, WhatsApp, and inquiries. Never miss another opportunity.</p>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="bg-white p-6 rounded-xl card-border shadow-sm hover-lift transition-all duration-300 text-center h-full">
-                    <div class="icon-circle mx-auto mb-4">
-                        <span class="text-3xl">🎯</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Complete Calendar Management</h3>
-                    <p class="text-gray-700 mb-4">We sync with your calendar, manage bookings, send reminders, and handle rescheduling.</p>
-                </div>
-            </div>
-
-            <!-- WhatsApp CTA Box -->
-            <div class="mt-12 max-w-4xl mx-auto">
-                <div class="bg-gradient-to-r from-black to-gray-900 rounded-2xl p-8 text-white hover-lift transition-all duration-300 card-border">
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div>
-                            <h3 class="text-2xl font-bold mb-2">READY TO TRANSFORM YOUR BUSINESS?</h3>
-                            <p class="text-gray-300">Chat with us now about the 10+ bookings guarantee</p>
-                        </div>
-                        <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I'm%20ready%20to%20transform%20my%20business%20with%20your%2010%2B%20bookings%20guarantee." 
-                           target="_blank" 
-                           class="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#128C7E] transition-colors hover-lift whitespace-nowrap card-border">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.304-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"/>
-                            </svg>
-                            <span>Start WhatsApp Chat Now</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Guarantee Section -->
-    <section id="guarantee" class="py-16 md:py-24 gray-bg-light">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
-            <div class="max-w-6xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12">
-                    Our Iron-Clad Guarantee: Complete Risk Reversal
-                </h2>
                 
-                <div class="grid lg:grid-cols-2 gap-8 mobile-stack">
-                    <!-- Left Column -->
-                    <div class="bg-white p-8 rounded-xl card-border text-center h-full">
-                        <div class="icon-circle icon-circle-black mx-auto mb-6">
-                            <span class="text-3xl">✓</span>
+                <!-- Guarantee -->
+                <div class="mt-12 max-w-2xl mx-auto">
+                    <div class="glass-card rounded-3xl p-8 border border-gray-200 text-center">
+                        <h3 class="text-2xl font-bold mb-4 text-black">90-Day Improvement Guarantee</h3>
+                        <p class="text-gray-600 mb-6">We're so confident in our AI tutor that we guarantee a 12% improvement in your English proficiency within 90 days, or we'll refund your last month.</p>
+                        <div class="flex items-center justify-center gap-3">
+                            <i class="fas fa-shield-alt text-2xl text-green-500"></i>
+                            <span class="font-bold text-black">Risk-Free Investment in Your English Skills</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-6">THE TRANSFORMATION GUARANTEE</h3>
-                        
-                        <div class="space-y-6 text-left">
-                            <div class="flex items-start gap-4">
-                                <div class="icon-circle flex-shrink-0 mt-1">
-                                    <span class="text-xl">✓</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-1">10+ Bookings Minimum</h4>
-                                    <p class="text-gray-700">Guaranteed minimum 10 qualified appointments booked in your calendar monthly.</p>
-                                </div>
-                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live AI Chat Section -->
+    <section class="py-16 md:py-24 bg-gray-50 relative section-padding">
+        <div class="container mx-auto">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 font-heading">
+                        <span class="text-black">Try Our AI Tutor Now</span>
+                        <span class="block text-2xl sm:text-3xl md:text-4xl text-gray-800 mt-2">Experience AI-Powered English Learning</span>
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">
+                        No sign-up required • Start practicing immediately
+                    </p>
+                </div>
+                
+                <!-- Live AI Chat -->
+                <div class="mb-10">
+                    <div class="ai-chat-container">
+                        <iframe 
+                            src="https://bey.chat/b7b1a789-c940-42d6-bd1d-d82d09fb4698" 
+                            width="100%" 
+                            height="600px" 
+                            frameborder="0" 
+                            allowfullscreen
+                            allow="camera; microphone; fullscreen"
+                            style="border: none; max-width: 100%;"
+                        ></iframe>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-4 text-center">
+                        <i class="fas fa-info-circle mr-2"></i>Chat with our AI tutor to practice English conversation, get grammar corrections, and experience personalized coaching
+                    </p>
+                </div>
+                
+                <!-- Final CTA -->
+                <div class="text-center">
+                    <div class="glass-card rounded-3xl p-8 border border-gray-200 max-w-2xl mx-auto">
+                        <h3 class="text-2xl font-bold mb-4 text-black">Ready to Transform Your English?</h3>
+                        <p class="text-gray-600 mb-6">Start with a free English assessment, then get unlimited AI tutor access</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="https://wa.me/27766473499?text=Hi%20Victor!%20I'd%20like%20to%20book%20a%20Free%20English%20Assessment%20with%20you." 
+                               target="_blank"
+                               class="group modern-btn ripple-btn bg-black text-white px-8 py-4 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 shadow-lg flex items-center justify-center gap-3">
+                                <i class="fab fa-whatsapp text-lg"></i>
+                                <span class="font-semibold">Book Free Assessment</span>
+                                <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform duration-300"></i>
+                            </a>
                             
-                            <div class="flex items-start gap-4">
-                                <div class="icon-circle flex-shrink-0 mt-1">
-                                    <span class="text-xl">✓</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-1">Zero Upfront Investment</h4>
-                                    <p class="text-gray-700">No setup fees, no monthly retainers. You only pay for results delivered.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start gap-4">
-                                <div class="icon-circle flex-shrink-0 mt-1">
-                                    <span class="text-xl">✓</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-1">30% Only on Completed Work</h4>
-                                    <p class="text-gray-700">We earn 30% only from work you complete from our bookings. No bookings = No pay.</p>
-                                </div>
-                            </div>
+                            <a href="https://bey.chat/b7b1a789-c940-42d6-bd1d-d82d09fb4698" 
+                               target="_blank"
+                               class="group modern-btn glass-card text-black px-8 py-4 rounded-xl font-bold border-2 border-gray-200 hover:border-black hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3">
+                                <i class="fas fa-robot text-lg"></i>
+                                <span class="font-semibold">Try AI Tutor Now</span>
+                            </a>
                         </div>
-                        
-                        <div class="mt-8 pt-6 border-t-2 border-black">
-                            <span class="inline-block px-4 py-2 rounded-full bg-black text-white text-sm font-bold">COMPLETE RISK REVERSAL • CANCEL ANYTIME</span>
+                        <p class="text-sm text-gray-600 mt-6">
+                            <i class="fas fa-phone-alt mr-2"></i>Contact Victor: WhatsApp <a href="https://wa.me/27766473499" class="font-bold text-black hover:underline">+27 76 647 3499</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 md:py-16 section-padding">
+        <div class="container mx-auto">
+            <div class="max-w-6xl mx-auto">
+                <!-- Main Footer -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-12">
+                    <!-- Brand -->
+                    <div class="md:col-span-2">
+                        <div class="text-2xl md:text-3xl font-bold text-white mb-4 font-heading">
+                            <span class="text-white">English</span><span class="text-white">Concierge</span>
+                        </div>
+                        <p class="text-gray-400 mb-6 max-w-md">
+                            Your 24/7 AI English Language Tutor providing personalized language coaching, conversation practice, and grammar correction. Get a free English assessment with accredited TEFL Tutor Victor Mariba.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300">
+                                <i class="fab fa-youtube"></i>
+                            </a>
                         </div>
                     </div>
                     
-                    <!-- Right Column -->
-                    <div class="bg-white p-8 rounded-xl card-border text-center h-full">
-                        <div class="icon-circle icon-circle-black mx-auto mb-6">
-                            <span class="text-3xl">🛡️</span>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-6">28+ HOURS RECLAIMED WEEKLY</h3>
-                        
-                        <div class="space-y-6 text-left">
-                            <div class="flex items-start gap-4">
-                                <div class="icon-circle flex-shrink-0 mt-1">
-                                    <span class="text-xl">⏰</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-1">Eliminate Admin Work</h4>
-                                    <p class="text-gray-700">Recover 20+ hours weekly spent on calls, emails, and appointment management.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start gap-4">
-                                <div class="icon-circle flex-shrink-0 mt-1">
-                                    <span class="text-xl">💰</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-1">Focus on Billable Hours</h4>
-                                    <p class="text-gray-700">Spend reclaimed time on professional work that actually generates revenue.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start gap-4">
-                                <div class="icon-circle flex-shrink-0 mt-1">
-                                    <span class="text-xl">📈</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-1">Predictable Growth</h4>
-                                    <p class="text-gray-700">With guaranteed bookings, plan expansion and hire support with confidence.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-8 pt-6 border-t-2 border-black">
-                            <span class="inline-block px-4 py-2 rounded-full bg-black text-white text-sm font-bold">FOCUS ON YOUR PROFESSION • WE HANDLE BOOKINGS</span>
-                        </div>
+                    <!-- Quick Links -->
+                    <div>
+                        <h4 class="text-white font-bold mb-4 text-lg uppercase tracking-wide">Platform</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                            <li><a href="#benefits" class="text-gray-400 hover:text-white transition-colors">Benefits</a></li>
+                            <li><a href="#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+                            <li><a href="#assessment" class="text-gray-400 hover:text-white transition-colors">Free Assessment</a></li>
+                        </ul>
                     </div>
-                </div>
-                
-                <!-- Dual CTA -->
-                <div class="mt-12 grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-                    <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I%20want%20to%20learn%20more%20about%20your%20risk%20reversal%20guarantee%20for%20local%20professionals." 
-                       target="_blank" 
-                       class="touch-target inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#128C7E] transition-colors hover-lift mobile-full card-border">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.304-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"/>
-                        </svg>
-                        <span>CHAT ON WHATSAPP NOW</span>
-                    </a>
                     
-                    <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I%20have%20questions%20about%20the%2028%2B%20hours%20time%20savings%20guarantee." 
-                       target="_blank" 
-                       class="touch-target consultation-btn inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg hover-lift mobile-full">
-                        📱 GET INSTANT ANSWERS
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="process" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                    Simple 3-Step Transformation
-                </h2>
-                <p class="text-lg text-gray-700 max-w-2xl mx-auto">
-                    Get started with your dedicated booking team in 48 hours
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- Step 1 -->
-                <div class="text-center">
-                    <div class="icon-circle icon-circle-black mx-auto mb-6">
-                        <span class="text-3xl">1</span>
+                    <!-- Contact -->
+                    <div>
+                        <h4 class="text-white font-bold mb-4 text-lg uppercase tracking-wide">Contact & Support</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-2 text-gray-400">
+                                <i class="fab fa-whatsapp"></i>
+                                <a href="https://wa.me/27766473499" class="hover:text-white transition-colors">Victor Mariba: +27 76 647 3499</a>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-400">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:victor@maribamedia.co.za" class="hover:text-white transition-colors">victor@maribamedia.co.za</a>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-400">
+                                <i class="fas fa-building"></i>
+                                <span>Mariba Media (Pty) Ltd</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-400">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Accredited TEFL Tutor</span>
+                            </li>
+                        </ul>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Start WhatsApp Chat</h3>
-                    <p class="text-gray-700">Message us now to discuss your specific profession and goals</p>
                 </div>
-
-                <!-- Step 2 -->
-                <div class="text-center">
-                    <div class="icon-circle icon-circle-black mx-auto mb-6">
-                        <span class="text-3xl">2</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Onboard Your Team</h3>
-                    <p class="text-gray-700">We set up systems and understand your ideal clients in 48 hours</p>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="text-center">
-                    <div class="icon-circle icon-circle-black mx-auto mb-6">
-                        <span class="text-3xl">3</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Get Guaranteed Bookings</h3>
-                    <p class="text-gray-700">We start booking appointments immediately - you focus on professional work</p>
-                </div>
-            </div>
-
-            <!-- Final CTA -->
-            <div class="mt-16 text-center">
-                <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I'm%20ready%20to%20start%20the%203-step%20transformation%20for%20my%20professional%20practice." target="_blank" class="touch-target consultation-btn px-10 py-5 rounded-xl font-bold text-xl shadow-2xl hover-lift inline-flex items-center gap-3 mx-auto">
-                    <span>📱</span>
-                    <span>START WHATSAPP CHAT NOW</span>
-                    <span>→</span>
-                </a>
-                <p class="text-gray-600 mt-4 text-sm">Get response within 5 minutes • +27 76 647 3499</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- WhatsApp Widget -->
-    <div id="whatsapp-widget">
-        <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I%20saw%20your%20website%20and%20I'm%20a%20local%20professional%20interested%20in%20your%2010%2B%20bookings%20guarantee." 
-           class="whatsapp-button hover-lift" 
-           target="_blank" 
-           aria-label="Chat with us on WhatsApp"
-           id="whatsapp-button">
-            <div class="whatsapp-pulse"></div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.304-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"/>
-            </svg>
-        </a>
-        <div class="whatsapp-tooltip">Chat with us on WhatsApp!</div>
-    </div>
-
-    <!-- Final CTA Section -->
-    <section class="py-16 md:py-24 black-bg relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight text-center text-white">
-                READY FOR GUARANTEED BOOKINGS?
-            </h2>
-            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 text-center">
-                Stop trading time for money. Get your 24/7 booking team today and transform your professional practice.
-            </p>
-            
-            <!-- Triple CTA Options -->
-            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
-                <a href="https://wa.me/27766473499?text=Hello%20Concierge%20Team!%20I%20want%20to%20get%20started%20with%20the%2010%2B%20bookings%20guarantee%20today." 
-                   target="_blank" 
-                   class="touch-target inline-flex items-center justify-center gap-3 bg-[#25D366] text-white px-6 py-5 rounded-xl font-bold text-lg hover:bg-[#128C7E] transition-all shadow-2xl hover:shadow-3xl hover-lift card-border">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.304-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"/>
-                    </svg>
-                    <span>WHATSAPP START</span>
-                </a>
                 
-                <a href="tel:+27766473499" class="touch-target inline-flex items-center justify-center gap-3 bg-gray-800 text-white px-6 py-5 rounded-xl font-bold text-lg hover:bg-gray-700 transition-all shadow-2xl hover:shadow-3xl hover-lift card-border">
-                    <span class="text-2xl">📞</span>
-                    <span>CALL DIRECT</span>
-                </a>
-                
-                <a href="https://wa.me/27766473499?text=Hello!%20I%20have%20questions%20about%20the%20transformation%20for%20local%20professionals." 
-                   target="_blank" 
-                   class="touch-target inline-flex items-center justify-center gap-3 bg-white text-black px-6 py-5 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-2xl hover:shadow-3xl hover-lift card-border">
-                    <span class="text-2xl">💬</span>
-                    <span>QUESTIONS FIRST</span>
-                </a>
-            </div>
-            
-            <!-- Guarantee Badges -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl text-center card-border">
-                    <div class="text-2xl font-bold mb-1 text-white">10+</div>
-                    <div class="text-sm text-gray-300">GUARANTEED BOOKINGS</div>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl text-center card-border">
-                    <div class="text-2xl font-bold mb-1 text-white">$0</div>
-                    <div class="text-sm text-gray-300">UPFRONT COSTS</div>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl text-center card-border">
-                    <div class="text-2xl font-bold mb-1 text-white">28+</div>
-                    <div class="text-sm text-gray-300">HOURS RECLAIMED</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Minimized Footer -->
-    <footer class="bg-black text-gray-400 py-6 border-t-2 border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <div class="text-lg font-bold text-white mb-2">CONCIERGE FOR LOCAL PROFESSIONALS</div>
-                <p class="text-sm text-gray-500 mb-3">10+ Bookings Guaranteed • 28+ Hours Weekly Reclaimed • Zero Upfront Fees</p>
-                <div class="text-xs text-gray-600">
-                    <p>© 2024 Concierge for Local Professionals • COMPANY REGISTRATION: 2024/132788/07</p>
-                    <p class="mt-1"><a href="https://wa.me/27766473499" target="_blank" class="text-gray-400 hover:text-white transition-colors">WhatsApp: +27 76 647 3499</a></p>
+                <!-- Bottom Footer -->
+                <div class="border-t border-gray-800 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                        <div class="text-sm text-center md:text-left">
+                            <span class="text-gray-400 font-medium">AI English Language Tutor</span>
+                            <span class="mx-3 text-gray-600">|</span>
+                            <span class="text-gray-400 font-medium">Free English Assessment</span>
+                            <span class="mx-3 text-gray-600">|</span>
+                            <span class="text-gray-400 font-medium">24/7 Availability</span>
+                        </div>
+                        
+                        <div class="text-sm text-center text-gray-400">
+                            &copy; <script>document.write(new Date().getFullYear())</script> EnglishConcierge by Mariba Media
+                            <span class="mx-3 text-gray-600">|</span>
+                            <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                            <span class="mx-3 text-gray-600">|</span>
+                            <a href="#" class="hover:text-white transition-colors">Terms</a>
+                            <span class="mx-3 text-gray-600">|</span>
+                            <a href="#" class="hover:text-white transition-colors">Refund Policy</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -873,91 +1618,220 @@
 
     <!-- JavaScript -->
     <script>
-        // Mobile menu functionality
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuOpenIcon = document.getElementById('menu-open');
-        const menuCloseIcon = document.getElementById('menu-close');
+        // Loading Bar
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.clientHeight - window.innerHeight;
+            const scrollPercent = scrollTop / docHeight * 100;
+            document.querySelector('.loading-bar').style.width = scrollPercent + '%';
+        });
 
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                const isOpen = mobileMenu.classList.contains('hidden');
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('animate-slide-down');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Ripple Effect for Buttons
+        document.querySelectorAll('.ripple-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
                 
-                if (isOpen) {
-                    mobileMenu.classList.remove('hidden');
-                    menuOpenIcon.classList.add('hidden');
-                    menuCloseIcon.classList.remove('hidden');
-                } else {
-                    mobileMenu.classList.add('hidden');
-                    menuOpenIcon.classList.remove('hidden');
-                    menuCloseIcon.classList.add('hidden');
-                }
+                ripple.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                `;
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 800);
             });
-
-            // Close menu when clicking links
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    menuOpenIcon.classList.remove('hidden');
-                    menuCloseIcon.classList.add('hidden');
-                });
-            });
-        }
+        });
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    // Close mobile menu if open
-                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                        menuOpenIcon.classList.remove('hidden');
-                        menuCloseIcon.classList.add('hidden');
-                    }
-                    
-                    // Calculate header height
-                    const headerHeight = document.querySelector('nav').offsetHeight;
-                    
-                    // Scroll to element
                     window.scrollTo({
-                        top: targetElement.offsetTop - headerHeight - 20,
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
                 }
             });
         });
 
-        // WhatsApp button click tracking (optional)
-        const whatsappButton = document.getElementById('whatsapp-button');
-        if (whatsappButton) {
-            whatsappButton.addEventListener('click', function() {
-                // You can add analytics here
-                console.log('WhatsApp button clicked');
-            });
-        }
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass', 'navbar-scroll');
+                navbar.classList.remove('py-4');
+                navbar.classList.add('py-3');
+            } else {
+                navbar.classList.remove('glass', 'navbar-scroll');
+                navbar.classList.remove('py-3');
+                navbar.classList.add('py-4');
+            }
+        });
 
-        // Add animation to stats on scroll
+        // Scroll animations
         const observerOptions = {
-            threshold: 0.5
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-pulse-slow');
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
-        // Observe stat elements
-        document.querySelectorAll('.stats-number').forEach(stat => {
-            observer.observe(stat);
+        // Observe all animate-on-scroll elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Initialize animations on load
+        window.addEventListener('load', () => {
+            // Trigger initial animations
+            document.querySelectorAll('.animate-slide-up, .animate-scale-in, .animate-fade-in, .animate-slide-in-left, .animate-slide-in-right').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0) translateX(0) scale(1)';
+            });
+            
+            // Add loaded class to body for transition
+            document.body.classList.add('loaded');
+            
+            // Animate stats counters
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const text = stat.textContent;
+                if (text.includes('+')) {
+                    const finalValue = parseInt(text.replace('+', ''));
+                    let current = 0;
+                    const increment = finalValue / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= finalValue) {
+                            current = finalValue;
+                            clearInterval(timer);
+                        }
+                        stat.textContent = Math.floor(current) + '+';
+                    }, 30);
+                }
+            });
+            
+            // Highlight AI chat embed
+            const aiChatEmbed = document.querySelector('.ai-chat-container');
+            if (aiChatEmbed) {
+                setTimeout(() => {
+                    aiChatEmbed.style.boxShadow = '0 0 40px rgba(0, 0, 0, 0.25)';
+                    setTimeout(() => {
+                        aiChatEmbed.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
+                    }, 2000);
+                }, 1000);
+            }
+        });
+
+        // Parallax effect for floating shapes
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.floating-shape');
+            shapes.forEach((shape, index) => {
+                const speed = 0.2 + (index * 0.1);
+                const yPos = -(scrolled * speed);
+                shape.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+
+        // Enhanced hover effects for cards
+        document.querySelectorAll('.feature-card, .benefit-card, .pricing-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+                this.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '';
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Touch device detection
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
+        if (isTouchDevice) {
+            document.body.classList.add('touch-device');
+        } else {
+            document.body.classList.add('no-touch-device');
+        }
+        
+        // Track free assessment clicks
+        document.querySelectorAll('a[href*="wa.me/27766473499"]').forEach(link => {
+            link.addEventListener('click', function() {
+                // You can add analytics here
+                console.log('Free assessment clicked:', this.textContent);
+            });
+        });
+        
+        // Track AI tutor clicks
+        document.querySelectorAll('a[href*="bey.chat"]').forEach(link => {
+            link.addEventListener('click', function() {
+                // You can add analytics here
+                console.log('AI tutor clicked:', this.textContent);
+            });
         });
     </script>
 </body>
