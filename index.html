@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>EnglishConcierge - Your 24/7 AI English Language Tutor | Free English Assessment</title>
-    <meta name="description" content="EnglishConcierge: Your 24/7 AI English Language Tutor providing personalized language coaching, conversation practice, and grammar correction. Get a Free English Assessment with accredited TEFL Tutor Victor Mariba.">
+    <title>Concierge | Pay Per Call Performance System - Qualified Calls in 24 Hours</title>
+    <meta name="description" content="Concierge Pay Per Call Performance System with 24-hour qualified call delivery, call tracking/recording, quality control, SLAs, and insertion agreements.">
     
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
-    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%2214%22 fill=%22%23000000%22/><text x=%2216%22 y=%2222%22 text-anchor=%22middle%22 font-size=%2218%22 fill=%22white%22 font-family=%22Arial%22>AI</text></svg>">
-    <meta name="theme-color" content="#000000">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%2214%22 fill=%22%230F766E%22/><text x=%2216%22 y=%2222%22 text-anchor=%22middle%22 font-size=%2218%22 fill=%22white%22 font-family=%22Arial%22>C</text></svg>">
+    <meta name="theme-color" content="#0F766E">
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -24,38 +24,33 @@
             theme: {
                 extend: {
                     colors: {
-                        gray: {
-                            50: '#fafafa',
-                            100: '#f5f5f5',
-                            200: '#e5e5e5',
-                            300: '#d4d4d4',
-                            400: '#a3a3a3',
-                            500: '#737373',
-                            600: '#525252',
-                            700: '#404040',
-                            800: '#262626',
-                            900: '#171717',
-                        },
                         primary: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            700: '#0369a1',
-                            800: '#075985',
-                            900: '#0c4a6e',
+                            50: '#F0FDFA',
+                            100: '#CCFBF1',
+                            200: '#99F6E4',
+                            300: '#5EEAD4',
+                            400: '#2DD4BF',
+                            500: '#14B8A6',
+                            600: '#0D9488',
+                            700: '#0F766E',
+                            800: '#115E59',
+                            900: '#134E4A',
+                        },
+                        dark: {
+                            900: '#0A0A0A',
+                            800: '#171717',
+                            700: '#262626',
                         }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        display: ['Poppins', 'sans-serif'],
+                        display: ['DM Sans', 'sans-serif'],
                         heading: ['Space Grotesk', 'sans-serif'],
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'slide-up': 'slide-up 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
                         'fade-in': 'fade-in 0.8s ease-out',
-                        'gradient': 'gradient 8s ease infinite',
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'bounce-in': 'bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
                         'slide-in-left': 'slide-in-left 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
@@ -63,18 +58,15 @@
                         'scale-in': 'scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
                         'shimmer': 'shimmer 3s infinite linear',
                         'blob': 'blob 10s infinite',
-                        'wave': 'wave 2s ease-in-out infinite',
                         'tilt': 'tilt 10s infinite linear',
-                        'glow': 'glow 2s ease-in-out infinite',
-                        'typewriter': 'typewriter 3.5s steps(40, end)',
                         'fade-in-up': 'fade-in-up 0.8s ease-out',
-                        'rotate': 'rotate 20s linear infinite',
-                        'shimmer-text': 'shimmer-text 3s infinite linear',
                         'border-glow': 'border-glow 3s ease-in-out infinite',
                         'card-hover': 'card-hover 0.3s ease-out',
                         'ripple': 'ripple 0.8s linear infinite',
-                        'neon-pulse': 'neon-pulse 2s ease-in-out infinite',
                         'slide-down': 'slide-down 0.3s ease-out',
+                        'gradient-flow': 'gradient-flow 3s ease infinite',
+                        'dashboard': 'dashboard 6s ease-in-out infinite',
+                        'typewriter': 'typewriter 3.5s steps(40, end)',
                     },
                     keyframes: {
                         float: {
@@ -88,10 +80,6 @@
                         'fade-in': {
                             from: { opacity: 0 },
                             to: { opacity: 1 },
-                        },
-                        gradient: {
-                            '0%, 100%': { backgroundPosition: '0% 50%' },
-                            '50%': { backgroundPosition: '100% 50%' },
                         },
                         'bounce-in': {
                             '0%': { transform: 'scale(0.3)', opacity: 0 },
@@ -121,39 +109,18 @@
                             '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
                             '100%': { transform: 'translate(0px, 0px) scale(1)' },
                         },
-                        wave: {
-                            '0%, 100%': { transform: 'rotate(0deg)' },
-                            '25%': { transform: 'rotate(5deg)' },
-                            '75%': { transform: 'rotate(-5deg)' },
-                        },
                         tilt: {
                             '0%, 100%': { transform: 'rotate(0deg)' },
                             '25%': { transform: 'rotate(2deg)' },
                             '75%': { transform: 'rotate(-2deg)' },
                         },
-                        glow: {
-                            '0%, 100%': { opacity: 1 },
-                            '50%': { opacity: 0.7 },
-                        },
-                        typewriter: {
-                            from: { width: '0' },
-                            to: { width: '100%' },
-                        },
                         'fade-in-up': {
                             from: { transform: 'translateY(20px)', opacity: 0 },
                             to: { transform: 'translateY(0)', opacity: 1 },
                         },
-                        rotate: {
-                            from: { transform: 'rotate(0deg)' },
-                            to: { transform: 'rotate(360deg)' },
-                        },
-                        'shimmer-text': {
-                            '0%': { backgroundPosition: '-200% center' },
-                            '100%': { backgroundPosition: '200% center' },
-                        },
                         'border-glow': {
-                            '0%, 100%': { borderColor: 'rgba(0, 0, 0, 0.2)' },
-                            '50%': { borderColor: 'rgba(0, 0, 0, 0.5)' },
+                            '0%, 100%': { borderColor: 'rgba(20, 184, 166, 0.3)' },
+                            '50%': { borderColor: 'rgba(20, 184, 166, 0.8)' },
                         },
                         'card-hover': {
                             from: { transform: 'translateY(0) scale(1)' },
@@ -163,13 +130,21 @@
                             '0%': { transform: 'scale(0)', opacity: 1 },
                             '100%': { transform: 'scale(4)', opacity: 0 },
                         },
-                        'neon-pulse': {
-                            '0%, 100%': { boxShadow: '0 0 20px rgba(0, 0, 0, 0.1)' },
-                            '50%': { boxShadow: '0 0 40px rgba(0, 0, 0, 0.2)' },
-                        },
                         'slide-down': {
                             from: { transform: 'translateY(-10px)', opacity: 0 },
                             to: { transform: 'translateY(0)', opacity: 1 },
+                        },
+                        'gradient-flow': {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        dashboard: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        typewriter: {
+                            from: { width: '0' },
+                            to: { width: '100%' },
                         }
                     }
                 }
@@ -178,11 +153,6 @@
     </script>
     
     <style>
-        :root {
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-        }
-        
         * {
             margin: 0;
             padding: 0;
@@ -213,8 +183,8 @@
             height: 100%;
             z-index: -2;
             background: 
-                radial-gradient(circle at 10% 20%, rgba(0, 0, 0, 0.02) 0%, transparent 20%),
-                radial-gradient(circle at 90% 40%, rgba(0, 0, 0, 0.01) 0%, transparent 20%);
+                radial-gradient(circle at 10% 20%, rgba(20, 184, 166, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 90% 40%, rgba(20, 184, 166, 0.02) 0%, transparent 20%);
         }
         
         .floating-shapes {
@@ -228,24 +198,24 @@
         .floating-shape {
             position: absolute;
             border-radius: 50%;
-            filter: blur(40px);
-            opacity: 0.05;
+            filter: blur(60px);
+            opacity: 0.08;
             animation: blob 20s infinite linear;
         }
         
         .shape-1 {
-            width: 300px;
-            height: 300px;
-            background: #000000;
+            width: 400px;
+            height: 400px;
+            background: #14B8A6;
             top: 10%;
             left: 5%;
             animation-delay: 0s;
         }
         
         .shape-2 {
-            width: 400px;
-            height: 400px;
-            background: #404040;
+            width: 300px;
+            height: 300px;
+            background: #0F766E;
             top: 60%;
             right: 10%;
             animation-delay: 5s;
@@ -256,7 +226,7 @@
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             box-shadow: 
                 0 8px 32px rgba(0, 0, 0, 0.05),
                 inset 0 1px 0 rgba(255, 255, 255, 0.6);
@@ -264,17 +234,8 @@
         
         .glass-card {
             background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        /* Black Text */
-        .black-text {
-            color: #000000;
-        }
-        
-        .black-bg {
-            background: #000000;
         }
         
         /* Animations */
@@ -289,7 +250,20 @@
             transform: translateY(0);
         }
         
-        /* WhatsApp Widget Styles */
+        /* Typewriter Effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #14B8A6;
+            white-space: nowrap;
+            animation: typewriter 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #14B8A6; }
+        }
+        
+        /* WhatsApp Widget */
         .whatsapp-widget {
             position: fixed;
             bottom: 100px;
@@ -304,9 +278,9 @@
             justify-content: center;
             width: 60px;
             height: 60px;
-            background-color: #000000;
+            background: linear-gradient(135deg, #25D366, #128C7E);
             border-radius: 50%;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             overflow: hidden;
@@ -315,11 +289,7 @@
         
         .whatsapp-button:hover {
             transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-        }
-        
-        .whatsapp-button:active {
-            transform: scale(0.95);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
         }
         
         .whatsapp-button i {
@@ -349,36 +319,6 @@
         .whatsapp-button:hover + .whatsapp-tooltip {
             opacity: 1;
             right: 85px;
-        }
-        
-        .whatsapp-pulse {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background-color: #000000;
-            animation: pulse-slow 2s infinite;
-            z-index: -1;
-        }
-        
-        /* AI Chat Embed Container */
-        .ai-chat-container {
-            position: relative;
-            width: 100%;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            margin: 2rem 0;
-        }
-        
-        .ai-chat-container iframe {
-            display: block;
-            width: 100%;
-            height: 600px;
-            border: none;
         }
         
         /* Mobile Optimizations */
@@ -424,21 +364,6 @@
             .whatsapp-tooltip {
                 display: none;
             }
-            
-            .ai-chat-container {
-                border-radius: 12px;
-                margin: 1rem 0;
-            }
-            
-            .ai-chat-container iframe {
-                height: 500px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .ai-chat-container iframe {
-                height: 500px;
-            }
         }
         
         /* Modern Button */
@@ -446,9 +371,16 @@
             position: relative;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid #000000;
+            border: 2px solid transparent;
             font-weight: 600;
             letter-spacing: 0.5px;
+            background: linear-gradient(135deg, #14B8A6, #0F766E);
+            color: white;
+        }
+        
+        .modern-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(20, 184, 166, 0.3);
         }
         
         /* Ripple Effect */
@@ -460,37 +392,22 @@
         .ripple-btn .ripple {
             position: absolute;
             border-radius: 50%;
-            background: rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.3);
             transform: scale(0);
             animation: ripple 0.8s linear;
             pointer-events: none;
         }
         
         /* Card Hover Effects */
-        .pricing-card, .feature-card, .benefit-card {
+        .industry-card, .feature-card, .benefit-card {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .pricing-card:hover, .feature-card:hover, .benefit-card:hover {
-            transform: translateY(-10px) scale(1.02);
+        .industry-card:hover, .feature-card:hover, .benefit-card:hover {
+            transform: translateY(-10px);
             box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.1),
-                0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-        
-        /* Feature Check */
-        .feature-check {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 8px 0;
-        }
-        
-        .feature-check i {
-            color: #000000;
-            font-size: 1.1rem;
-            margin-top: 2px;
-            flex-shrink: 0;
+                0 25px 50px rgba(0, 0, 0, 0.08),
+                0 10px 30px rgba(0, 0, 0, 0.03);
         }
         
         /* Back to Top Button */
@@ -500,7 +417,7 @@
             right: 30px;
             width: 50px;
             height: 50px;
-            background: #000000;
+            background: linear-gradient(135deg, #14B8A6, #0F766E);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -511,7 +428,7 @@
             opacity: 0;
             transform: translateY(20px);
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(20, 184, 166, 0.3);
         }
         
         .back-to-top.visible {
@@ -561,13 +478,20 @@
             padding-right: 2rem;
         }
         
+        @media (max-width: 640px) {
+            .section-padding {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+        
         /* Feature Cards */
         .feature-card {
             background: #ffffff;
             border-radius: 20px;
             padding: 32px;
             position: relative;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             height: 100%;
         }
         
@@ -580,66 +504,27 @@
             justify-content: center;
             margin-bottom: 24px;
             font-size: 28px;
-            background: #000000;
+            background: linear-gradient(135deg, #14B8A6, #0F766E);
             color: white;
         }
         
-        /* Pricing Cards */
-        .pricing-card {
-            border: 2px solid rgba(0, 0, 0, 0.1);
-            border-radius: 24px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .pricing-card.popular {
-            border-color: #000000;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Badge Styling */
-        .badge {
-            background: #000000;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.75rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            display: inline-block;
-        }
-
-        /* Icon Circles */
-        .icon-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #000000;
-            color: white;
-            font-size: 1rem;
-        }
-
-        /* Benefit Cards */
-        .benefit-card {
+        /* Industry Cards */
+        .industry-card {
             background: #ffffff;
             border-radius: 16px;
             padding: 24px;
             position: relative;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
         
-        .benefit-card:hover {
-            border-color: #000000;
+        .industry-card:hover {
+            border-color: #14B8A6;
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(20, 184, 166, 0.1);
         }
         
-        .benefit-card .icon {
+        .industry-card .icon {
             width: 60px;
             height: 60px;
             border-radius: 16px;
@@ -648,13 +533,13 @@
             justify-content: center;
             margin-bottom: 20px;
             font-size: 24px;
-            background: #000000;
+            background: linear-gradient(135deg, #14B8A6, #0F766E);
             color: white;
         }
         
         /* Hero Heading Emphasis */
         .hero-heading {
-            background: linear-gradient(135deg, #000000 0%, #404040 100%);
+            background: linear-gradient(135deg, #14B8A6 0%, #0F766E 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -662,7 +547,7 @@
         
         /* Guarantee Badge */
         .guarantee-badge {
-            background: linear-gradient(135deg, #000000, #2d3748);
+            background: linear-gradient(135deg, #14B8A6, #0F766E);
             color: white;
             padding: 12px 24px;
             border-radius: 50px;
@@ -671,87 +556,195 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 25px rgba(20, 184, 166, 0.15);
             border: 2px solid rgba(255, 255, 255, 0.1);
         }
         
-        .guarantee-badge i {
-            color: #10b981;
-            font-size: 1.3rem;
-        }
-        
-        /* AI Gradient */
-        .ai-gradient {
-            background: linear-gradient(135deg, #000000, #4a5568);
-            color: white;
-        }
-        
-        /* AI Pulse Animation */
-        .ai-pulse {
-            animation: pulse-slow 2s infinite;
-        }
-        
-        /* Free Assessment Badge */
-        .free-assessment-badge {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.3rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            animation: pulse-slow 2s infinite;
-        }
-        
-        .free-assessment-badge i {
-            color: white;
-            font-size: 1.5rem;
-        }
-        
-        /* Tutor Profile */
-        .tutor-profile {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 20px;
-            background: white;
+        /* Performance Stats */
+        .stat-card {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(13, 148, 136, 0.1));
+            border: 1px solid rgba(20, 184, 166, 0.2);
             border-radius: 16px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(20, 184, 166, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #14B8A6, #0D9488);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Dashboard Preview */
+        .dashboard-preview {
+            background: linear-gradient(135deg, #0a0a0a, #171717);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(20, 184, 166, 0.2);
+        }
+        
+        .dashboard-header {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dashboard-metric {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #14B8A6, #2DD4BF, #5EEAD4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% auto;
+            animation: gradient-flow 3s ease infinite;
+        }
+        
+        /* Wave Divider */
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 50px;
+        }
+        
+        .wave-divider .shape-fill {
+            fill: #f9fafb;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, #14B8A6, #0F766E);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background: white;
+            position: relative;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
         
-        .tutor-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #000000, #4a5568);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            flex-shrink: 0;
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
         }
         
-        .tutor-badge {
-            background: #10b981;
+        /* SLA Badge */
+        .sla-badge {
+            background: linear-gradient(135deg, #14B8A6, #0F766E);
             color: white;
-            padding: 4px 12px;
+            padding: 6px 12px;
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 600;
             display: inline-block;
-            margin-top: 5px;
+        }
+        
+        /* Cal.com Embed Container */
+        .cal-embed-container {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Professional Gradient Line */
+        .gradient-line {
+            height: 4px;
+            width: 80px;
+            background: linear-gradient(135deg, #14B8A6, #0F766E);
+            border-radius: 2px;
+            margin: 0 auto;
+        }
+        
+        /* Feature Check */
+        .feature-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 8px 0;
+        }
+        
+        .feature-check i {
+            color: #14B8A6;
+            font-size: 1.1rem;
+            margin-top: 2px;
+            flex-shrink: 0;
         }
     </style>
 </head>
 <body class="antialiased">
     <!-- Loading Bar -->
-    <div class="loading-bar" style="position: fixed; top: 0; left: 0; height: 3px; background: #000000; width: 0%; z-index: 9999;"></div>
+    <div class="loading-bar" style="position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #14B8A6, #0F766E); width: 0%; z-index: 9999;"></div>
     
     <!-- Animated Background -->
     <div class="animated-bg"></div>
@@ -767,44 +760,43 @@
     
     <!-- WhatsApp Widget -->
     <div class="whatsapp-widget" id="whatsappWidget">
-        <a href="https://wa.me/27766473499?text=Hi%20Victor!%20I'd%20like%20to%20book%20a%20Free%20English%20Assessment%20with%20you." 
+        <a href="https://wa.me/27766473499?text=Hi!%20I'm%20interested%20in%20Concierge%20Pay%20Per%20Call%20System.%20Can%20we%20schedule%20a%20consultation?" 
            target="_blank" 
            class="whatsapp-button ripple-btn"
-           aria-label="Chat with Victor on WhatsApp">
+           aria-label="Chat about Concierge System">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <div class="whatsapp-tooltip">FREE ASSESSMENT! 🎯</div>
+        <div class="whatsapp-tooltip">SCHEDULE A CALL 📅</div>
     </div>
     
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300 glass" id="navbar">
+    <nav class="fixed top-0 left-0 right-0 z-50 py-5 transition-all duration-300 glass" id="navbar">
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <a href="#" class="flex items-center gap-3 group animate-slide-in-left">
-                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl black-bg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                        <i class="fas fa-robot text-white text-xl md:text-2xl"></i>
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg" style="background: linear-gradient(135deg, #14B8A6, #0F766E);">
+                        <i class="fas fa-concierge-bell text-white text-xl md:text-2xl"></i>
                     </div>
                     <div>
                         <div class="text-2xl md:text-3xl font-bold font-heading">
-                            <span class="text-black">English</span><span class="text-black">Concierge</span>
+                            <span class="gradient-text">Concierge</span>
                         </div>
-                        <div class="text-xs text-gray-600 -mt-1 font-medium tracking-wide">AI ENGLISH LANGUAGE TUTOR</div>
+                        <div class="text-xs text-gray-600 -mt-1 font-medium tracking-wide">PAY PER CALL PERFORMANCE</div>
                     </div>
                 </a>
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center gap-8 animate-slide-in-right">
-                    <a href="#features" class="text-sm font-semibold text-gray-800 hover:text-black transition-colors duration-200">Features</a>
-                    <a href="#benefits" class="text-sm font-semibold text-gray-800 hover:text-black transition-colors duration-200">Benefits</a>
-                    <a href="#pricing" class="text-sm font-semibold text-gray-800 hover:text-black transition-colors duration-200">Pricing</a>
-                    <a href="https://bey.chat/b7b1a789-c940-42d6-bd1d-d82d09fb4698" target="_blank" class="text-sm font-semibold text-gray-800 hover:text-black transition-colors duration-200">Try AI Tutor</a>
+                    <a href="#how-it-works" class="text-sm font-semibold text-gray-700 hover:text-primary-700 transition-colors duration-200">How It Works</a>
+                    <a href="#features" class="text-sm font-semibold text-gray-700 hover:text-primary-700 transition-colors duration-200">Features</a>
+                    <a href="#industries" class="text-sm font-semibold text-gray-700 hover:text-primary-700 transition-colors duration-200">Industries</a>
+                    <a href="#sla" class="text-sm font-semibold text-gray-700 hover:text-primary-700 transition-colors duration-200">SLA & Agreements</a>
                     
-                    <a href="https://wa.me/27766473499?text=Hi%20Victor!%20I'd%20like%20to%20book%20a%20Free%20English%20Assessment%20with%20you." 
-                       target="_blank"
-                       class="modern-btn ripple-btn bg-black text-white px-6 py-3 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 shadow-md relative">
-                        <span>Free Assessment</span>
-                        <i class="fas fa-arrow-right ml-2"></i>
+                    <a href="#schedule" 
+                       class="modern-btn ripple-btn px-6 py-3 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 shadow-md relative">
+                        <span>Book Consultation</span>
+                        <i class="fas fa-calendar-alt ml-2"></i>
                     </a>
                 </div>
                 
@@ -819,14 +811,13 @@
             <!-- Mobile Menu -->
             <div id="mobileMenu" class="md:hidden mt-4 hidden animate-slide-down glass rounded-2xl overflow-hidden">
                 <div class="p-4 space-y-2">
-                    <a href="#features" class="block py-3 px-4 text-gray-800 hover:text-black hover:bg-gray-50 rounded-xl transition-all duration-200">Features</a>
-                    <a href="#benefits" class="block py-3 px-4 text-gray-800 hover:text-black hover:bg-gray-50 rounded-xl transition-all duration-200">Benefits</a>
-                    <a href="#pricing" class="block py-3 px-4 text-gray-800 hover:text-black hover:bg-gray-50 rounded-xl transition-all duration-200">Pricing</a>
-                    <a href="https://bey.chat/b7b1a789-c940-42d6-bd1d-d82d09fb4698" target="_blank" class="block py-3 px-4 text-gray-800 hover:text-black hover:bg-gray-50 rounded-xl transition-all duration-200">Try AI Tutor</a>
-                    <a href="https://wa.me/27766473499?text=Hi%20Victor!%20I'd%20like%20to%20book%20a%20Free%20English%20Assessment%20with%20you." 
-                       target="_blank"
-                       class="block mt-4 modern-btn bg-black text-white py-3 rounded-xl text-center font-semibold shadow-md">
-                        Free Assessment
+                    <a href="#how-it-works" class="block py-3 px-4 text-gray-700 hover:text-primary-700 hover:bg-gray-50 rounded-xl transition-all duration-200">How It Works</a>
+                    <a href="#features" class="block py-3 px-4 text-gray-700 hover:text-primary-700 hover:bg-gray-50 rounded-xl transition-all duration-200">Features</a>
+                    <a href="#industries" class="block py-3 px-4 text-gray-700 hover:text-primary-700 hover:bg-gray-50 rounded-xl transition-all duration-200">Industries</a>
+                    <a href="#sla" class="block py-3 px-4 text-gray-700 hover:text-primary-700 hover:bg-gray-50 rounded-xl transition-all duration-200">SLA & Agreements</a>
+                    <a href="#schedule" 
+                       class="block mt-4 modern-btn py-3 rounded-xl text-center font-semibold shadow-md">
+                        Book Consultation
                     </a>
                 </div>
             </div>
@@ -837,24 +828,24 @@
     <section class="pt-32 md:pt-40 pb-16 md:pb-24 relative overflow-hidden section-padding">
         <!-- Animated Background Elements -->
         <div class="absolute inset-0 -z-10 overflow-hidden">
-            <div class="absolute -top-20 -right-20 w-64 h-64 md:w-96 md:h-96 rounded-full bg-gray-100 blur-3xl opacity-50 floating"></div>
-            <div class="absolute -bottom-20 -left-20 w-64 h-64 md:w-96 md:h-96 rounded-full bg-gray-100 blur-3xl opacity-50 floating" style="animation-delay: 2s;"></div>
+            <div class="absolute -top-20 -right-20 w-64 h-64 md:w-96 md:h-96 rounded-full bg-primary-50 blur-3xl opacity-50 floating"></div>
+            <div class="absolute -bottom-20 -left-20 w-64 h-64 md:w-96 md:h-96 rounded-full bg-primary-50 blur-3xl opacity-50 floating" style="animation-delay: 2s;"></div>
         </div>
         
         <div class="container mx-auto">
             <div class="max-w-6xl mx-auto">
-                <!-- AI Badge -->
+                <!-- 24-Hour Badge -->
                 <div class="mb-8 md:mb-12 max-w-2xl mx-auto animate-slide-up">
-                    <div class="rounded-2xl p-4 md:p-5 shadow-lg ai-gradient">
+                    <div class="rounded-2xl p-4 md:p-5 shadow-lg" style="background: linear-gradient(135deg, #14B8A6, #0F766E);">
                         <div class="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 relative z-10">
                             <div class="flex items-center gap-2">
-                                <div class="w-10 h-10 rounded-full bg-white border-2 border-black flex items-center justify-center shadow-sm">
-                                    <i class="fas fa-brain text-black text-lg"></i>
+                                <div class="w-10 h-10 rounded-full bg-white border-2 border-primary-500 flex items-center justify-center shadow-sm">
+                                    <i class="fas fa-clock text-primary-600 text-lg"></i>
                                 </div>
-                                <span class="font-bold text-white text-sm md:text-base tracking-wider uppercase">24/7 AI ENGLISH LANGUAGE TUTOR</span>
+                                <span class="font-bold text-white text-sm md:text-base tracking-wider uppercase">24-HOUR CALL DELIVERY GUARANTEE</span>
                             </div>
                             <div class="text-white text-lg md:text-xl font-bold text-center">
-                                Personalized Coaching + Conversation Practice + Grammar Correction
+                                With Complete Performance Tracking
                             </div>
                         </div>
                     </div>
@@ -864,199 +855,202 @@
                 <div class="text-center mb-12 md:mb-16">
                     <!-- Hero Heading -->
                     <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 leading-tight animate-slide-up font-heading">
-                        <span class="block hero-heading">EnglishConcierge</span>
-                        <span class="block mt-2 text-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Your 24/7 AI English Language Tutor</span>
+                        <span class="block hero-heading">Concierge</span>
+                        <span class="block mt-2 text-gray-800 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Pay Per Call Performance System</span>
                     </h1>
                     
                     <div class="mb-8 md:mb-10 animate-fade-in" style="animation-delay: 0.1s">
-                        <div class="free-assessment-badge inline-flex">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Free English Assessment with Accredited TEFL Tutor</span>
+                        <div class="guarantee-badge inline-flex">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Complete Call Tracking • SLA Guarantees • Quality Control</span>
                         </div>
                     </div>
                     
-                    <p class="text-2xl md:text-3xl text-gray-800 mb-8 md:mb-10 max-w-4xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.2s">
-                        Personalized Language Coaching • Conversation Practice • Grammar Correction
+                    <p class="text-2xl md:text-3xl text-gray-700 mb-8 md:mb-10 max-w-4xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.2s">
+                        Get <span class="font-bold text-primary-700">qualified, tracked, and verified calls</span> with full transparency and performance guarantees
                     </p>
                     
-                    <!-- Live AI Chat Embed -->
+                    <!-- Dashboard Preview -->
                     <div class="mb-10 md:mb-14 max-w-6xl mx-auto animate-fade-in" style="animation-delay: 0.3s">
-                        <h3 class="text-2xl font-bold mb-6 text-black">Try Our AI English Tutor Now</h3>
-                        <div class="ai-chat-container">
-                            <iframe 
-                                src="https://bey.chat/b7b1a789-c940-42d6-bd1d-d82d09fb4698" 
-                                width="100%" 
-                                height="600px" 
-                                frameborder="0" 
-                                allowfullscreen
-                                allow="camera; microphone; fullscreen"
-                                style="border: none; max-width: 100%;"
-                            ></iframe>
+                        <div class="dashboard-preview">
+                            <div class="dashboard-header flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-3 h-3 rounded-full bg-primary-500"></div>
+                                    <span class="text-white font-medium">Live Performance Dashboard</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-primary-400 text-sm">● REAL-TIME</span>
+                                    <span class="text-gray-400 text-sm">Tracking Active</span>
+                                </div>
+                            </div>
+                            <div class="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div class="dashboard-metric">
+                                    <div class="text-white text-sm mb-2">Calls Today</div>
+                                    <div class="text-2xl font-bold text-primary-400">24</div>
+                                </div>
+                                <div class="dashboard-metric">
+                                    <div class="text-white text-sm mb-2">Avg Duration</div>
+                                    <div class="text-2xl font-bold text-primary-400">4:32</div>
+                                </div>
+                                <div class="dashboard-metric">
+                                    <div class="text-white text-sm mb-2">Conversion Rate</div>
+                                    <div class="text-2xl font-bold text-primary-400">42%</div>
+                                </div>
+                                <div class="dashboard-metric">
+                                    <div class="text-white text-sm mb-2">SLA Compliance</div>
+                                    <div class="text-2xl font-bold text-primary-400">98%</div>
+                                </div>
+                            </div>
                         </div>
-                        <p class="text-sm text-gray-600 mt-4 text-center">Chat with our AI tutor right now - try conversation practice, grammar correction, and personalized coaching</p>
+                        <p class="text-sm text-gray-600 mt-4 text-center">Real-time dashboard with complete call tracking and performance analytics</p>
                     </div>
                     
-                    <!-- Tutor Profile -->
-                    <div class="mb-10 md:mb-14 max-w-2xl mx-auto animate-fade-in" style="animation-delay: 0.4s">
-                        <div class="tutor-profile">
-                            <div class="tutor-avatar">
-                                <i class="fas fa-user-graduate"></i>
-                            </div>
-                            <div class="text-left">
-                                <h4 class="text-xl font-bold text-black">Victor Mariba</h4>
-                                <div class="tutor-badge">Accredited TEFL Tutor</div>
-                                <p class="text-gray-600 mt-2">Get a personalized English assessment with our lead tutor. WhatsApp: <a href="https://wa.me/27766473499" class="font-bold text-black hover:underline">+27 76 647 3499</a></p>
-                            </div>
+                    <!-- Performance Stats -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-10 md:mb-14 animate-fade-in" style="animation-delay: 0.4s">
+                        <div class="stat-card">
+                            <div class="stat-number mb-2">24<span class="text-lg">hrs</span></div>
+                            <div class="text-sm text-gray-600 font-medium">Call Delivery SLA</div>
                         </div>
-                    </div>
-                    
-                    <!-- Platform Stats -->
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-10 md:mb-14 animate-fade-in" style="animation-delay: 0.5s">
-                        <div class="glass-card rounded-2xl p-4 text-center hover:scale-105 transition-transform duration-300 border border-gray-200">
-                            <div class="stat-number text-2xl md:text-3xl font-bold text-black">12%+</div>
-                            <div class="text-xs md:text-sm text-gray-600 font-medium">Proven Improvement</div>
+                        <div class="stat-card">
+                            <div class="stat-number mb-2">100%</div>
+                            <div class="text-sm text-gray-600 font-medium">Call Recording</div>
                         </div>
-                        <div class="glass-card rounded-2xl p-4 text-center hover:scale-105 transition-transform duration-300 border border-gray-200">
-                            <div class="stat-number text-2xl md:text-3xl font-bold text-black">24/7</div>
-                            <div class="text-xs md:text-sm text-gray-600 font-medium">AI Tutor Available</div>
+                        <div class="stat-card">
+                            <div class="stat-number mb-2">8+</div>
+                            <div class="text-sm text-gray-600 font-medium">Industries</div>
                         </div>
-                        <div class="glass-card rounded-2xl p-4 text-center hover:scale-105 transition-transform duration-300 border border-gray-200">
-                            <div class="stat-number text-2xl md:text-3xl font-bold text-black">Free</div>
-                            <div class="text-xs md:text-sm text-gray-600 font-medium">English Assessment</div>
-                        </div>
-                        <div class="glass-card rounded-2xl p-4 text-center hover:scale-105 transition-transform duration-300 border border-gray-200">
-                            <div class="stat-number text-2xl md:text-3xl font-bold text-black">R280</div>
-                            <div class="text-xs md:text-sm text-gray-600 font-medium">Monthly Access</div>
+                        <div class="stat-card">
+                            <div class="stat-number mb-2">0</div>
+                            <div class="text-sm text-gray-600 font-medium">Setup Fees</div>
                         </div>
                     </div>
                     
                     <!-- CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center animate-slide-up hero-buttons" style="animation-delay: 0.6s">
-                        <a href="https://wa.me/27766473499?text=Hi%20Victor!%20I'd%20like%20to%20book%20a%20Free%20English%20Assessment%20with%20you." 
-                           target="_blank"
-                           class="group modern-btn ripple-btn bg-black text-white px-8 py-4 md:px-10 md:py-5 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 shadow-lg flex items-center justify-center gap-3 text-lg">
-                            <i class="fab fa-whatsapp text-lg"></i>
-                            <span class="font-semibold">Book Free Assessment</span>
+                    <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center animate-slide-up hero-buttons" style="animation-delay: 0.5s">
+                        <a href="#schedule" 
+                           class="group modern-btn ripple-btn px-8 py-4 md:px-10 md:py-5 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 shadow-lg flex items-center justify-center gap-3 text-lg">
+                            <i class="fas fa-calendar-alt text-lg"></i>
+                            <span class="font-semibold">Schedule Consultation</span>
                             <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform duration-300"></i>
                         </a>
                         
-                        <a href="https://bey.chat/b7b1a789-c940-42d6-bd1d-d82d09fb4698" 
-                           target="_blank"
-                           class="group modern-btn glass-card text-black px-8 py-4 md:px-10 md:py-5 rounded-xl font-bold border-2 border-gray-200 hover:border-black hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 text-lg">
-                            <i class="fas fa-robot text-lg"></i>
-                            <span class="font-semibold">Try AI Tutor Now</span>
+                        <a href="#how-it-works" 
+                           class="group modern-btn glass-card text-primary-700 px-8 py-4 md:px-10 md:py-5 rounded-xl font-bold border-2 border-primary-200 hover:border-primary-500 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 text-lg">
+                            <i class="fas fa-play-circle text-lg"></i>
+                            <span class="font-semibold">View Platform</span>
                         </a>
                     </div>
                     
-                    <p class="text-sm text-gray-600 mt-6 animate-fade-in" style="animation-delay: 0.7s">
-                        <i class="fas fa-check-circle mr-2 text-green-500"></i>Start with a free English assessment, then get unlimited AI tutor access for only R280/month
+                    <p class="text-sm text-gray-600 mt-6 animate-fade-in" style="animation-delay: 0.6s">
+                        <i class="fas fa-check-circle mr-2 text-primary-600"></i>Complete call tracking • Quality control • SLA agreements • No setup fees
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Free Assessment Section -->
-    <section id="assessment" class="py-16 md:py-24 bg-gray-50 relative section-padding animate-on-scroll">
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-16 md:py-24 bg-gray-50 relative section-padding animate-on-scroll">
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
         <div class="container mx-auto">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12 md:mb-16">
                     <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 font-heading">
-                        <span class="text-black">Free English Assessment</span>
-                        <span class="block text-2xl sm:text-3xl md:text-4xl text-gray-800 mt-2">With Accredited TEFL Tutor Victor Mariba</span>
+                        <span class="text-gray-900">How Concierge</span>
+                        <span class="gradient-text">Delivers Results</span>
                     </h2>
-                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">
-                        Get a personalized evaluation of your English skills and a custom learning plan
+                    <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-6">
+                        A transparent, accountable process from setup to performance reporting
                     </p>
+                    <div class="gradient-line mt-4"></div>
                 </div>
                 
-                <!-- Assessment Benefits -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                    <div class="glass-card rounded-3xl p-8 border border-gray-200">
-                        <h3 class="text-2xl font-bold mb-6 text-black">What You Get in Your Free Assessment</h3>
-                        <ul class="space-y-4">
-                            <li class="feature-check">
-                                <i class="fas fa-check-circle text-green-500"></i>
-                                <span><strong>Personalized English skill evaluation</strong> - Comprehensive assessment of your current level</span>
-                            </li>
-                            <li class="feature-check">
-                                <i class="fas fa-check-circle text-green-500"></i>
-                                <span><strong>Speaking & conversation analysis</strong> - Get feedback on your pronunciation and fluency</span>
-                            </li>
-                            <li class="feature-check">
-                                <i class="fas fa-check-circle text-green-500"></i>
-                                <span><strong>Grammar & vocabulary assessment</strong> - Identify your strengths and areas for improvement</span>
-                            </li>
-                            <li class="feature-check">
-                                <i class="fas fa-check-circle text-green-500"></i>
-                                <span><strong>Customized learning roadmap</strong> - Get your personalized study plan</span>
-                            </li>
-                            <li class="feature-check">
-                                <i class="fas fa-check-circle text-green-500"></i>
-                                <span><strong>AI tutor demonstration</strong> - Experience how our AI technology can help you</span>
-                            </li>
-                            <li class="feature-check">
-                                <i class="fas fa-check-circle text-green-500"></i>
-                                <span><strong>Progress prediction</strong> - See how quickly you can improve with our system</span>
-                            </li>
-                        </ul>
+                <!-- Timeline -->
+                <div class="timeline mb-16">
+                    <!-- Step 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
+                                    <span class="text-primary-700 font-bold">1</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">System Setup & Integration</h3>
+                            </div>
+                            <p class="text-gray-700 mb-4">We integrate call tracking numbers and set up your dedicated dashboard with custom SLA parameters and quality controls.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="sla-badge">Call Tracking Setup</span>
+                                <span class="sla-badge">Dashboard Configuration</span>
+                                <span class="sla-badge">SLA Definition</span>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="glass-card rounded-3xl p-8 border border-gray-200">
-                        <h3 class="text-2xl font-bold mb-6 text-black">Book Your Free Assessment Now</h3>
-                        <div class="mb-8">
-                            <div class="text-5xl font-bold text-black mb-4">FREE</div>
-                            <p class="text-gray-600 mb-6">Personalized English assessment with accredited TEFL tutor</p>
-                            <div class="p-4 bg-green-50 rounded-lg mb-6">
-                                <p class="text-green-700 font-semibold text-center">
-                                    <i class="fas fa-gift mr-2"></i>
-                                    No cost • No commitment • Professional evaluation
-                                </p>
+                    <!-- Step 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
+                                    <span class="text-primary-700 font-bold">2</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">Campaign Launch & Call Generation</h3>
+                            </div>
+                            <p class="text-gray-700 mb-4">Multi-channel campaigns activate within 24 hours, delivering qualified calls with full tracking from day one.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="sla-badge">24-Hour Activation</span>
+                                <span class="sla-badge">Multi-Channel Campaigns</span>
+                                <span class="sla-badge">Real-time Tracking</span>
                             </div>
                         </div>
-                        
-                        <div class="space-y-4">
-                            <a href="https://wa.me/27766473499?text=Hi%20Victor!%20I'd%20like%20to%20book%20a%20Free%20English%20Assessment%20with%20you." 
-                               target="_blank"
-                               class="block w-full modern-btn ripple-btn bg-black text-white py-4 rounded-xl font-bold hover:shadow-xl transition-all duration-300 text-center">
-                                <i class="fab fa-whatsapp mr-2"></i>
-                                WhatsApp Victor for Free Assessment
-                            </a>
-                            
-                            <a href="https://bey.chat/b7b1a789-c940-42d6-bd1d-d82d09fb4698" 
-                               target="_blank"
-                               class="block w-full modern-btn glass-card text-black py-4 rounded-xl font-bold border-2 border-gray-200 hover:border-black transition-all duration-300 text-center">
-                                <i class="fas fa-robot mr-2"></i>
-                                Try AI Tutor First
-                            </a>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
+                                    <span class="text-primary-700 font-bold">3</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">Quality Control & Monitoring</h3>
+                            </div>
+                            <p class="text-gray-700 mb-4">Every call undergoes quality scoring, recording, and compliance checks with real-time alerts and optimization.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="sla-badge">Call Recording</span>
+                                <span class="sla-badge">Quality Scoring</span>
+                                <span class="sla-badge">Compliance Checks</span>
+                            </div>
                         </div>
-                        
-                        <div class="mt-6 text-center">
-                            <p class="text-sm text-gray-600">
-                                <i class="fas fa-user-graduate mr-2"></i>Assessment conducted by:<br>
-                                <span class="font-bold text-black">Victor Mariba, Accredited TEFL Tutor</span>
-                            </p>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
+                                    <span class="text-primary-700 font-bold">4</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">Performance Reporting & Optimization</h3>
+                            </div>
+                            <p class="text-gray-700 mb-4">Comprehensive reports with SLA compliance, ROI analysis, and ongoing optimization recommendations.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="sla-badge">SLA Compliance Reports</span>
+                                <span class="sla-badge">ROI Analysis</span>
+                                <span class="sla-badge">Continuous Optimization</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Testimonial -->
-                <div class="glass-card rounded-3xl p-8 border border-gray-200 max-w-3xl mx-auto">
-                    <div class="text-center">
-                        <i class="fas fa-quote-left text-4xl text-gray-300 mb-6"></i>
-                        <p class="text-xl text-gray-700 mb-6 italic">
-                            "The free assessment with Victor was incredibly helpful. He identified exactly where I needed to improve and created a personalized plan. The AI tutor complements his teaching perfectly - I get 24/7 practice with instant feedback!"
-                        </p>
-                        <div class="flex items-center justify-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center">
-                                <i class="fas fa-user text-gray-600"></i>
-                            </div>
-                            <div class="text-left">
-                                <div class="font-bold text-black">Michael T.</div>
-                                <div class="text-sm text-gray-600">Business Analyst, Cape Town</div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- CTA -->
+                <div class="text-center">
+                    <a href="#schedule" 
+                       class="inline-block modern-btn ripple-btn px-10 py-5 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 shadow-lg text-lg">
+                        <i class="fas fa-calendar mr-3"></i>
+                        Schedule Platform Demo
+                    </a>
                 </div>
             </div>
         </div>
@@ -1068,397 +1062,467 @@
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12 md:mb-16">
                     <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 font-heading">
-                        <span class="text-black">AI-Powered English Mastery</span>
-                        <span class="block text-2xl sm:text-3xl md:text-4xl text-gray-800 mt-2">Everything You Need for Language Success</span>
+                        <span class="text-gray-900">Complete Performance</span>
+                        <span class="gradient-text">Platform Features</span>
                     </h2>
-                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">
-                        Our intelligent AI tutor adapts to your learning style and goals
+                    <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-6">
+                        Everything you need for transparent, accountable call generation
                     </p>
+                    <div class="gradient-line mt-4"></div>
                 </div>
                 
                 <!-- Features Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                    <!-- Feature 1: Personalized Coaching -->
+                    <!-- Call Tracking -->
                     <div class="feature-card">
                         <div class="icon-wrapper">
-                            <i class="fas fa-user-graduate"></i>
+                            <i class="fas fa-search-location"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-black">Personalized Language Coaching</h3>
-                        <p class="text-gray-600 mb-6">AI that analyzes your strengths and weaknesses to create a customized learning path just for you.</p>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Advanced Call Tracking</h3>
+                        <p class="text-gray-700 mb-6">Real-time tracking of every call with detailed analytics, source attribution, and performance metrics.</p>
                         <ul class="space-y-3">
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Adaptive learning algorithm</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Real-time call monitoring</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Skill gap analysis</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Source attribution tracking</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Customized lesson plans</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Geographic call mapping</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Progress tracking dashboard</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Conversion path analysis</span>
                             </li>
                         </ul>
                     </div>
                     
-                    <!-- Feature 2: Conversation Practice -->
+                    <!-- Call Recording -->
                     <div class="feature-card">
                         <div class="icon-wrapper">
-                            <i class="fas fa-comments"></i>
+                            <i class="fas fa-microphone"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-black">Real Conversation Practice</h3>
-                        <p class="text-gray-600 mb-6">Practice speaking English in realistic scenarios with immediate AI feedback on pronunciation and fluency.</p>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Full Call Recording</h3>
+                        <p class="text-gray-700 mb-6">100% call recording with secure storage, transcription, and AI-powered conversation analysis.</p>
                         <ul class="space-y-3">
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Real-world scenarios</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Automatic call recording</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Pronunciation correction</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">AI transcription & analysis</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Fluency assessment</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Secure cloud storage</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Conversation simulations</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Sentiment analysis</span>
                             </li>
                         </ul>
                     </div>
                     
-                    <!-- Feature 3: Grammar Correction -->
+                    <!-- Quality Control -->
                     <div class="feature-card">
                         <div class="icon-wrapper">
-                            <i class="fas fa-spell-check"></i>
+                            <i class="fas fa-clipboard-check"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-black">Instant Grammar Correction</h3>
-                        <p class="text-gray-600 mb-6">Get immediate corrections and explanations for grammar mistakes in your writing and speaking.</p>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Quality Control System</h3>
+                        <p class="text-gray-700 mb-6">Multi-layer quality assurance with automated scoring, manual reviews, and compliance checks.</p>
                         <ul class="space-y-3">
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Real-time error detection</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Automated quality scoring</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Detailed explanations</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Manual review audits</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Common mistake patterns</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Compliance verification</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Practice exercises</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Performance benchmarking</span>
                             </li>
                         </ul>
                     </div>
                     
-                    <!-- Feature 4: 24/7 Availability -->
+                    <!-- SLA Management -->
                     <div class="feature-card">
                         <div class="icon-wrapper">
-                            <i class="fas fa-clock"></i>
+                            <i class="fas fa-file-contract"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-black">24/7 AI Tutor Availability</h3>
-                        <p class="text-gray-600 mb-6">Practice English anytime, anywhere - our AI tutor is always ready to help you improve.</p>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">SLA Management</h3>
+                        <p class="text-gray-700 mb-6">Comprehensive Service Level Agreements with real-time compliance tracking and performance guarantees.</p>
                         <ul class="space-y-3">
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Always available</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Real-time SLA tracking</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Mobile app access</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Performance guarantees</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">No scheduling needed</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Automated compliance reports</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Instant responses</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Penalty/reward system</span>
                             </li>
                         </ul>
                     </div>
                     
-                    <!-- Feature 5: Vocabulary Building -->
+                    <!-- Insertion Agreements -->
                     <div class="feature-card">
                         <div class="icon-wrapper">
-                            <i class="fas fa-book-open"></i>
+                            <i class="fas fa-handshake"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-black">Smart Vocabulary Building</h3>
-                        <p class="text-gray-600 mb-6">Learn words in context with AI that introduces vocabulary relevant to your interests and goals.</p>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Insertion Agreements</h3>
+                        <p class="text-gray-700 mb-6">Custom insertion orders with clear terms, volume commitments, and performance expectations.</p>
                         <ul class="space-y-3">
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Contextual learning</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Custom insertion orders</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Spaced repetition system</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Volume commitments</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Thematic word lists</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Clear performance terms</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Usage examples</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Flexible adjustments</span>
                             </li>
                         </ul>
                     </div>
                     
-                    <!-- Feature 6: Progress Analytics -->
+                    <!-- Real-time Analytics -->
                     <div class="feature-card">
                         <div class="icon-wrapper">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-chart-bar"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-black">Detailed Progress Analytics</h3>
-                        <p class="text-gray-600 mb-6">Track your improvement with comprehensive analytics and personalized recommendations.</p>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Real-time Analytics</h3>
+                        <p class="text-gray-700 mb-6">Comprehensive dashboard with real-time metrics, custom reports, and predictive analytics.</p>
                         <ul class="space-y-3">
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Progress visualization</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Live performance dashboard</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Weekly reports</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Custom report generation</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Achievement milestones</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">Predictive analytics</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-black"></i>
-                                <span class="text-gray-700">Improvement predictions</span>
+                                <i class="fas fa-check-circle text-primary-600"></i>
+                                <span class="text-gray-700">ROI tracking</span>
                             </li>
                         </ul>
-                    </div>
-                </div>
-                
-                <!-- Free Assessment CTA -->
-                <div class="text-center">
-                    <a href="https://wa.me/27766473499?text=Hi%20Victor!%20I'd%20like%20to%20book%20a%20Free%20English%20Assessment%20with%20you." 
-                       target="_blank"
-                       class="inline-block modern-btn ripple-btn bg-black text-white px-10 py-5 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 shadow-lg text-lg">
-                        <i class="fab fa-whatsapp mr-3"></i>
-                        Book Your Free English Assessment
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section id="benefits" class="py-16 md:py-24 bg-gray-50 relative section-padding animate-on-scroll">
-        <div class="container mx-auto">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-12 md:mb-16">
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 font-heading">
-                        <span class="text-black">Why Choose EnglishConcierge?</span>
-                        <span class="block text-2xl sm:text-3xl md:text-4xl text-gray-800 mt-2">Transform Your English Skills</span>
-                    </h2>
-                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">
-                        Experience measurable improvements in language proficiency
-                    </p>
-                </div>
-                
-                <!-- Benefits Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                    <!-- Benefit 1 -->
-                    <div class="benefit-card">
-                        <div class="icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 text-black">12% Proficiency Improvement</h3>
-                        <p class="text-gray-600">Proven results: Students improve their English proficiency by 12%+ within 90 days, guaranteed or your money back.</p>
-                    </div>
-                    
-                    <!-- Benefit 2 -->
-                    <div class="benefit-card">
-                        <div class="icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 text-black">Learn Anytime, Anywhere</h3>
-                        <p class="text-gray-600">24/7 access means you can practice when it's convenient for you, fitting language learning into your busy schedule.</p>
-                    </div>
-                    
-                    <!-- Benefit 3 -->
-                    <div class="benefit-card">
-                        <div class="icon">
-                            <i class="fas fa-money-bill-wave"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 text-black">Cost-Effective Solution</h3>
-                        <p class="text-gray-600">Complete AI tutor access for R280/month is more affordable than traditional tutoring while offering more flexibility.</p>
-                    </div>
-                    
-                    <!-- Benefit 4 -->
-                    <div class="benefit-card">
-                        <div class="icon">
-                            <i class="fas fa-user-cog"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 text-black">Personalized Learning</h3>
-                        <p class="text-gray-600">AI adapts to your unique learning style, pace, and goals for maximum efficiency and effectiveness.</p>
-                    </div>
-                    
-                    <!-- Benefit 5 -->
-                    <div class="benefit-card">
-                        <div class="icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 text-black">Immediate Feedback</h3>
-                        <p class="text-gray-600">Get instant corrections and explanations, accelerating your learning curve compared to traditional methods.</p>
-                    </div>
-                    
-                    <!-- Benefit 6 -->
-                    <div class="benefit-card">
-                        <div class="icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 text-black">Confidence Building</h3>
-                        <p class="text-gray-600">Regular practice with supportive AI feedback builds speaking confidence and reduces language anxiety.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-16 md:py-24 bg-white relative section-padding animate-on-scroll">
+    <!-- Industries Section -->
+    <section id="industries" class="py-16 md:py-24 bg-gray-50 relative section-padding animate-on-scroll">
         <div class="container mx-auto">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12 md:mb-16">
                     <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 font-heading">
-                        <span class="text-black">Simple, Affordable Pricing</span>
-                        <span class="block text-2xl sm:text-3xl md:text-4xl text-gray-800 mt-2">After Your Free Assessment</span>
+                        <span class="text-gray-900">Industry</span>
+                        <span class="gradient-text">Specialization</span>
                     </h2>
-                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">
-                        Start with a free assessment, then choose unlimited access
+                    <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-6">
+                        We deliver qualified calls with industry-specific optimization
                     </p>
+                    <div class="gradient-line mt-4"></div>
                 </div>
                 
-                <!-- Pricing Cards -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <!-- Free Assessment -->
-                    <div class="pricing-card bg-white">
-                        <div class="p-8">
-                            <div class="flex items-center justify-between mb-6">
-                                <h3 class="text-2xl font-bold text-black">Free Assessment</h3>
-                                <div class="badge bg-green-500">START HERE</div>
-                            </div>
-                            
-                            <div class="mb-6">
-                                <div class="text-5xl font-bold text-black mb-2">FREE</div>
-                                <p class="text-gray-600">English assessment with accredited TEFL tutor</p>
-                            </div>
-                            
-                            <ul class="space-y-4 mb-8">
-                                <li class="feature-check">
-                                    <i class="fas fa-check text-black"></i>
-                                    <span>Personalized skill evaluation</span>
-                                </li>
-                                <li class="feature-check">
-                                    <i class="fas fa-check text-black"></i>
-                                    <span>Speaking & conversation analysis</span>
-                                </li>
-                                <li class="feature-check">
-                                    <i class="fas fa-check text-black"></i>
-                                    <span>Customized learning roadmap</span>
-                                </li>
-                                <li class="feature-check">
-                                    <i class="fas fa-check text-black"></i>
-                                    <span>Grammar & vocabulary assessment</span>
-                                </li>
-                                <li class="feature-check">
-                                    <i class="fas fa-check text-black"></i>
-                                    <span>AI tutor demonstration</span>
-                                </li>
-                                <li class="feature-check">
-                                    <i class="fas fa-check text-black"></i>
-                                    <span>No cost, no commitment</span>
-                                </li>
-                            </ul>
-                            
-                            <a href="https://wa.me/27766473499?text=Hi%20Victor!%20I'd%20like%20to%20book%20a%20Free%20English%20Assessment%20with%20you." 
-                               target="_blank"
-                               class="w-full modern-btn ripple-btn bg-black text-white py-4 rounded-xl font-bold hover:shadow-xl transition-all duration-300 text-center block">
-                                WhatsApp for Free Assessment
-                            </a>
+                <!-- Industries Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    <!-- Solar -->
+                    <div class="industry-card">
+                        <div class="icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Solar Installation</h3>
+                        <p class="text-gray-700">Homeowners ready for solar quotes. Quality-controlled leads with verified interest.</p>
+                        <div class="mt-4">
+                            <span class="sla-badge text-xs">SLA: 24-hr delivery</span>
                         </div>
                     </div>
                     
-                    <!-- Unlimited Access -->
-                    <div class="pricing-card bg-white popular">
-                        <div class="p-8">
-                            <div class="flex items-center justify-between mb-6">
-                                <h3 class="text-2xl font-bold text-black">Unlimited AI Access</h3>
-                                <div class="badge bg-green-500">BEST VALUE</div>
+                    <!-- Personal Liability -->
+                    <div class="industry-card">
+                        <div class="icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Personal Liability</h3>
+                        <p class="text-gray-700">Insurance and legal service leads with complete compliance tracking.</p>
+                        <div class="mt-4">
+                            <span class="sla-badge text-xs">Quality Control</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Auto Parts -->
+                    <div class="industry-card">
+                        <div class="icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Auto Parts</h3>
+                        <p class="text-gray-700">Vehicle owners needing specific parts. Urgent buyers with purchase intent.</p>
+                        <div class="mt-4">
+                            <span class="sla-badge text-xs">Call Recording</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Engine Replacement -->
+                    <div class="industry-card">
+                        <div class="icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Engine Replacement</h3>
+                        <p class="text-gray-700">High-value leads for mechanics and auto shops with verified need.</p>
+                        <div class="mt-4">
+                            <span class="sla-badge text-xs">High Intent</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Drain Services -->
+                    <div class="industry-card">
+                        <div class="icon">
+                            <i class="fas fa-faucet"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Drain Services</h3>
+                        <p class="text-gray-700">Emergency plumbing leads with real-time tracking and quality scoring.</p>
+                        <div class="mt-4">
+                            <span class="sla-badge text-xs">24/7 Tracking</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Remodeling -->
+                    <div class="industry-card">
+                        <div class="icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Remodeling</h3>
+                        <p class="text-gray-700">Homeowners planning renovations with budget verification.</p>
+                        <div class="mt-4">
+                            <span class="sla-badge text-xs">Budget Qualified</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Plumbing -->
+                    <div class="industry-card">
+                        <div class="icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Plumbing</h3>
+                        <p class="text-gray-700">Emergency and routine plumbing services with location targeting.</p>
+                        <div class="mt-4">
+                            <span class="sla-badge text-xs">Geotargeted</span>
+                        </div>
+                    </div>
+                    
+                    <!-- More Industries -->
+                    <div class="industry-card">
+                        <div class="icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Custom Industries</h3>
+                        <p class="text-gray-700">We work with service businesses across multiple verticals.</p>
+                        <div class="mt-4">
+                            <span class="sla-badge text-xs">Custom SLA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLA & Agreements Section -->
+    <section id="sla" class="py-16 md:py-24 bg-white relative section-padding animate-on-scroll">
+        <div class="container mx-auto">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12 md:mb-16">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 font-heading">
+                        <span class="text-gray-900">SLA &</span>
+                        <span class="gradient-text">Agreements</span>
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-6">
+                        Clear terms, guaranteed performance, and transparent reporting
+                    </p>
+                    <div class="gradient-line mt-4"></div>
+                </div>
+                
+                <!-- Agreements Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <!-- Service Level Agreement -->
+                    <div class="feature-card border-2 border-primary-200">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-file-contract"></i>
                             </div>
-                            
-                            <div class="mb-6">
-                                <div class="text-5xl font-bold text-black mb-2">R280</div>
-                                <p class="text-gray-600">per month, cancel anytime</p>
-                                <div class="mt-2 p-3 bg-green-50 rounded-lg">
-                                    <p class="text-green-700 font-semibold">
-                                        <i class="fas fa-shield-alt mr-2"></i>
-                                        Guarantees 12% improvement in 90 days
-                                    </p>
+                            <h3 class="text-2xl font-bold text-gray-900">Service Level Agreement</h3>
+                        </div>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div class="p-4 bg-primary-50 rounded-lg">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-semibold text-primary-800">Call Delivery Time</span>
+                                    <span class="font-bold text-primary-900">24-Hour Guarantee</span>
                                 </div>
                             </div>
                             
-                            <ul class="space-y-4 mb-8">
-                                <li class="feature-check">
-                                    <i class="fas fa-check text-black"></i>
-                                    <span><strong>After your free assessment</strong></span>
-                                </li>
-                                <li class="feature-check">
-                                    <i class="fas fa-check text-black"></i>
-                                    <span>Unlimited conversation practice</span>
-                                </li>
-                                <li class="feature-check">
-                                    <i class="fas fa-check text-black"></i>
-                                    <span>24/7 AI tutor access</span>
-                                </li>
-                                <li class="feature-check">
-                                    <i class="fas fa-check text-black"></i>
-                                    <span>Personalized learning path</span>
-                                </li>
-                                <li class="feature-check">
-                                    <i class="fas fa-check text-black"></i>
-                                    <span>Progress tracking dashboard</span>
-                                </li>
-                                <li class="feature-check">
-                                    <i class="fas fa-check text-black"></i>
-                                    <span>Vocabulary building system</span>
-                                </li>
-                                <li class="feature-check">
-                                    <i class="fas fa-check text-black"></i>
-                                    <span>Mobile app access</span>
-                                </li>
-                            </ul>
+                            <div class="p-4 bg-primary-50 rounded-lg">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-semibold text-primary-800">Quality Score Minimum</span>
+                                    <span class="font-bold text-primary-900">85%+ Compliance</span>
+                                </div>
+                            </div>
                             
-                            <a href="https://wa.me/27766473499?text=I've%20completed%20my%20free%20assessment%20and%20want%20to%20upgrade%20to%20unlimited%20AI%20access%20(R280%20per%20month)" 
-                               target="_blank"
-                               class="w-full modern-btn ripple-btn bg-black text-white py-4 rounded-xl font-bold hover:shadow-xl transition-all duration-300 text-center block">
-                                Upgrade to Unlimited Access
-                            </a>
+                            <div class="p-4 bg-primary-50 rounded-lg">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-semibold text-primary-800">Call Recording</span>
+                                    <span class="font-bold text-primary-900">100% Coverage</span>
+                                </div>
+                            </div>
                         </div>
+                        
+                        <p class="text-gray-700 mb-6">Comprehensive SLA with performance guarantees, compliance tracking, and penalty/reward system.</p>
+                        
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-primary-600"></i>
+                                <span>Real-time compliance dashboard</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-primary-600"></i>
+                                <span>Monthly performance reviews</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-primary-600"></i>
+                                <span>Automatic penalty/reward system</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-primary-600"></i>
+                                <span>Quarterly SLA optimization</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Insertion Agreement -->
+                    <div class="feature-card border-2 border-primary-200">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900">Insertion Agreement</h3>
+                        </div>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div class="p-4 bg-primary-50 rounded-lg">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-semibold text-primary-800">Volume Commitments</span>
+                                    <span class="font-bold text-primary-900">Flexible Terms</span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 bg-primary-50 rounded-lg">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-semibold text-primary-800">Payment Terms</span>
+                                    <span class="font-bold text-primary-900">Pay Per Qualified Call</span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 bg-primary-50 rounded-lg">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-semibold text-primary-800">Adjustment Period</span>
+                                    <span class="font-bold text-primary-900">30-Day Flexibility</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-6">Custom insertion orders with clear terms, volume commitments, and performance expectations.</p>
+                        
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-primary-600"></i>
+                                <span>Custom volume commitments</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-primary-600"></i>
+                                <span>Flexible adjustment clauses</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-primary-600"></i>
+                                <span>Clear performance metrics</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-primary-600"></i>
+                                <span>Transparent reporting requirements</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 
-                <!-- Guarantee -->
-                <div class="mt-12 max-w-2xl mx-auto">
-                    <div class="glass-card rounded-3xl p-8 border border-gray-200 text-center">
-                        <h3 class="text-2xl font-bold mb-4 text-black">90-Day Improvement Guarantee</h3>
-                        <p class="text-gray-600 mb-6">We're so confident in our AI tutor that we guarantee a 12% improvement in your English proficiency within 90 days, or we'll refund your last month.</p>
-                        <div class="flex items-center justify-center gap-3">
-                            <i class="fas fa-shield-alt text-2xl text-green-500"></i>
-                            <span class="font-bold text-black">Risk-Free Investment in Your English Skills</span>
+                <!-- Quality Control Section -->
+                <div class="glass-card rounded-3xl p-8 border border-primary-200 mb-12">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-900">Quality Control Framework</h3>
+                            <p class="text-gray-700">Multi-layer quality assurance system with automated and manual verification processes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-4 bg-primary-50 rounded-lg">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center">
+                                    <i class="fas fa-robot text-primary-600"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-900">Automated Scoring</h4>
+                            </div>
+                            <p class="text-gray-700 text-sm">AI-powered call scoring based on conversation quality, intent verification, and compliance checks.</p>
+                        </div>
+                        
+                        <div class="p-4 bg-primary-50 rounded-lg">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center">
+                                    <i class="fas fa-user-check text-primary-600"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-900">Manual Audits</h4>
+                            </div>
+                            <p class="text-gray-700 text-sm">Regular manual reviews by quality control specialists to ensure call quality and compliance.</p>
+                        </div>
+                        
+                        <div class="p-4 bg-primary-50 rounded-lg">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center">
+                                    <i class="fas fa-chart-line text-primary-600"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-900">Performance Reports</h4>
+                            </div>
+                            <p class="text-gray-700 text-sm">Weekly quality score reports with improvement recommendations and compliance tracking.</p>
                         </div>
                     </div>
                 </div>
@@ -1466,62 +1530,126 @@
         </div>
     </section>
 
-    <!-- Live AI Chat Section -->
-    <section class="py-16 md:py-24 bg-gray-50 relative section-padding">
+    <!-- Schedule Consultation Section -->
+    <section id="schedule" class="py-16 md:py-24 bg-gray-50 relative section-padding animate-on-scroll">
         <div class="container mx-auto">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-12">
+                <div class="text-center mb-12 md:mb-16">
                     <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 font-heading">
-                        <span class="text-black">Try Our AI Tutor Now</span>
-                        <span class="block text-2xl sm:text-3xl md:text-4xl text-gray-800 mt-2">Experience AI-Powered English Learning</span>
+                        <span class="text-gray-900">Schedule Your</span>
+                        <span class="gradient-text">Consultation</span>
                     </h2>
-                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">
-                        No sign-up required • Start practicing immediately
+                    <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-6">
+                        Book a consultation to discuss your specific needs and get a custom SLA proposal
                     </p>
+                    <div class="gradient-line mt-4"></div>
                 </div>
                 
-                <!-- Live AI Chat -->
-                <div class="mb-10">
-                    <div class="ai-chat-container">
-                        <iframe 
-                            src="https://bey.chat/b7b1a789-c940-42d6-bd1d-d82d09fb4698" 
-                            width="100%" 
-                            height="600px" 
-                            frameborder="0" 
-                            allowfullscreen
-                            allow="camera; microphone; fullscreen"
-                            style="border: none; max-width: 100%;"
-                        ></iframe>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                    <!-- Contact Information -->
+                    <div class="lg:col-span-1">
+                        <div class="glass-card rounded-3xl p-8">
+                            <h3 class="text-2xl font-bold mb-6 text-gray-900">Contact Information</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-user text-primary-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 mb-1">Victor Mariba</h4>
+                                        <p class="text-gray-700">Concierge System Director</p>
+                                        <p class="text-gray-600 text-sm mt-1">Specializing in Pay Per Call Performance</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-envelope text-primary-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 mb-1">Email</h4>
+                                        <a href="mailto:victor@maribamedia.co.za" class="text-primary-600 hover:text-primary-700 transition-colors">victor@maribamedia.co.za</a>
+                                        <p class="text-gray-600 text-sm mt-1">For SLA agreements and system implementation</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
+                                        <i class="fab fa-whatsapp text-primary-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 mb-1">WhatsApp</h4>
+                                        <a href="https://wa.me/27766473499" class="text-primary-600 hover:text-primary-700 transition-colors">+27 76 647 3499</a>
+                                        <p class="text-gray-600 text-sm mt-1">For immediate consultation</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-phone text-primary-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 mb-1">Direct Call</h4>
+                                        <a href="tel:+27766473499" class="text-primary-600 hover:text-primary-700 transition-colors">+27 76 647 3499</a>
+                                        <p class="text-gray-600 text-sm mt-1">For urgent inquiries</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-sm text-gray-600 mt-4 text-center">
-                        <i class="fas fa-info-circle mr-2"></i>Chat with our AI tutor to practice English conversation, get grammar corrections, and experience personalized coaching
-                    </p>
+                    
+                    <!-- Cal.com Embed -->
+                    <div class="lg:col-span-2">
+                        <div class="cal-embed-container h-full">
+                            <h3 class="text-2xl font-bold mb-6 text-gray-900">Book Your Consultation</h3>
+                            <p class="text-gray-700 mb-6">Select a time that works for you to discuss your specific needs and get a custom SLA proposal</p>
+                            
+                            <!-- Cal inline embed code begins -->
+                            <div style="width:100%;height:600px;overflow:scroll" id="my-cal-inline-south-africa"></div>
+                            <script type="text/javascript">
+                              (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+                              Cal("init", "south-africa", {origin:"https://app.cal.com"});
+
+                              Cal.ns["south-africa"]("inline", {
+                                elementOrSelector:"#my-cal-inline-south-africa",
+                                config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+                                calLink: "partner-discovery/south-africa",
+                              });
+
+                              Cal.ns["south-africa"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+                            </script>
+                            <!-- Cal inline embed code ends -->
+                            
+                            <div class="mt-6 p-4 bg-primary-50 rounded-lg">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-info-circle text-primary-600"></i>
+                                    <p class="text-sm text-gray-700">Consultations typically last 30 minutes and include a custom SLA proposal based on your specific needs.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Final CTA -->
                 <div class="text-center">
-                    <div class="glass-card rounded-3xl p-8 border border-gray-200 max-w-2xl mx-auto">
-                        <h3 class="text-2xl font-bold mb-4 text-black">Ready to Transform Your English?</h3>
-                        <p class="text-gray-600 mb-6">Start with a free English assessment, then get unlimited AI tutor access</p>
+                    <div class="glass-card rounded-3xl p-8 border border-primary-200 max-w-2xl mx-auto">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Start With a Performance Guarantee</h3>
+                        <p class="text-gray-700 mb-6">Get your first 10 calls delivered within 24 hours with full tracking and recording</p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a href="https://wa.me/27766473499?text=Hi%20Victor!%20I'd%20like%20to%20book%20a%20Free%20English%20Assessment%20with%20you." 
-                               target="_blank"
-                               class="group modern-btn ripple-btn bg-black text-white px-8 py-4 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 shadow-lg flex items-center justify-center gap-3">
-                                <i class="fab fa-whatsapp text-lg"></i>
-                                <span class="font-semibold">Book Free Assessment</span>
+                            <a href="#schedule" 
+                               class="group modern-btn ripple-btn px-8 py-4 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 shadow-lg flex items-center justify-center gap-3">
+                                <i class="fas fa-calendar-alt text-lg"></i>
+                                <span class="font-semibold">Book 10-Call Trial</span>
                                 <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform duration-300"></i>
                             </a>
                             
-                            <a href="https://bey.chat/b7b1a789-c940-42d6-bd1d-d82d09fb4698" 
-                               target="_blank"
-                               class="group modern-btn glass-card text-black px-8 py-4 rounded-xl font-bold border-2 border-gray-200 hover:border-black hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3">
-                                <i class="fas fa-robot text-lg"></i>
-                                <span class="font-semibold">Try AI Tutor Now</span>
+                            <a href="mailto:victor@maribamedia.co.za?subject=Concierge%20SLA%20Proposal&body=Hi%20Victor,%20I'd%20like%20to%20discuss%20your%20Concierge%20Pay%20Per%20Call%20System%20with%20SLA%20guarantees." 
+                               class="group modern-btn glass-card text-primary-700 px-8 py-4 rounded-xl font-bold border-2 border-primary-200 hover:border-primary-500 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3">
+                                <i class="fas fa-envelope text-lg"></i>
+                                <span class="font-semibold">Email Victor</span>
                             </a>
                         </div>
-                        <p class="text-sm text-gray-600 mt-6">
-                            <i class="fas fa-phone-alt mr-2"></i>Contact Victor: WhatsApp <a href="https://wa.me/27766473499" class="font-bold text-black hover:underline">+27 76 647 3499</a>
-                        </p>
                     </div>
                 </div>
             </div>
@@ -1529,7 +1657,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black text-white py-12 md:py-16 section-padding">
+    <footer class="bg-gray-900 text-white py-12 md:py-16 section-padding">
         <div class="container mx-auto">
             <div class="max-w-6xl mx-auto">
                 <!-- Main Footer -->
@@ -1537,54 +1665,47 @@
                     <!-- Brand -->
                     <div class="md:col-span-2">
                         <div class="text-2xl md:text-3xl font-bold text-white mb-4 font-heading">
-                            <span class="text-white">English</span><span class="text-white">Concierge</span>
+                            <span class="text-white">Concierge</span>
                         </div>
                         <p class="text-gray-400 mb-6 max-w-md">
-                            Your 24/7 AI English Language Tutor providing personalized language coaching, conversation practice, and grammar correction. Get a free English assessment with accredited TEFL Tutor Victor Mariba.
+                            Premium Pay Per Call Performance System with complete call tracking, recording, quality control, SLA agreements, and insertion contracts. Delivering qualified calls within 24 hours across 8+ high-value industries.
                         </p>
-                        <div class="flex gap-4">
-                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300">
-                                <i class="fab fa-youtube"></i>
-                            </a>
+                        <div class="text-sm text-gray-400">
+                            <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Mariba Media (Pty) Ltd</p>
+                            <p><i class="fas fa-certificate mr-2"></i>Registered Performance Marketing Provider</p>
                         </div>
                     </div>
                     
                     <!-- Quick Links -->
                     <div>
-                        <h4 class="text-white font-bold mb-4 text-lg uppercase tracking-wide">Platform</h4>
+                        <h4 class="text-white font-bold mb-4 text-lg uppercase tracking-wide">System Features</h4>
                         <ul class="space-y-3">
-                            <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
-                            <li><a href="#benefits" class="text-gray-400 hover:text-white transition-colors">Benefits</a></li>
-                            <li><a href="#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
-                            <li><a href="#assessment" class="text-gray-400 hover:text-white transition-colors">Free Assessment</a></li>
+                            <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Call Tracking & Recording</a></li>
+                            <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Quality Control</a></li>
+                            <li><a href="#sla" class="text-gray-400 hover:text-white transition-colors">Service Level Agreements</a></li>
+                            <li><a href="#sla" class="text-gray-400 hover:text-white transition-colors">Insertion Agreements</a></li>
                         </ul>
                     </div>
                     
                     <!-- Contact -->
                     <div>
-                        <h4 class="text-white font-bold mb-4 text-lg uppercase tracking-wide">Contact & Support</h4>
+                        <h4 class="text-white font-bold mb-4 text-lg uppercase tracking-wide">Contact</h4>
                         <ul class="space-y-3">
                             <li class="flex items-center gap-2 text-gray-400">
                                 <i class="fab fa-whatsapp"></i>
-                                <a href="https://wa.me/27766473499" class="hover:text-white transition-colors">Victor Mariba: +27 76 647 3499</a>
+                                <a href="https://wa.me/27766473499" class="hover:text-white transition-colors">+27 76 647 3499</a>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-400">
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:+27766473499" class="hover:text-white transition-colors">Call Direct</a>
                             </li>
                             <li class="flex items-center gap-2 text-gray-400">
                                 <i class="fas fa-envelope"></i>
                                 <a href="mailto:victor@maribamedia.co.za" class="hover:text-white transition-colors">victor@maribamedia.co.za</a>
                             </li>
                             <li class="flex items-center gap-2 text-gray-400">
-                                <i class="fas fa-building"></i>
-                                <span>Mariba Media (Pty) Ltd</span>
-                            </li>
-                            <li class="flex items-center gap-2 text-gray-400">
-                                <i class="fas fa-user-graduate"></i>
-                                <span>Accredited TEFL Tutor</span>
+                                <i class="fas fa-clock"></i>
+                                <span>24-Hour SLA Response</span>
                             </li>
                         </ul>
                     </div>
@@ -1594,21 +1715,21 @@
                 <div class="border-t border-gray-800 pt-8">
                     <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                         <div class="text-sm text-center md:text-left">
-                            <span class="text-gray-400 font-medium">AI English Language Tutor</span>
+                            <span class="text-gray-400 font-medium">Concierge Pay Per Call Performance System</span>
                             <span class="mx-3 text-gray-600">|</span>
-                            <span class="text-gray-400 font-medium">Free English Assessment</span>
+                            <span class="text-gray-400 font-medium">Complete Call Tracking & Recording</span>
                             <span class="mx-3 text-gray-600">|</span>
-                            <span class="text-gray-400 font-medium">24/7 Availability</span>
+                            <span class="text-gray-400 font-medium">SLA & Insertion Agreements</span>
                         </div>
                         
                         <div class="text-sm text-center text-gray-400">
-                            &copy; <script>document.write(new Date().getFullYear())</script> EnglishConcierge by Mariba Media
+                            &copy; <script>document.write(new Date().getFullYear())</script> Concierge by Mariba Media
                             <span class="mx-3 text-gray-600">|</span>
-                            <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                            <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
                             <span class="mx-3 text-gray-600">|</span>
-                            <a href="#" class="hover:text-white transition-colors">Terms</a>
+                            <a href="#" class="hover:text-white transition-colors">SLA Terms</a>
                             <span class="mx-3 text-gray-600">|</span>
-                            <a href="#" class="hover:text-white transition-colors">Refund Policy</a>
+                            <a href="#" class="hover:text-white transition-colors">Insertion Agreement</a>
                         </div>
                     </div>
                 </div>
@@ -1692,12 +1813,12 @@
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('glass', 'navbar-scroll');
-                navbar.classList.remove('py-4');
+                navbar.classList.remove('py-5');
                 navbar.classList.add('py-3');
             } else {
                 navbar.classList.remove('glass', 'navbar-scroll');
                 navbar.classList.remove('py-3');
-                navbar.classList.add('py-4');
+                navbar.classList.add('py-5');
             }
         });
 
@@ -1744,95 +1865,31 @@
                 el.style.opacity = '1';
                 el.style.transform = 'translateY(0) translateX(0) scale(1)';
             });
-            
-            // Add loaded class to body for transition
-            document.body.classList.add('loaded');
-            
-            // Animate stats counters
-            const statNumbers = document.querySelectorAll('.stat-number');
-            statNumbers.forEach(stat => {
-                const text = stat.textContent;
-                if (text.includes('+')) {
-                    const finalValue = parseInt(text.replace('+', ''));
-                    let current = 0;
-                    const increment = finalValue / 50;
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= finalValue) {
-                            current = finalValue;
-                            clearInterval(timer);
-                        }
-                        stat.textContent = Math.floor(current) + '+';
-                    }, 30);
-                }
-            });
-            
-            // Highlight AI chat embed
-            const aiChatEmbed = document.querySelector('.ai-chat-container');
-            if (aiChatEmbed) {
-                setTimeout(() => {
-                    aiChatEmbed.style.boxShadow = '0 0 40px rgba(0, 0, 0, 0.25)';
-                    setTimeout(() => {
-                        aiChatEmbed.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
-                    }, 2000);
-                }, 1000);
-            }
         });
 
-        // Parallax effect for floating shapes
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const shapes = document.querySelectorAll('.floating-shape');
-            shapes.forEach((shape, index) => {
-                const speed = 0.2 + (index * 0.1);
-                const yPos = -(scrolled * speed);
-                shape.style.transform = `translateY(${yPos}px)`;
-            });
-        });
-
-        // Enhanced hover effects for cards
-        document.querySelectorAll('.feature-card, .benefit-card, .pricing-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-                this.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.15)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = '';
-                this.style.boxShadow = '';
-            });
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-
-        // Touch device detection
-        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
-        if (isTouchDevice) {
-            document.body.classList.add('touch-device');
-        } else {
-            document.body.classList.add('no-touch-device');
+        // Dashboard animation
+        const dashboard = document.querySelector('.dashboard-animation');
+        if (dashboard) {
+            setInterval(() => {
+                const metrics = document.querySelectorAll('.dashboard-metric .text-2xl');
+                metrics.forEach(metric => {
+                    const currentValue = parseInt(metric.textContent);
+                    const newValue = currentValue + Math.floor(Math.random() * 5) - 2;
+                    metric.textContent = Math.max(1, newValue);
+                });
+            }, 5000);
         }
-        
-        // Track free assessment clicks
-        document.querySelectorAll('a[href*="wa.me/27766473499"]').forEach(link => {
-            link.addEventListener('click', function() {
-                // You can add analytics here
-                console.log('Free assessment clicked:', this.textContent);
-            });
-        });
-        
-        // Track AI tutor clicks
-        document.querySelectorAll('a[href*="bey.chat"]').forEach(link => {
-            link.addEventListener('click', function() {
-                // You can add analytics here
-                console.log('AI tutor clicked:', this.textContent);
-            });
-        });
+
+        // Typewriter effect
+        const typewriterText = document.querySelector('.typewriter');
+        if (typewriterText) {
+            setTimeout(() => {
+                typewriterText.style.animation = 'none';
+                setTimeout(() => {
+                    typewriterText.style.animation = 'typewriter 3.5s steps(40, end), blink-caret 0.75s step-end infinite';
+                }, 100);
+            }, 3500);
+        }
     </script>
 </body>
 </html>
